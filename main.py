@@ -387,3 +387,18 @@ async def fetch_emails(website_url: str, session=None) -> list[str]:
     Pass `session=session` from your main() to get JS-rendered pages.
     """
     return await fetch_emails_for_site(website_url, session=session)
+
+
+if __name__ == "__main__":
+    import sys
+    if len(sys.argv) < 2:
+        print("Usage: uv run main.py <website_url>")
+        sys.exit(1)
+    url = sys.argv[1]
+    emails = asyncio.run(fetch_emails(url))
+    if emails:
+        print(f"\nFound {len(emails)} email(s):")
+        for e in emails:
+            print(f"  {e}")
+    else:
+        print("No emails found.")
