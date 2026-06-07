@@ -20,6 +20,8 @@ async def fetch_place_details(session, url):
     return phone, website, address
 
 def extract_emails(html):
+    if isinstance(html, bytes):
+        html = html.decode("utf-8", errors="replace")
     emails = set()
     for m in re.finditer(r'[\w.+-]+@[\w-]+(?:\.[\w-]+)+', html):
         email = m.group()
