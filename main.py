@@ -27,12 +27,11 @@ def extract_emails(html):
             emails.add(email)
     return list(emails)
 
-async def fetch_emails(website_url):
+def _fetch_emails_sync(website_url):
     if not website_url:
         return []
     try:
-        fetcher = Fetcher()
-        resp = fetcher.fetch(website_url, timeout=15000)
+        resp = Fetcher.get(website_url, timeout=15)
         emails = extract_emails(resp.text)
         if not emails:
             parsed = urlparse(website_url)
@@ -44,7 +43,7 @@ async def fetch_emails(website_url):
             ]
             for cu in contact_urls:
                 try:
-                    cr = fetcher.fetch(cu, timeout=10000)
+                    cr = Fetcher.get(cu, timeout=10)
                     emails = extract_emails(cr.text)
                     if emails:
                         break
@@ -53,6 +52,9 @@ async def fetch_emails(website_url):
         return emails
     except Exception:
         return []
+
+async def fetch_emails(website_url):
+    return await asyncio.to_thread(_fetch_emails_sync, website_url)
 
 async def main():
     if len(sys.argv) < 2:
