@@ -32,7 +32,7 @@ def _fetch_emails_sync(website_url):
         return []
     try:
         resp = Fetcher.get(website_url, timeout=15)
-        emails = extract_emails(resp.text)
+        emails = extract_emails(resp.body)
         if not emails:
             parsed = urlparse(website_url)
             contact_urls = [
@@ -44,7 +44,7 @@ def _fetch_emails_sync(website_url):
             for cu in contact_urls:
                 try:
                     cr = Fetcher.get(cu, timeout=10)
-                    emails = extract_emails(cr.text)
+                    emails = extract_emails(cr.body)
                     if emails:
                         break
                 except Exception:
