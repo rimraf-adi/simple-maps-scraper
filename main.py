@@ -1,7 +1,9 @@
 import asyncio
 import csv
+import re
 import sys
-from scrapling.fetchers import AsyncStealthySession
+from urllib.parse import urlparse
+from scrapling.fetchers import Fetcher, AsyncStealthySession
 
 async def fetch_place_details(session, url):
     resp = await session.fetch(url, network_idle=True, timeout=30000)
@@ -16,6 +18,41 @@ async def fetch_place_details(session, url):
     address = addr_btn.attrib.get('aria-label', '').replace('Address: ', '').strip() if addr_btn else ''
 
     return phone, website, address
+
+def extract_emails(html):
+    emails = set()
+    for m in re.finditer(r'[\w.+-]+@[\w-]+(?:\.[\w-]+)+', html):
+        email = m.group()
+        if not email.endswith(('.png', '.jpg', '.jpeg', '.gif', '.svg', '.css', '.js')):
+            emails.add(email)
+    return list(emails)
+
+async def fetch_emails(website_url):
+    if not website_url:
+        return []
+    try:
+        fetcher = Fetcher()
+        resp = fetcher.fetch(website_url, timeout=15000)
+        emails = extract_emails(resp.text)
+        if not emails:
+            parsed = urlparse(website_url)
+            contact_urls = [
+                f"{parsed.scheme}://{parsed.netloc}/contact",
+                f"{parsed.scheme}://{parsed.netloc}/contact-us",
+                f"{parsed.scheme}://{parsed.netloc}/about",
+                f"{parsed.scheme}://{parsed.netloc}/about-us",
+            ]
+            for cu in contact_urls:
+                try:
+                    cr = fetcher.fetch(cu, timeout=10000)
+                    emails = extract_emails(cr.text)
+                    if emails:
+                        break
+                except Exception:
+                    continue
+        return emails
+    except Exception:
+        return []
 
 async def main():
     if len(sys.argv) < 2:
@@ -73,19 +110,26 @@ async def main():
             lead["Phone"] = phone
             lead["Website"] = website
             lead["Address"] = address
+
+            if website:
+                emails = await fetch_emails(website)
+                lead["Email"] = "; ".join(emails) if emails else ""
+            else:
+                lead["Email"] = ""
             print("done")
 
-        print(f"\n{'='*60}")
-        print(f"{'Name':30s} {'Phone':20s} {'Rating':6s}")
-        print(f"{'='*60}")
+        print(f"\n{'='*80}")
+        print(f"{'Name':28s} {'Phone':16s} {'Email':30s} {'Rating':6s}")
+        print(f"{'='*80}")
         for lead in leads:
-            print(f"{lead['Name'][:28]:30s} {lead['Phone'][:18]:20s} {lead['Rating']:6s}")
+            email = lead.get("Email", "")[:28]
+            print(f"{lead['Name'][:26]:28s} {lead['Phone'][:14]:16s} {email:30s} {lead['Rating']:6s}")
 
         safe_name = search_query.replace(" ", "_").lower()
         csv_file = f"{safe_name}.csv"
         with open(csv_file, "w", newline="") as f:
             clean = [{k: str(v) for k, v in lead.items()} for lead in leads]
-            writer = csv.DictWriter(f, fieldnames=["Name", "Phone", "Website", "Address", "Rating", "Category", "URL"])
+            writer = csv.DictWriter(f, fieldnames=["Name", "Phone", "Email", "Website", "Address", "Rating", "Category", "URL"])
             writer.writeheader()
             writer.writerows(clean)
         print(f"\nSaved {len(leads)} leads to {csv_file}")
