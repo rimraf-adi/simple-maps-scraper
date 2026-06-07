@@ -2,6 +2,18 @@
 
 Scrapes Google Maps search results for business contact details using [Scrapling](https://github.com/nicoverbruggen/scrapling) and [Playwright](https://playwright.dev/).
 
+## Prerequisites
+
+Install [uv](https://docs.astral.sh/uv/) (Python package manager):
+
+```sh
+# macOS / Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Windows (PowerShell)
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
 ## Setup
 
 ```sh
