@@ -19,14 +19,45 @@ async def fetch_place_details(session, url):
 
     return phone, website, address
 
+SKIP_DOMAINS = {
+    "sentry.wixpress.com", "sentry-next.wixpress.com", "sentry.io", "wixpress.com",
+}
+SKIP_LOCAL_PARTS = {
+    "user", "example",
+    "slick-carousel", "bootstrap", "core", "rspack", "react", "react-dom",
+    "lodash", "focus-within-polyfill", "intl-segmenter", "core-js-bundle",
+    "simple-parallax-js", "embla-carousel", "embla-carousel-autoplay", "styles",
+}
+SKIP_SUFFIXES = (".png", ".jpg", ".jpeg", ".gif", ".svg", ".css", ".js", ".ico", ".woff", ".woff2")
+
+def is_version_string(s):
+    return bool(re.fullmatch(r'v?\d+(?:\.\d+)*', s))
+
+def is_uuid(s):
+    return bool(re.fullmatch(r'[\da-f]{32}', s))
+
 def extract_emails(html):
     if isinstance(html, bytes):
         html = html.decode("utf-8", errors="replace")
     emails = set()
     for m in re.finditer(r'[\w.+-]+@[\w-]+(?:\.[\w-]+)+', html):
-        email = m.group()
-        if not email.endswith(('.png', '.jpg', '.jpeg', '.gif', '.svg', '.css', '.js')):
-            emails.add(email)
+        email = m.group().strip().lower()
+        if email.endswith(SKIP_SUFFIXES):
+            continue
+        local, domain = email.split("@", 1)
+        if domain in SKIP_DOMAINS:
+            continue
+        if is_version_string(domain):
+            continue
+        if local in SKIP_LOCAL_PARTS:
+            continue
+        if is_version_string(local):
+            continue
+        if is_uuid(local):
+            continue
+        if local.startswith("_") or local.startswith("."):
+            continue
+        emails.add(email)
     return list(emails)
 
 def _fetch_emails_sync(website_url):
