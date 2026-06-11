@@ -1,8 +1,7 @@
 """
-Extract emails from sampled business websites using the LangGraph agent.
+Extract emails from business websites using the LangGraph agent.
 
-Reads sample_sites.csv, runs the agent against each site to find
-emails through navigation, and writes sample_sites_with_emails.csv.
+Upgraded to use KeyPool-backed LLM client and dashboard integration.
 """
 
 from __future__ import annotations
@@ -11,28 +10,41 @@ import asyncio
 import csv
 import logging
 import sys
+from typing import TYPE_CHECKING
 
-from browser.manager import BrowserManager
+from browser.manager import BrowserManager, human_delay
 from llm.client import LLMClient
 from agent.graph import run_agent
 
-logging.basicConfig(level=logging.WARNING, format="%(levelname)s %(message)s")
+if TYPE_CHECKING:
+    from ui.dashboard import Dashboard
+    from llm.key_pool import KeyPool
+
 log = logging.getLogger("maps_scraper")
-log.setLevel(logging.INFO)
-log.handlers.clear()
-h = logging.StreamHandler()
-h.setFormatter(logging.Formatter("\033[36m%(asctime)s\033[0m %(message)s", datefmt="%H:%M:%S"))
-log.addHandler(h)
-
-GREEN = "\033[92m"
-YELLOW = "\033[93m"
-RESET = "\033[0m"
 
 
-async def extract_from_site(browser: BrowserManager, name: str, url: str) -> str | None:
+async def extract_from_site(
+    browser: BrowserManager,
+    name: str,
+    url: str,
+    key_pool: "KeyPool | None" = None,
+    dashboard: "Dashboard | None" = None,
+) -> str | None:
     """Navigate a business site and extract an email using the agent."""
     try:
-        llm = LLMClient()
+        if key_pool:
+            llm = LLMClient(
+                base_url=key_pool.current_base_url(),
+                model=key_pool.current_model(),
+                key_pool=key_pool,
+                dashboard=dashboard,
+            )
+        else:
+            llm = LLMClient(dashboard=dashboard)
+
+        if dashboard:
+            dashboard.update_lead(status="NAVIGATING", website=url)
+
         result = await run_agent(
             browser=browser,
             llm=llm,
@@ -51,13 +63,21 @@ async def extract_from_site(browser: BrowserManager, name: str, url: str) -> str
         extracted = result.get("extracted_data", {})
         email = extracted.get("email", "") if isinstance(extracted, dict) else ""
         if email and "@" in email:
+            if dashboard:
+                dashboard.update_lead(email=email, status="FOUND")
             return email
+        else:
+            if dashboard:
+                dashboard.update_lead(status="SKIPPED")
     except Exception as e:
         log.debug("Agent failed for %s: %s", url, e)
+        if dashboard:
+            dashboard.update_lead(status="FAILED")
     return None
 
 
-async def main():
+async def main() -> None:
+    """Standalone email extraction from sample_sites.csv (legacy mode)."""
     import os.path
     csv_path = "sample_sites.csv"
     if not os.path.exists(csv_path):
@@ -74,10 +94,11 @@ async def main():
     # Check LLM connectivity
     try:
         from openai import AsyncOpenAI
-        from llm.client import LLM_BASE_URL, LLM_API_KEY
-        client = AsyncOpenAI(base_url=LLM_BASE_URL, api_key=LLM_API_KEY)
+        from llm.key_pool import KeyPool
+        pool = KeyPool.from_env()
+        client = AsyncOpenAI(base_url=pool.base_url, api_key=pool.current_key())
         await client.models.list(timeout=10)
-        log.info("LLM connected: %s", LLM_BASE_URL)
+        log.info("LLM connected: %s", pool.base_url)
     except Exception as e:
         log.error("LLM unavailable: %s", e)
         sys.exit(1)
@@ -96,7 +117,7 @@ async def main():
             name = site.get("Name", "?")
             url = site.get("Website", "").strip()
             if not url:
-                log.info("  [%d/%d] %s \u2014 no website", i + 1, len(sites), name[:50])
+                log.info("  [%d/%d] %s — no website", i + 1, len(sites), name[:50])
                 writer.writerow({"Name": name, "Website": "", "Email": ""})
                 fout.flush()
                 continue
@@ -104,12 +125,12 @@ async def main():
             log.info("  [%d/%d] %s", i + 1, len(sites), name[:50])
             log.info("         %s", url)
 
-            email = await extract_from_site(browser, name, url)
+            email = await extract_from_site(browser, name, url, key_pool=pool)
 
             if email:
-                log.info("         %s\u2709 %s%s", GREEN, email, RESET)
+                log.info("         ✉ %s", email)
             else:
-                log.info("         %s(no email)%s", YELLOW, RESET)
+                log.info("         (no email)")
 
             writer.writerow({"Name": name, "Website": url, "Email": email or ""})
             fout.flush()
@@ -119,7 +140,7 @@ async def main():
         with open("sample_sites_with_emails.csv") as f:
             results = list(csv.DictReader(f))
         found = sum(1 for r in results if r.get("Email", "").strip())
-        log.info("\nDone. %d/%d emails found \u2192 sample_sites_with_emails.csv", found, len(results))
+        log.info("\nDone. %d/%d emails found → sample_sites_with_emails.csv", found, len(results))
 
     finally:
         await browser.close()
