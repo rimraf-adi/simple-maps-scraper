@@ -48,16 +48,9 @@ async def extract_from_site(
         result = await run_agent(
             browser=browser,
             llm=llm,
-            goal=(
-                f"Find the email address for {name}.\n"
-                f"Start at {url}.\n"
-                "1. Look at the page. Click 'Contact', 'About', 'Get in Touch', or any nav link.\n"
-                "2. On the contact page, find the email (mailto: link or visible text).\n"
-                "3. Use extract to return it as {\"email\": \"...\"}.\n"
-                "4. If no email after exploring, use extract with empty data."
-            ),
+            goal=f"Find email for {name}. Click Contact/About links, look for mailto: or email text, then extract it.",
             start_url=url,
-            max_steps=20,
+            max_steps=8,
         )
 
         extracted = result.get("extracted_data", {})

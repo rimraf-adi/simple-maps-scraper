@@ -210,7 +210,7 @@ class BrowserManager:
                 "[tabindex], [onclick], [href]"
             )
             handles = await self.page.query_selector_all(selector)
-            for el in handles[:150]:
+            for el in handles[:50]:  # Was 150 — only need ~30 for email finding
                 try:
                     box = await el.bounding_box()
                     if not box or box["width"] <= 5 or box["height"] <= 5:
@@ -244,7 +244,7 @@ class BrowserManager:
         return PageSnapshot(
             url=url,
             title=title,
-            visible_text=(visible_text or "")[:4000],
+            visible_text=(visible_text or "")[:2000],
             screenshot_bytes=screenshot_bytes,
             interactive_elements=elements,
         )

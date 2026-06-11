@@ -268,7 +268,7 @@ class KeyPool:
         return any(signal in err_msg for signal in rotate_signals)
 
     def is_auth_error(self, error: Exception) -> bool:
-        """Check if an error indicates a permanently bad key."""
+        """Check if an error indicates a permanently bad key or exhausted daily/monthly quota."""
         err_type = type(error).__name__
         err_msg = str(error).lower()
         if err_type == "AuthenticationError":
@@ -278,5 +278,8 @@ class KeyPool:
         if "api_key_invalid" in err_msg:
             return True
         if "400" in err_msg and "valid api key" in err_msg:
+            return True
+        # Daily/Monthly limits mean the key is dead for this session
+        if "tokens per day (tpd)" in err_msg or "perday" in err_msg or "monthly" in err_msg or "billing" in err_msg:
             return True
         return False

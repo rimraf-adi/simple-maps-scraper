@@ -35,26 +35,9 @@ class Action:
     data: dict | None = None
 
 
-SYSTEM_PROMPT = """You are a web automation agent extracting an email from a business website.
-
-You see a screenshot of the page AND a numbered list of interactive elements.
-
-## Strategy
-1. Look at the screenshot: find "Contact", "About", "Email", "Get in Touch" links.
-2. Match what you see in the screenshot to the numbered element list.
-3. Click the matching nav link to reach a page with contact info.
-4. On the contact page, look for email text or mailto: links.
-5. Use **extract** when you find an email.
-
-## Available actions
-- `click` target=N — Click element [N]
-- `type` target=N text="..." — Type into element [N]
-- `scroll` text="down" or "up" — Scroll
-- `extract` data={"email": "found@email.com"} — Return found email
-- `done` — Goal unreachable
-
-Output ONLY valid JSON:
-{"thought": "...", "action": "click|type|scroll|extract|done", "target": 0, "text": "", "data": {}}
+SYSTEM_PROMPT = """Extract email from business website. Pick next action from numbered elements.
+Actions: click target=N | scroll text="down" | extract data={"email":"x@y.com"} | done
+Reply ONLY as JSON: {"thought":"...","action":"...","target":0,"text":"","data":{}}
 """
 
 
@@ -208,7 +191,7 @@ class LLMClient:
     ) -> None:
         self.base_url = base_url.rstrip("/")
         self.model = model or "llama-3.3-70b-versatile"
-        self._vision_works = None  # None = untested, True/False = cached
+        self._vision_works = False  # Disabled — Groq/Gemini text-only saves tokens
         self._key_pool = key_pool
         self.dashboard = dashboard
 
@@ -341,9 +324,10 @@ class LLMClient:
 
         messages = _build_prompt(goal, page_info)
 
+        # Aggressively truncate to save tokens
         for msg in messages:
-            if msg["role"] == "user" and isinstance(msg["content"], str) and len(msg["content"]) > 6000:
-                msg["content"] = msg["content"][:6000] + "\n... (truncated)"
+            if msg["role"] == "user" and isinstance(msg["content"], str) and len(msg["content"]) > 3000:
+                msg["content"] = msg["content"][:3000] + "\n... (truncated)"
 
         for attempt in range(300):
             try:
@@ -353,8 +337,8 @@ class LLMClient:
                 resp = await client.chat.completions.create(
                     model=self._get_model(),
                     messages=messages,
-                    temperature=0.1,
-                    max_tokens=512,
+                    temperature=0.0,
+                    max_tokens=200,
                     timeout=90,
                 )
                 raw = (resp.choices[0].message.content or "").strip()
