@@ -1,12 +1,17 @@
 [project]
 name = "maps-scraper"
-version = "0.1.0"
-description = "Google Maps scraper with LLM-powered email extraction — LangGraph + Playwright"
+version = "0.2.0"
+description = "Google Maps scraper with LLM-powered email extraction — LangGraph + Playwright + Rich UI"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.12"
 dependencies = [
     "playwright>=1.52.0",
     "langgraph>=0.5.0",
     "openai>=1.80.0",
     "pillow>=11.0.0",
+    "rich>=13.0",
+    "python-dotenv>=1.0.0",
+    "customtkinter>=5.2.0",
+    "pyqt6>=6.11.0",
+    "dnspython>=2.8.0",
 ]

@@ -210,29 +210,27 @@ def _resolve_target(target: int | None, elements: list[dict]) -> dict | None:
 def _format_page(snap, elements: list[dict] | None = None, dead_clicks: list[str] | None = None) -> str:
     url = snap.url
     title = snap.title
-    text = snap.visible_text[:3000]
+    text = snap.visible_text[:1500]  # Reduced from 3000 to save tokens
     els = elements if elements is not None else snap.interactive_elements
+    # Only send first 30 elements to LLM (was unlimited)
+    els = els[:30]
     dc = set(dead_clicks or [])
-    lines = [f"URL: {url}", f"Title: {title}", "", "Interactive elements:"]
+    lines = [f"URL: {url}", f"Title: {title}", "", "Elements:"]
     for i, el in enumerate(els):
-        tag = el["tag"]
-        label = (el["text"] or el["href"] or el.get("aria_label", "") or f"<{tag}>")[:80]
+        label = (el["text"] or el["href"] or el.get("aria_label", "") or el["tag"])[:60]
         href = el.get("href", "")
         extra = ""
         if href.startswith("mailto:"):
-            extra = f" [\u2709 {href}]"
-        elif href:
-            extra = f" [href={href[:60]}]"
-        role = el.get("role", "")
-        if role:
-            extra += f" role={role}"
+            extra = f" [mailto:{href[7:].split('?')[0]}]"
+        elif href and any(kw in href.lower() for kw in ("contact", "about", "email", "team", "connect")):
+            extra = f" [href={href[:40]}]"
         dead = " [DEAD]" if str(i) in dc else ""
         lines.append(f"  [{i}] {label}{extra}{dead}")
     if dc:
-        lines.append(f"\nNote: elements {', '.join(sorted(dc))} were clicked but page didn't change — skip them.")
+        lines.append(f"\nSkip elements: {', '.join(sorted(dc))}")
     lines.append("")
-    lines.append("Visible text:")
-    lines.append(text[:3000] if text else "(empty)")
+    lines.append("Text:")
+    lines.append(text if text else "(empty)")
     return "\n".join(lines)
 
 
@@ -272,15 +270,15 @@ async def run_agent(
     if start_url:
         await browser.navigate(start_url)
 
-    # ── Pre-scroll: scroll down to trigger lazy-loaded content ──────────
+    # ── Pre-scroll: quick scroll to trigger lazy-loaded content ──────────
     log.info("  \u2193 Pre-scrolling to load dynamic content...")
-    for scroll_idx in range(8):
+    for scroll_idx in range(3):
         await browser.scroll("down", amount=800)
-        log.info("    scroll %d/8", scroll_idx + 1)
-        await asyncio.sleep(0.8)
+        log.info("    scroll %d/3", scroll_idx + 1)
+        await asyncio.sleep(0.4)
     # Scroll back to top so the agent sees the full page
     await browser.page.evaluate("window.scrollTo(0, 0)")
-    await asyncio.sleep(0.5)
+    await asyncio.sleep(0.3)
     log.info("  \u2191 Pre-scroll completed")
 
     for step in range(1, max_steps + 1):
