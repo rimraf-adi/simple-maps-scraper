@@ -38,6 +38,7 @@ class KeyPool:
     def __init__(self, keys: list[str]) -> None:
         if not keys:
             raise ValueError("At least one API key is required")
+        self._total_tokens: int = 0
             
         self._keys: list[_KeyState] = []
         for i, k in enumerate(keys):
@@ -120,6 +121,15 @@ class KeyPool:
             state = self._keys[self._current_index]
             state.total_calls += 1
             state.successful_calls += 1
+
+    def record_tokens(self, tokens: int) -> None:
+        """Record token usage from an API call."""
+        with self._lock:
+            self._total_tokens += tokens
+
+    @property
+    def total_tokens(self) -> int:
+        return self._total_tokens
 
     def record_failure(self, error: str) -> None:
         """Record a failed API call on the current key."""

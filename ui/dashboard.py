@@ -56,6 +56,7 @@ class Dashboard:
         self.total_leads: int = 0
         self.processed_leads: int = 0
         self.emails_found: int = 0
+        self.total_tokens: int = 0
         self.active_key_index: int = 1
         self.total_keys: int = 1
         self.model_name: str = ""
@@ -178,6 +179,10 @@ class Dashboard:
             f"[green]✉ {self.emails_found}[/green]"
         )
         table.add_row(
+            "Tokens:",
+            f"[cyan]{self.total_tokens:,}[/cyan]"
+        )
+        table.add_row(
             "API Key:",
             f"Key {self.active_key_index}/{self.total_keys}  "
             f"[dim]{self.model_name}[/dim]"
@@ -298,6 +303,12 @@ class Dashboard:
             self.active_key_index = index
             self.total_keys = total
             self.model_name = model
+            self._refresh()
+
+    def set_tokens(self, tokens: int) -> None:
+        """Update total tokens consumed."""
+        with self._lock:
+            self.total_tokens = tokens
             self._refresh()
 
     def set_total_leads(self, total: int) -> None:

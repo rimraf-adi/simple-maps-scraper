@@ -1,8 +1,9 @@
 """
-Output module — CSV + JSON writer with duplicate detection and email validation.
+Output module — CSV + JSON writer with CSV-based checkpointing.
 
-Handles writing scraper results to CSV and/or JSON formats,
-with in-memory deduplication by website domain and phone number.
+Phase 1: All leads are written to CSV with Visited=no (the CSV IS the checkpoint).
+Phase 2: Unvisited rows are loaded, processed one-by-one, and updated in place.
+Resume: CSV is read, rows with Visited=no are processed.
 """
 
 from __future__ import annotations
@@ -10,6 +11,7 @@ from __future__ import annotations
 import csv
 import json
 import logging
+import os
 import re
 from pathlib import Path
 from typing import Any
@@ -17,9 +19,9 @@ from urllib.parse import urlparse
 
 log = logging.getLogger("maps_scraper.output")
 
-FIELDS = ["Name", "Phone", "Email", "Website", "Address", "Rating", "Category"]
+FIELDS = ["Name", "Phone", "Email", "Website", "Address", "Rating", "Category", "URL", "Visited"]
 
-# ── Email validation patterns (reject obviously fake emails) ───────────────
+_EMAIL_RE = re.compile(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")
 
 _REJECT_PREFIXES = [
     "noreply@", "no-reply@", "no_reply@",
@@ -37,43 +39,27 @@ _REJECT_DOMAINS = [
     "googleapis.com", "google.com",
 ]
 
-_EMAIL_RE = re.compile(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$")
-
 
 def validate_email(email: str) -> bool:
-    """
-    Validate an extracted email address.
-    Returns True if the email looks legitimate, False if it should be rejected.
-    """
     if not email or not _EMAIL_RE.match(email):
         return False
-
     email_lower = email.lower()
-
-    # Check rejected prefixes
     for prefix in _REJECT_PREFIXES:
         if email_lower.startswith(prefix):
             return False
-
-    # Check rejected domains
     domain = email_lower.split("@", 1)[1] if "@" in email_lower else ""
     for bad_domain in _REJECT_DOMAINS:
         if domain == bad_domain:
             return False
-
-    # Reject emails with file extensions (image/css/js filenames)
     if email_lower.endswith((".png", ".jpg", ".gif", ".svg", ".css", ".js", ".ico")):
         return False
-
     return True
 
 
 def _extract_domain(url: str) -> str:
-    """Extract the domain from a URL for deduplication."""
     try:
         parsed = urlparse(url)
         domain = parsed.netloc or parsed.path
-        # Remove www. prefix
         if domain.startswith("www."):
             domain = domain[4:]
         return domain.lower()
@@ -83,154 +69,250 @@ def _extract_domain(url: str) -> str:
 
 class OutputWriter:
     """
-    Writes scraped leads to CSV and/or JSON with deduplication.
+    CSV-first output with built-in checkpointing via Visited column.
 
-    Supports append mode and in-memory duplicate detection
-    by website domain and phone number.
+    Usage:
+      writer = OutputWriter(csv_path="leads.csv")
+      writer.open()
+
+      # Phase 1: write all scraped leads
+      writer.write_initial_leads(leads)
+
+      # Phase 2: load unvisited, process each
+      for i, lead in writer.iter_unvisited():
+          ...  # fetch details, extract email
+          writer.update_row(i, lead)
+
+      writer.close()
     """
 
     def __init__(
         self,
         csv_path: str | None = None,
         json_path: str | None = None,
-        append: bool = False,
         dedupe: bool = False,
+        resume: bool = False,
     ) -> None:
         self._csv_path = csv_path
         self._json_path = json_path
-        self._append = append
         self._dedupe = dedupe
+        self._resume = resume
 
-        # In-memory dedup sets
-        self._seen_domains: set[str] = set()
-        self._seen_phones: set[str] = set()
-
-        # JSON accumulator
-        self._json_rows: list[dict[str, str]] = []
-
-        # CSV file handle
         self._csv_file = None
         self._csv_writer = None
+        self._json_rows: list[dict[str, str]] = []
 
-        # Results tracking
+        # In-memory row store for Phase 2 updates
+        self._rows: list[dict[str, str]] = []
+        self._next_index: int = 0
+        self._start_index: int = 0
+
         self.rows_written: int = 0
         self.rows_skipped_dupe: int = 0
 
+    # ── File lifecycle ─────────────────────────────────────────────────────
+
     def open(self) -> None:
-        """Open output files for writing."""
-        if self._csv_path:
-            mode = "a" if self._append else "w"
-            self._csv_file = open(self._csv_path, mode, newline="", encoding="utf-8")
-            self._csv_writer = csv.DictWriter(self._csv_file, fieldnames=FIELDS)
-            if not self._append:
-                self._csv_writer.writeheader()
-            self._csv_file.flush()
-
-            # If appending, load existing rows for dedup
-            if self._append and self._dedupe:
-                self._load_existing_for_dedup()
-
-        # If appending JSON, load existing data
-        if self._json_path and self._append:
-            json_file = Path(self._json_path)
-            if json_file.exists():
-                try:
-                    self._json_rows = json.loads(json_file.read_text())
-                except Exception:
-                    self._json_rows = []
-
-    def _load_existing_for_dedup(self) -> None:
-        """Load existing CSV rows to populate dedup sets."""
+        """Open the CSV for writing."""
         if not self._csv_path:
             return
-        try:
-            with open(self._csv_path, "r", newline="", encoding="utf-8") as f:
-                reader = csv.DictReader(f)
-                for row in reader:
-                    website = row.get("Website", "").strip()
-                    phone = row.get("Phone", "").strip()
-                    if website:
-                        self._seen_domains.add(_extract_domain(website))
-                    if phone:
-                        self._seen_phones.add(phone)
-        except Exception:
-            pass
-
-    def is_duplicate(self, lead: dict[str, Any]) -> bool:
-        """Check if a lead is a duplicate by website domain or phone."""
-        if not self._dedupe:
-            return False
-
-        website = str(lead.get("Website", "")).strip()
-        phone = str(lead.get("Phone", "")).strip()
-
-        if website:
-            domain = _extract_domain(website)
-            if domain and domain in self._seen_domains:
-                return True
-
-        if phone and phone in self._seen_phones:
-            return True
-
-        return False
-
-    def write_row(self, lead: dict[str, Any]) -> bool:
-        """
-        Write a single lead row to output files.
-        Returns True if written, False if skipped (duplicate).
-        """
-        # Check for duplicates
-        if self.is_duplicate(lead):
-            self.rows_skipped_dupe += 1
-            log.info("Skipped duplicate: %s", lead.get("Name", "?"))
-            return False
-
-        # Track for future dedup
-        website = str(lead.get("Website", "")).strip()
-        phone = str(lead.get("Phone", "")).strip()
-        if website:
-            self._seen_domains.add(_extract_domain(website))
-        if phone:
-            self._seen_phones.add(phone)
-
-        # Build the row dict
-        row = {k: str(lead.get(k, "")) for k in FIELDS}
-
-        # Write to CSV
-        if self._csv_writer:
-            self._csv_writer.writerow(row)
-            if self._csv_file:
-                self._csv_file.flush()
-
-        # Accumulate for JSON
-        if self._json_path:
-            self._json_rows.append(row)
-
-        self.rows_written += 1
-        return True
+        mode = "a" if self._resume else "w"
+        self._csv_file = open(self._csv_path, mode, newline="", encoding="utf-8")
+        self._csv_writer = csv.DictWriter(self._csv_file, fieldnames=FIELDS)
+        self._csv_writer.writeheader()
+        self._csv_file.flush()
 
     def close(self) -> None:
-        """Close output files and write JSON if needed."""
+        """Close files and write JSON if configured."""
         if self._csv_file:
             self._csv_file.close()
             self._csv_file = None
             self._csv_writer = None
-
         if self._json_path and self._json_rows:
             Path(self._json_path).write_text(
                 json.dumps(self._json_rows, indent=2, ensure_ascii=False)
             )
             log.info("JSON output: %s (%d rows)", self._json_path, len(self._json_rows))
 
-    def get_results(self) -> list[dict[str, str]]:
-        """Return all written rows (for report generation)."""
-        if self._csv_path:
+    # ── Dedup helpers ──────────────────────────────────────────────────────
+
+    def _build_dedup_sets(self) -> tuple[set[str], set[str]]:
+        seen_domains: set[str] = set()
+        seen_phones: set[str] = set()
+        for row in self._rows:
+            website = row.get("Website", "").strip()
+            phone = row.get("Phone", "").strip()
+            if website:
+                seen_domains.add(_extract_domain(website))
+            if phone:
+                seen_phones.add(phone)
+        return seen_domains, seen_phones
+
+    def _is_duplicate(self, lead: dict[str, Any], seen_domains: set[str], seen_phones: set[str]) -> bool:
+        if not self._dedupe:
+            return False
+        website = str(lead.get("Website", "")).strip()
+        phone = str(lead.get("Phone", "")).strip()
+        if website and _extract_domain(website) in seen_domains:
+            return True
+        if phone and phone in seen_phones:
+            return True
+        return False
+
+    # ── Phase 1: Write initial leads ───────────────────────────────────────
+
+    def write_initial_leads(self, leads: list[dict[str, Any]]) -> None:
+        """
+        Phase 1: Write all scraped leads to CSV with Visited=no.
+        The CSV becomes the checkpoint for resuming.
+        """
+        row_count = 0
+        seen_domains, seen_phones = set(), set()
+        for lead in leads:
+            if self._is_duplicate(lead, seen_domains, seen_phones):
+                self.rows_skipped_dupe += 1
+                continue
+            website = str(lead.get("Website", "")).strip()
+            phone = str(lead.get("Phone", "")).strip()
+            if website:
+                seen_domains.add(_extract_domain(website))
+            if phone:
+                seen_phones.add(phone)
+
+            row = {k: str(lead.get(k, "")) for k in FIELDS[:-1]}
+            row["Visited"] = "no"
+            self._rows.append(row)
+            self.rows_written += 1
+            row_count += 1
+
+            if self._csv_writer:
+                self._csv_writer.writerow(row)
+                if self._csv_file:
+                    self._csv_file.flush()
+
+        log.info("Phase 1: wrote %d leads to %s", row_count, self._csv_path)
+        self._start_index = 0
+        self._next_index = 0
+
+    # ── Phase 2: Iterate unvisited leads ───────────────────────────────────
+
+    def load_csv(self) -> int:
+        """
+        Load all rows from the existing CSV into memory.
+        Returns the number of unvisited (remaining) leads.
+        """
+        if not self._csv_path or not Path(self._csv_path).exists():
+            return 0
+
+        self._rows = []
+        with open(self._csv_path, "r", newline="", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                # Normalise fields to match FIELDS
+                normalised = {}
+                for k in FIELDS:
+                    normalised[k] = row.get(k, "")
+                self._rows.append(normalised)
+
+        unvisited_count = sum(1 for r in self._rows if r.get("Visited", "").lower() != "yes")
+        total = len(self._rows)
+        done = total - unvisited_count
+        log.info("CSV loaded: %d total, %d done, %d remaining", total, done, unvisited_count)
+
+        # Find first unvisited index
+        self._next_index = next(
+            (i for i, r in enumerate(self._rows) if r.get("Visited", "").lower() != "yes"),
+            total,
+        )
+        self._start_index = self._next_index
+        return unvisited_count
+
+    def iter_unvisited(self):
+        """
+        Generator yielding (index, row) for each unvisited lead.
+        Call update_row(index, data) after processing to mark visited.
+        """
+        while self._next_index < len(self._rows):
+            row = self._rows[self._next_index]
+            if row.get("Visited", "").lower() == "yes":
+                self._next_index += 1
+                continue
+            yield self._next_index, dict(row)
+            self._next_index += 1
+
+    @property
+    def remaining(self) -> int:
+        return len(self._rows) - self._next_index
+
+    # ── Update a row (mark visited + fill data) ────────────────────────────
+
+    def update_row(self, index: int, data: dict[str, Any]) -> None:
+        """
+        Update a row with scraped data and mark it Visited=yes.
+        Rewrites the entire CSV to disk as checkpoint.
+        """
+        if index >= len(self._rows):
+            return
+
+        for k in ("Phone", "Email", "Website", "Address"):
+            if k in data and data[k]:
+                self._rows[index][k] = str(data[k])
+
+        self._rows[index]["Visited"] = "yes"
+
+        self._flush_csv()
+
+    def _flush_csv(self) -> None:
+        """Rewrite entire CSV from in-memory rows (crash-safe checkpoint)."""
+        if not self._csv_path:
+            return
+
+        # Close old handle before replacing
+        if self._csv_file:
             try:
-                with open(self._csv_path, "r", newline="", encoding="utf-8") as f:
-                    return list(csv.DictReader(f))
+                self._csv_file.close()
             except Exception:
                 pass
-        return self._json_rows
+            self._csv_file = None
+            self._csv_writer = None
+
+        tmp = self._csv_path + ".tmp"
+        try:
+            with open(tmp, "w", newline="", encoding="utf-8") as f:
+                w = csv.DictWriter(f, fieldnames=FIELDS)
+                w.writeheader()
+                w.writerows(self._rows)
+            os.replace(tmp, self._csv_path)
+
+            # Re-open for future append writes
+            self._csv_file = open(self._csv_path, "a", newline="", encoding="utf-8")
+            self._csv_writer = csv.DictWriter(self._csv_file, fieldnames=FIELDS)
+            self._csv_file.flush()
+        except Exception as e:
+            log.warning("Failed to flush CSV: %s", e)
+
+    # ── Results ────────────────────────────────────────────────────────────
+
+    def get_results(self) -> list[dict[str, str]]:
+        """Return all written rows for report generation."""
+        return self._rows
+
+    def write_row(self, lead: dict[str, Any]) -> bool:
+        """
+        Single-row write (used by legacy paths).
+        Writes leads with Visited=yes directly.
+        """
+        row = {k: str(lead.get(k, "")) for k in FIELDS[:-1]}
+        row["Visited"] = "yes"
+        self._rows.append(row)
+        self.rows_written += 1
+        if self._csv_writer:
+            self._csv_writer.writerow(row)
+            if self._csv_file:
+                self._csv_file.flush()
+        if self._json_path:
+            self._json_rows.append(row)
+        return True
 
 
 def generate_report(
@@ -241,10 +323,7 @@ def generate_report(
     end_time: float,
     query_slug: str = "",
 ) -> str:
-    """
-    Generate a formatted post-run stats report.
-    Returns the report as a string.
-    """
+    """Generate a formatted post-run stats report."""
     import time
     from collections import Counter
 
@@ -253,11 +332,9 @@ def generate_report(
     with_website = sum(1 for r in results if r.get("Website", "").strip())
     with_email = sum(1 for r in results if r.get("Email", "").strip())
 
-    # Top 5 categories
     categories = Counter(r.get("Category", "").strip() for r in results if r.get("Category", "").strip())
     top_cats = categories.most_common(5)
 
-    # Average rating
     ratings = []
     for r in results:
         try:
@@ -266,13 +343,11 @@ def generate_report(
             pass
     avg_rating = sum(ratings) / len(ratings) if ratings else 0.0
 
-    # Run time
     elapsed = end_time - start_time
     h, rem = divmod(int(elapsed), 3600)
     m, s = divmod(rem, 60)
     elapsed_str = f"{h:02d}:{m:02d}:{s:02d}"
 
-    # Throughput
     throughput = total / (elapsed / 60) if elapsed > 0 else 0
 
     lines = [
@@ -281,9 +356,9 @@ def generate_report(
         "=" * 60,
         f"  Query:          {query}",
         f"  Total leads:    {total}",
-        f"  With phone:     {with_phone} ({with_phone/total*100:.1f}%)" if total else f"  With phone:     0",
-        f"  With website:   {with_website} ({with_website/total*100:.1f}%)" if total else f"  With website:   0",
-        f"  With email:     {with_email} ({with_email/total*100:.1f}%)" if total else f"  With email:     0",
+        f"  With phone:     {with_phone} ({with_phone/total*100:.1f}%)" if total else "  With phone:     0",
+        f"  With website:   {with_website} ({with_website/total*100:.1f}%)" if total else "  With website:   0",
+        f"  With email:     {with_email} ({with_email/total*100:.1f}%)" if total else "  With email:     0",
         "",
         "  Top categories:",
     ]
@@ -299,7 +374,6 @@ def generate_report(
         f"  Throughput:     {throughput:.1f} leads/min",
     ])
 
-    # API key stats
     if key_pool_status:
         lines.append("")
         lines.append("  API key usage:")
@@ -318,7 +392,6 @@ def generate_report(
 
     report = "\n".join(lines)
 
-    # Save report to file
     if query_slug:
         report_path = Path(f"{query_slug}_report.txt")
         report_path.write_text(report)
