@@ -35,7 +35,10 @@ class AgentState(TypedDict):
 
 
 def _route_after_plan(state: AgentState) -> Literal["perceive", "__end__"]:
-    return "__end__" if state["done"] else "perceive"
+    # Force end if done OR if we reached the maximum allowed steps to prevent infinite looping
+    if state["done"] or state["step"] >= state["max_steps"]:
+        return "__end__"
+    return "perceive"
 
 
 def _scan_for_emails(text: str, elements: list[dict]) -> str | None:
@@ -197,6 +200,7 @@ async def _plan(state: AgentState, browser: BrowserManager, llm: LLMClient):
     if not executed:
         log.warning("  action failed — will scroll next step")
 
+    state["step"] += 1
     return state
 
 
@@ -281,12 +285,12 @@ async def run_agent(
     await asyncio.sleep(0.3)
     log.info("  \u2191 Pre-scroll completed")
 
-    for step in range(1, max_steps + 1):
-        state["step"] = step
-        state = await agent.ainvoke(state)
+    # Let LangGraph handle the loop internally
+    state = await agent.ainvoke(state)
 
-        if state["done"]:
-            log.info("Agent done after %d steps", step)
-            break
+    if state["done"]:
+        log.info("Agent successfully finished")
+    else:
+        log.warning("Agent reached max steps without finding an email")
 
     return state

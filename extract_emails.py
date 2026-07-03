@@ -55,6 +55,13 @@ async def extract_from_site(
 
         extracted = result.get("extracted_data", {})
         email = extracted.get("email", "") if isinstance(extracted, dict) else ""
+        
+        # Filter out common fake/placeholder emails
+        fake_domains = ["yourdomain", "example.com", "domain.com", "yoursite", "mysite"]
+        if email and any(fake in email.lower() for fake in fake_domains) or email.startswith("email@"):
+            log.warning("Skipping placeholder email: %s", email)
+            email = ""
+
         if email and "@" in email:
             if dashboard:
                 dashboard.update_lead(email=email, status="FOUND")

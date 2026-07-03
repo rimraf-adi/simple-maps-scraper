@@ -161,7 +161,10 @@ class ScraperApp(ctk.CTk):
         self._fmt.pack(side="left", padx=(4,14))
         ctk.CTkLabel(r1, text="Workers:", font=("Segoe UI", 12), text_color=DIM).pack(side="left")
         self._workers = ctk.CTkOptionMenu(r1, values=[str(i) for i in range(1, 11)], width=55, height=30)
-        self._workers.pack(side="left", padx=(4,0))
+        self._workers.pack(side="left", padx=(4,14))
+        ctk.CTkLabel(r1, text="AI:", font=("Segoe UI", 12), text_color=DIM).pack(side="left")
+        self._provider = ctk.CTkOptionMenu(r1, values=["Gemini", "Groq"], width=80, height=30)
+        self._provider.pack(side="left", padx=(4,0))
         # Row 2 (Settings Grid)
         r2 = ctk.CTkFrame(of, fg_color="transparent")
         r2.pack(fill="x", padx=12, pady=(4,8))
@@ -440,10 +443,12 @@ class ScraperApp(ctk.CTk):
         verify = bool(self._verify_emails.get())
         custom_out = self._output_path.get().strip()
 
+        provider = self._provider.get().lower()
+
         # Key pool
-        dash.log("Loading API keys…")
+        dash.log(f"Loading {provider.title()} API keys…")
         try:
-            pool = KeyPool.from_env()
+            pool = KeyPool.from_env(provider=provider)
             dash.set_key_info(pool.current_index + 1, pool.total_keys, pool.current_model())
             dash.log(f"Found {pool.total_keys} API key(s), model: {pool.current_model()}", "INFO")
         except Exception as e:
@@ -455,9 +460,18 @@ class ScraperApp(ctk.CTk):
         dash.log("Testing LLM connectivity…")
         try:
             from openai import AsyncOpenAI
-            c = AsyncOpenAI(base_url=pool.current_base_url(), api_key=pool.current_key())
-            await c.models.list(timeout=10)
-            dash.log(f"LLM connected: {pool.current_base_url()}", "SUCCESS")
+            api_key = pool.current_key()
+            base_url = pool.current_base_url()
+            headers = None
+            if "googleapis.com" in base_url:
+                headers = {"x-goog-api-key": api_key}
+            c = AsyncOpenAI(base_url=base_url, api_key=api_key, default_headers=headers)
+            await c.chat.completions.create(
+                model=pool.current_model(),
+                messages=[{"role": "user", "content": "hi"}],
+                max_tokens=5, timeout=15,
+            )
+            dash.log(f"LLM connected: {pool.current_model()} via {provider.title()}", "SUCCESS")
         except Exception as e:
             dash.log(f"LLM unavailable: {e}", "ERROR")
             self._q.put(("done", {}))
@@ -631,7 +645,7 @@ class ScraperApp(ctk.CTk):
                 dash.update_lead(phone=phone, website=website)
 
                 email = ""
-                if website:
+                if website and req_email:
                     dash.set_phase("EXTRACTING EMAILS")
                     dash.update_lead(status="NAVIGATING")
                     try:
@@ -664,8 +678,10 @@ class ScraperApp(ctk.CTk):
                             dash.update_lead(status="SKIPPED")
                     else:
                         dash.update_lead(status="SKIPPED")
-                else:
+                elif not website:
                     dash.log(f"No website for {name}", "SKIP")
+                    dash.update_lead(status="SKIPPED")
+                else:
                     dash.update_lead(status="SKIPPED")
 
                 lead["Email"] = email or ""
