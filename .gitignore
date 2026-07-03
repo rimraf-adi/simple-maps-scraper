@@ -1,6 +1,9 @@
 # CSV output files
 *.csv
 
+# JSON files
+*.json
+
 # Python-generated files
 __pycache__/
 *.py[oc]
