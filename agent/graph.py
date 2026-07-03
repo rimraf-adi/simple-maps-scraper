@@ -41,7 +41,10 @@ class AgentState(TypedDict):
 
 
 def _route_after_plan(state: AgentState) -> Literal["perceive", "__end__"]:
-    return "__end__" if state["done"] else "perceive"
+    # Force end if done OR if we reached the maximum allowed steps to prevent infinite looping
+    if state["done"] or state["step"] >= state["max_steps"]:
+        return "__end__"
+    return "perceive"
 
 
 def _scan_for_emails(text: str, elements: list[dict]) -> str | None:
@@ -295,6 +298,7 @@ async def _plan(state: AgentState, browser: BrowserManager, llm: LLMClient):
     if not executed:
         log.warning("  action failed — will scroll next step")
 
+    state["step"] += 1
     return state
 
 

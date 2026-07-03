@@ -1,0 +1,612 @@
+{
+  "query": "med spa or aethetics in new york",
+  "started_at": "2026-06-11T09:41:57.285246+00:00",
+  "resumed_at": null,
+  "leads": [
+    {
+      "Name": "UPKEEP MED SPA",
+      "Rating": "4.7",
+      "Category": "4.7",
+      "URL": "https://www.google.com/maps/place/UPKEEP+MED+SPA/data=!4m7!3m6!1s0x89c2596b14a2c23b:0xe011292231563d47!8m2!3d40.7710466!4d-73.956073!16s%2Fg%2F11fsnj__ls!19sChIJO8KiFGtZwokRRz1WMSIpEeA?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Koru Wellness Aesthetics NYC: Med Spa Upper East Side & Midtown",
+      "Rating": "4.9",
+      "Category": "4.9",
+      "URL": "https://www.google.com/maps/place/Koru+Wellness+Aesthetics+NYC:+Med+Spa+Upper+East+Side+%26+Midtown/data=!4m7!3m6!1s0x89c259ae6ba3aadb:0x5ffdcf4abcde063c!8m2!3d40.7722294!4d-73.9540545!16s%2Fg%2F11fn5tfxkl!19sChIJ26qja65ZwokRPAbevErP_V8?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "SkinSpirit New York - UES",
+      "Rating": "4.9",
+      "Category": "4.9",
+      "URL": "https://www.google.com/maps/place/SkinSpirit+New+York+-+UES/data=!4m7!3m6!1s0x89c2599d3a9a7a3b:0xb06f7885e30d8137!8m2!3d40.7809379!4d-73.9534731!16s%2Fg%2F11ry5jmfgg!19sChIJO3qaOp1ZwokRN4EN44V4b7A?authuser=0&hl=en&rclk=1",
+      "Phone": "+1 212-838-4800",
+      "Website": "https://www.skinspirit.com/locations/nyc-east89/",
+      "Address": "160 E 89th St, New York, NY 10128, United States",
+      "Email": "east89th@skinspirit.com",
+      "done": true
+    },
+    {
+      "Name": "Med Spa NYC: Beso Aesthetics",
+      "Rating": "5.0",
+      "Category": "5.0",
+      "URL": "https://www.google.com/maps/place/Med+Spa+NYC:+Beso+Aesthetics/data=!4m7!3m6!1s0x89c259ed193ed70f:0x57783e382c8b1fa7!8m2!3d40.7812991!4d-73.960384!16s%2Fg%2F11sp96qgg5!19sChIJD9c-Ge1ZwokRpx-LLDg-eFc?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "SkinLab NYC",
+      "Rating": "4.8",
+      "Category": "4.8",
+      "URL": "https://www.google.com/maps/place/SkinLab+NYC/data=!4m7!3m6!1s0x89c259fff177931f:0x84eb28356d18c265!8m2!3d40.7691814!4d-73.9606578!16s%2Fg%2F11rq9p9kww!19sChIJH5N38f9ZwokRZcIYbTUo64Q?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Smooth Synergy Medical Spa & Laser Center",
+      "Rating": "5.0",
+      "Category": "5.0",
+      "URL": "https://www.google.com/maps/place/Smooth+Synergy+Medical+Spa+%26+Laser+Center/data=!4m7!3m6!1s0x89c258e51e770df9:0xcc62ea120ed89b18!8m2!3d40.7743522!4d-73.9580948!16s%2Fg%2F1tfbzcqy!19sChIJ-Q13HuVYwokRGJvYDhLqYsw?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "SkinTight MedSpa",
+      "Rating": "4.7",
+      "Category": "4.7",
+      "URL": "https://www.google.com/maps/place/SkinTight+MedSpa/data=!4m7!3m6!1s0x89c258bc7fd1cee1:0xa9296fb6971b2213!8m2!3d40.7631176!4d-73.9668957!16s%2Fg%2F11bx49qmfp!19sChIJ4c7Rf7xYwokREyIbl7ZvKak?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Timeless MedSpa NYC",
+      "Rating": "5.0",
+      "Category": "5.0",
+      "URL": "https://www.google.com/maps/place/Timeless+MedSpa+NYC/data=!4m7!3m6!1s0x89c259942249e84f:0x3e5de639b920dd9d!8m2!3d40.7720886!4d-73.9627652!16s%2Fg%2F11shb1qy8k!19sChIJT-hJIpRZwokRnd0guTnmXT4?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "BeautyFix Upper East Side",
+      "Rating": "4.7",
+      "Category": "4.7",
+      "URL": "https://www.google.com/maps/place/BeautyFix+Upper+East+Side/data=!4m7!3m6!1s0x89c258ef9d95a641:0x644701305ae1ac44!8m2!3d40.7677772!4d-73.9615615!16s%2Fg%2F11d_ww659l!19sChIJQaaVne9YwokRRKzhWjABR2Q?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "VJ MedSpa",
+      "Rating": "4.4",
+      "Category": "4.4",
+      "URL": "https://www.google.com/maps/place/VJ+MedSpa/data=!4m7!3m6!1s0x89c25970039f17f1:0x482f1f5aebe020bd!8m2!3d40.7773633!4d-73.9573587!16s%2Fg%2F11rfdfhk5g!19sChIJ8RefA3BZwokRvSDg61ofL0g?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Youtherapy Medspa - William Greenberg, MD",
+      "Rating": "5.0",
+      "Category": "5.0",
+      "URL": "https://www.google.com/maps/place/Youtherapy+Medspa+-+William+Greenberg,+MD/data=!4m7!3m6!1s0x89c258beb4d70909:0xb1a0527619da5049!8m2!3d40.7736038!4d-73.9573268!16s%2Fg%2F1td77h8z!19sChIJCQnXtL5YwokRSVDaGXZSoLE?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Skinney Medspa",
+      "Rating": "4.8",
+      "Category": "4.8",
+      "URL": "https://www.google.com/maps/place/Skinney+Medspa/data=!4m7!3m6!1s0x89c258ef9da2b701:0x2ac1d210967c37c8!8m2!3d40.763742!4d-73.9701959!16s%2Fg%2F1tmqmpw8!19sChIJAbeine9YwokRyDd8lhDSwSo?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Deep Blue Med Spa",
+      "Rating": "4.8",
+      "Category": "4.8",
+      "URL": "https://www.google.com/maps/place/Deep+Blue+Med+Spa/data=!4m7!3m6!1s0x89c258a36c713869:0xa6091dd138521a5e!8m2!3d40.78053!4d-73.9575194!16s%2Fg%2F11bvvzyln9!19sChIJaThxbKNYwokRXhpSONEdCaY?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Rachel Med Spa",
+      "Rating": "4.6",
+      "Category": "4.6",
+      "URL": "https://www.google.com/maps/place/Rachel+Med+Spa/data=!4m7!3m6!1s0x89c25e20c5fd4003:0xc9680982183e20de!8m2!3d40.7700362!4d-73.959638!16s%2Fg%2F1tl1pc7r!19sChIJA0D9xSBewokR3iA-GIIJaMk?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Anand Medical Spa",
+      "Rating": "4.7",
+      "Category": "4.7",
+      "URL": "https://www.google.com/maps/place/Anand+Medical+Spa/data=!4m7!3m6!1s0x89c25901740aa87d:0xca3364ecd27c44b4!8m2!3d40.763626!4d-73.970973!16s%2Fg%2F11xwfg2cm!19sChIJfagKdAFZwokRtER80uxkM8o?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "SoVous",
+      "Rating": "5.0",
+      "Category": "5.0",
+      "URL": "https://www.google.com/maps/place/SoVous/data=!4m7!3m6!1s0x89c258eb69508ba1:0x629903418b77a92c!8m2!3d40.7696657!4d-73.9677337!16s%2Fg%2F1v8x32_5!19sChIJoYtQaetYwokRLKl3i0EDmWI?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Alchemy 43 Upper East Side",
+      "Rating": "4.5",
+      "Category": "4.5",
+      "URL": "https://www.google.com/maps/place/Alchemy+43+Upper+East+Side/data=!4m7!3m6!1s0x89c25989d7870bd9:0x2f4782b80816f4cd!8m2!3d40.7726433!4d-73.9587367!16s%2Fg%2F11ryrdphw3!19sChIJ2QuH14lZwokRzfQWCLiCRy8?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Faces Med SPA",
+      "Rating": "4.5",
+      "Category": "4.5",
+      "URL": "https://www.google.com/maps/place/Faces+Med+SPA/data=!4m7!3m6!1s0x89c259f34a7c68c1:0x8e6bde0aba89f707!8m2!3d40.76302!4d-73.967405!16s%2Fg%2F11lgyvsv3y!19sChIJwWh8SvNZwokRB_eJugrea44?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "HausMD The Medspa",
+      "Rating": "5.0",
+      "Category": "5.0",
+      "URL": "https://www.google.com/maps/place/HausMD+The+Medspa/data=!4m7!3m6!1s0x89c259be051c92c7:0x642afc3804a97a22!8m2!3d40.7685726!4d-73.9570491!16s%2Fg%2F11vdjtlxv5!19sChIJx5IcBb5ZwokRInqpBDj8KmQ?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Manhattan Laser - Med Aesthetics Clinic | Medspa",
+      "Rating": "4.6",
+      "Category": "4.6",
+      "URL": "https://www.google.com/maps/place/Manhattan+Laser+-+Med+Aesthetics+Clinic+%7C+Medspa/data=!4m7!3m6!1s0x89c2596719e015b3:0x4a7fefed16b77ae6!8m2!3d40.764408!4d-73.96691!16s%2Fg%2F11ghp0n3cq!19sChIJsxXgGWdZwokR5nq3Fu3vf0o?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Yihan Spa",
+      "Rating": "5.0",
+      "Category": "5.0(1,463)",
+      "URL": "https://www.google.com/maps/place/Yihan+Spa/data=!4m7!3m6!1s0x89c2596aa4803f9d:0xc14e53778ad697c4!8m2!3d40.7630942!4d-73.9649721!16s%2Fg%2F11pbn12bj3!19sChIJnT-ApGpZwokRxJfWindTTsE?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "VR MedSpa Aesthetic Salon, Manhattan",
+      "Rating": "4.2",
+      "Category": "4.2(57)",
+      "URL": "https://www.google.com/maps/place/VR+MedSpa+Aesthetic+Salon,+Manhattan/data=!4m7!3m6!1s0x89c2594f6739acd1:0x8c9662a0ee2b450a!8m2!3d40.7688759!4d-73.9590898!16s%2Fg%2F11pzs0tyj7!19sChIJ0aw5Z09ZwokRCkUr7qBilow?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Glowbar Upper East Side",
+      "Rating": "4.6",
+      "Category": "4.6(272)",
+      "URL": "https://www.google.com/maps/place/Glowbar+Upper+East+Side/data=!4m7!3m6!1s0x89c259c7c38193d1:0x9319276581d86536!8m2!3d40.7696004!4d-73.9610692!16s%2Fg%2F11hpd0ghrk!19sChIJ0ZOBw8dZwokRNmXYgWUnGZM?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "JECT",
+      "Rating": "4.9",
+      "Category": "4.9(598)",
+      "URL": "https://www.google.com/maps/place/JECT/data=!4m7!3m6!1s0x89c25915aef8fc9b:0x38c8fdcffadf2c20!8m2!3d40.7720633!4d-73.9592043!16s%2Fg%2F11jh92d859!19sChIJm_z4rhVZwokRICzf-s_9yDg?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Nush Skincare",
+      "Rating": "4.6",
+      "Category": "4.6(111)",
+      "URL": "https://www.google.com/maps/place/Nush+Skincare/data=!4m7!3m6!1s0x89c2593b9a15345f:0x52f74fc10bac879f!8m2!3d40.7695579!4d-73.9508062!16s%2Fg%2F11j1bqvjh2!19sChIJXzQVmjtZwokRn4esC8FP91I?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "House of Ness: Ness Medical",
+      "Rating": "4.6",
+      "Category": "4.6(143)",
+      "URL": "https://www.google.com/maps/place/House+of+Ness:+Ness+Medical/data=!4m7!3m6!1s0x89c25958f7d6f0f7:0x1df7c60267621feb!8m2!3d40.7738048!4d-73.95892!16s%2Fg%2F11hdnymd_x!19sChIJ9_DW91hZwokR6x9iZwLG9x0?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Heyday Skincare Upper East Side",
+      "Rating": "4.7",
+      "Category": "4.7(311)",
+      "URL": "https://www.google.com/maps/place/Heyday+Skincare+Upper+East+Side/data=!4m7!3m6!1s0x89c258bc236ab233:0x57b8c3efbb44af9a!8m2!3d40.7764013!4d-73.9553624!16s%2Fg%2F11c6sn5f9l!19sChIJM7JqI7xYwokRmq9Eu-_DuFc?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Le Salon Day Spa",
+      "Rating": "4.8",
+      "Category": "4.8(37)",
+      "URL": "https://www.google.com/maps/place/Le+Salon+Day+Spa/data=!4m7!3m6!1s0x89c258eae6a750cb:0xbae6b53aeef9752!8m2!3d40.7704336!4d-73.9618669!16s%2Fg%2F1v6wq7b1!19sChIJy1Cn5upYwokRUpfvrlNrrgs?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Modern Age Upper East Side",
+      "Rating": "4.8",
+      "Category": "4.8(40)",
+      "URL": "https://www.google.com/maps/place/Modern+Age+Upper+East+Side/data=!4m7!3m6!1s0x89c2592bde479723:0x3559485b64bb2b98!8m2!3d40.771599!4d-73.95966!16s%2Fg%2F11tf_dp8t9!19sChIJI5dH3itZwokRmCu7ZFtIWTU?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Le Bon Skin Lab",
+      "Rating": "4.7",
+      "Category": "4.7(53)",
+      "URL": "https://www.google.com/maps/place/Le+Bon+Skin+Lab/data=!4m7!3m6!1s0x89c258ef69f28f29:0x45607373339ffe90!8m2!3d40.763742!4d-73.9701959!16s%2Fg%2F11c1xh74w9!19sChIJKY_yae9YwokRkP6fM3NzYEU?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Restore Hyper Wellness",
+      "Rating": "4.9",
+      "Category": "4.9(281)",
+      "URL": "https://www.google.com/maps/place/Restore+Hyper+Wellness/data=!4m7!3m6!1s0x89c259d6f0854dd1:0x3aa8e281c322db98!8m2!3d40.777803!4d-73.955018!16s%2Fg%2F11jsvf5b4y!19sChIJ0U2F8NZZwokRmNsiw4HiqDo?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Thérapie Clinic Upper East Side",
+      "Rating": "5.0",
+      "Category": "5.0(316)",
+      "URL": "https://www.google.com/maps/place/Th%C3%A9rapie+Clinic+Upper+East+Side/data=!4m7!3m6!1s0x89c2598873849e39:0x5edd141f58947999!8m2!3d40.7781542!4d-73.952867!16s%2Fg%2F11lw37xd7b!19sChIJOZ6Ec4hZwokRmXmUWB8U3V4?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "AestheticsMD by Jean Rhee Upper East Side",
+      "Rating": "5.0",
+      "Category": "5.0(600)",
+      "URL": "https://www.google.com/maps/place/AestheticsMD+by+Jean+Rhee+Upper+East+Side/data=!4m7!3m6!1s0x89c25bba1a594151:0x54899e1fcb8ca311!8m2!3d40.764878!4d-73.970292!16s%2Fg%2F11nxcq8yvw!19sChIJUUFZGrpbwokREaOMyx-eiVQ?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Dorothy's Day Spa",
+      "Rating": "4.9",
+      "Category": "4.9(35)",
+      "URL": "https://www.google.com/maps/place/Dorothy%27s+Day+Spa/data=!4m7!3m6!1s0x89c258a364584caf:0x2addfaa345b4f49c!8m2!3d40.7825187!4d-73.9531922!16s%2Fg%2F1vs1sswd!19sChIJr0xYZKNYwokRnPS0RaP63So?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Skinly Aesthetics",
+      "Rating": "4.6",
+      "Category": "4.6(445)",
+      "URL": "https://www.google.com/maps/place/Skinly+Aesthetics/data=!4m7!3m6!1s0x89c259f8cb312693:0x7d89be8dcad111ee!8m2!3d40.7653163!4d-73.9655089!16s%2Fg%2F11h8zjtwsf!19sChIJkyYxy_hZwokR7hHRyo2-iX0?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Gloday Med Spa",
+      "Rating": "5.0",
+      "Category": "5.0(29)",
+      "URL": "https://www.google.com/maps/place/Gloday+Med+Spa/data=!4m7!3m6!1s0x89c2591c273c859b:0xbd7348cc73aa5017!8m2!3d40.7630006!4d-73.9674091!16s%2Fg%2F11mdt9cvk5!19sChIJm4U8JxxZwokRF1Cqc8xIc70?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "BodyFactory Skin Care",
+      "Rating": "4.4",
+      "Category": "4.4(110)",
+      "URL": "https://www.google.com/maps/place/BodyFactory+Skin+Care/data=!4m7!3m6!1s0x89c259e5837703ff:0x6a97c0433ad7274f!8m2!3d40.7739194!4d-73.9511825!16s%2Fg%2F11gjgyhkg0!19sChIJ_wN3g-VZwokRTyfXOkPAl2o?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Ease Spa Wellness",
+      "Rating": "4.7",
+      "Category": "4.7(212)",
+      "URL": "https://www.google.com/maps/place/Ease+Spa+Wellness/data=!4m7!3m6!1s0x89c2598a20e64025:0x448c08c25af99ea1!8m2!3d40.7593177!4d-73.9708293!16s%2Fg%2F1vcl4p50!19sChIJJUDmIIpZwokRoZ75WsIIjEQ?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Botox NYC - New York",
+      "Rating": "5.0",
+      "Category": "5.0(12)",
+      "URL": "https://www.google.com/maps/place/Botox+NYC+-+New+York/data=!4m7!3m6!1s0x89c2589593206877:0x40b263d5384edf22!8m2!3d40.7756913!4d-73.9601191!16s%2Fg%2F11rxhzvkxc!19sChIJd2ggk5VYwokRIt9OONVjskA?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "BeRejuved Medical Spa & Wellness Studio East Side",
+      "Rating": "5.0",
+      "Category": "5.0(5)",
+      "URL": "https://www.google.com/maps/place/BeRejuved+Medical+Spa+%26+Wellness+Studio+East+Side/data=!4m7!3m6!1s0x89c2595b66423cf9:0x2ae5f11c8c8c4f0a!8m2!3d40.7599643!4d-73.9680507!16s%2Fg%2F11njt260yc!19sChIJ-TxCZltZwokRCk-MjBzx5So?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Aphrodite Medical PLLC",
+      "Rating": "5.0",
+      "Category": "5.0(35)",
+      "URL": "https://www.google.com/maps/place/Aphrodite+Medical+PLLC/data=!4m7!3m6!1s0x89c259cd9fdf3851:0x9cf745c662fbcc44!8m2!3d40.7739898!4d-73.9601858!16s%2Fg%2F11tsk8flst!19sChIJUTjfn81ZwokRRMz7YsZF95w?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Eastside Massage Therapy",
+      "Rating": "4.8",
+      "Category": "4.8(261)",
+      "URL": "https://www.google.com/maps/place/Eastside+Massage+Therapy/data=!4m7!3m6!1s0x89c258bf356f6ff9:0x3f244f67282bd373!8m2!3d40.7720984!4d-73.9536461!16s%2Fg%2F1v0llpsz!19sChIJ-W9vNb9YwokRc9MrKGdPJD8?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Silver Mirror Facial Bar - Upper East Side",
+      "Rating": "4.5",
+      "Category": "4.5(166)",
+      "URL": "https://www.google.com/maps/place/Silver+Mirror+Facial+Bar+-+Upper+East+Side/data=!4m7!3m6!1s0x89c258eeceaf9871:0x2c59e600faea3a74!8m2!3d40.7658912!4d-73.9657756!16s%2Fg%2F11cnddrkqw!19sChIJcZivzu5YwokRdDrq-gDmWSw?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Beauté Aesthetics",
+      "Rating": "4.8",
+      "Category": "4.8(253)",
+      "URL": "https://www.google.com/maps/place/Beaut%C3%A9+Aesthetics/data=!4m7!3m6!1s0x89c2591e1a6ebadf:0x19acb8c0e1c1e1d7!8m2!3d40.76965!4d-73.967201!16s%2Fg%2F11nn1zcf7w!19sChIJ37puGh5ZwokR1-HB4cC4rBk?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Face Of Beauty",
+      "Rating": "3.7",
+      "Category": "3.7(20)",
+      "URL": "https://www.google.com/maps/place/Face+Of+Beauty/data=!4m7!3m6!1s0x89c25985a0e94dd7:0xa02178ca88c37cc8!8m2!3d40.7715645!4d-73.9611783!16s%2Fg%2F11lrdx08xz!19sChIJ103poIVZwokRyHzDiMp4IaA?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Ultherapy New York",
+      "Rating": "4.9",
+      "Category": "4.9(44)",
+      "URL": "https://www.google.com/maps/place/Ultherapy+New+York/data=!4m7!3m6!1s0x89c2446eb1a2de1b:0xa928ebb7848f34ba!8m2!3d40.7756913!4d-73.9601191!16s%2Fg%2F1hhwv13tl!19sChIJG96isW5EwokRujSPhLfrKKk?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Sunny Beauty Spa",
+      "Rating": "4.9",
+      "Category": "4.9(226)",
+      "URL": "https://www.google.com/maps/place/Sunny+Beauty+Spa/data=!4m7!3m6!1s0x89c258ba8f2c2fe3:0xeaae6eeb6f20c401!8m2!3d40.7776958!4d-73.9485611!16s%2Fg%2F11gg681js3!19sChIJ4y8sj7pYwokRAcQgb-turuo?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Aida Bicaj Skincare - Upper East Side",
+      "Rating": "4.9",
+      "Category": "4.9(52)",
+      "URL": "https://www.google.com/maps/place/Aida+Bicaj+Skincare+-+Upper+East+Side/data=!4m7!3m6!1s0x89c25894e1120f39:0xf0c1e9feca971e44!8m2!3d40.7683972!4d-73.9675525!16s%2Fg%2F1tcws153!19sChIJOQ8S4ZRYwokRRB6Xyv7pwfA?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Skin Spa New York - Mideast / E 56th St. Medical Spa",
+      "Rating": "4.3",
+      "Category": "4.3(182)",
+      "URL": "https://www.google.com/maps/place/Skin+Spa+New+York+-+Mideast+%2F+E+56th+St.+Medical+Spa/data=!4m7!3m6!1s0x89c259398ddb2a61:0xf93fde77815fc084!8m2!3d40.7606602!4d-73.9700314!16s%2Fg%2F11gyy_fkj8!19sChIJYSrbjTlZwokRhMBfgXfeP_k?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Inside Beauty Spa",
+      "Rating": "5.0",
+      "Category": "5.0(25)",
+      "URL": "https://www.google.com/maps/place/Inside+Beauty+Spa/data=!4m7!3m6!1s0x89c259babcc28ba1:0xe2f76c812e489ae6!8m2!3d40.7724943!4d-73.9624557!16s%2Fg%2F11fjw3hm1j!19sChIJoYvCvLpZwokR5ppILoFs9-I?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Trifecta Med Spa 57",
+      "Rating": "4.8",
+      "Category": "4.8(98)",
+      "URL": "https://www.google.com/maps/place/Trifecta+Med+Spa+57/data=!4m7!3m6!1s0x89c258f79953bad5:0x694f9c76882bea4!8m2!3d40.7653794!4d-73.9806833!16s%2Fg%2F11b6z3g3qt!19sChIJ1bpTmfdYwokRpL6CaMf5lAY?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "New York Facial & Body Rejuvenation - Manhattan",
+      "Rating": "5.0",
+      "Category": "5.0(4)",
+      "URL": "https://www.google.com/maps/place/New+York+Facial+%26+Body+Rejuvenation+-+Manhattan/data=!4m7!3m6!1s0x89c25895b623ffff:0xf7ed9c6e1073b9c8!8m2!3d40.7738048!4d-73.95892!16s%2Fg%2F11hd9kbzyv!19sChIJ__8jtpVYwokRyLlzEG6c7fc?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Body Lounge Beauty Bar & Spa",
+      "Rating": "5.0",
+      "Category": "5.0(24)",
+      "URL": "https://www.google.com/maps/place/Body+Lounge+Beauty+Bar+%26+Spa/data=!4m7!3m6!1s0x89c25903ab23a00b:0xdc4a375081711b96!8m2!3d40.7629965!4d-73.9652006!16s%2Fg%2F11j30bwq03!19sChIJC6AjqwNZwokRlhtxgVA3Stw?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Restore Hyper Wellness",
+      "Rating": "4.9",
+      "Category": "4.9(533)",
+      "URL": "https://www.google.com/maps/place/Restore+Hyper+Wellness/data=!4m7!3m6!1s0x89c2591b1673b043:0x1c587c8330af68b9!8m2!3d40.7679948!4d-73.961564!16s%2Fg%2F11jmz6jglf!19sChIJQ7BzFhtZwokRuWivMIN8WBw?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Verve Medical Cosmetics",
+      "Rating": "4.7",
+      "Category": "4.7(75)",
+      "URL": "https://www.google.com/maps/place/Verve+Medical+Cosmetics/data=!4m7!3m6!1s0x89c258e2de8ed833:0xab0921fd6d562ca1!8m2!3d40.7614025!4d-73.9646992!16s%2Fg%2F1tdqjd7t!19sChIJM9iO3uJYwokRoSxWbf0hCas?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Aesthetic Artistry",
+      "Rating": "5.0",
+      "Category": "5.0(70)",
+      "URL": "https://www.google.com/maps/place/Aesthetic+Artistry/data=!4m7!3m6!1s0x89c258ef67bd1523:0x5b74c03113863b9b!8m2!3d40.7632204!4d-73.9669044!16s%2Fg%2F11fll64v8d!19sChIJIxW9Z-9YwokRmzuGEzHAdFs?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Park Avenue Plastic Surgery Med Spa",
+      "Rating": "5.0",
+      "Category": "5.0(7)",
+      "URL": "https://www.google.com/maps/place/Park+Avenue+Plastic+Surgery+Med+Spa/data=!4m7!3m6!1s0x89c259f03eda0d9f:0x5c3112d74e9fd6!8m2!3d40.7775996!4d-73.9595628!16s%2Fg%2F11tjp5x3kk!19sChIJnw3aPvBZwokR1p9O1xIxXAA?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "ZZ Med Spa",
+      "Rating": "5.0",
+      "Category": "5.0(414)",
+      "URL": "https://www.google.com/maps/place/ZZ+Med+Spa/data=!4m7!3m6!1s0x89c259bfcf1fe3c1:0x3006de9aeb8c4c40!8m2!3d40.7604884!4d-73.9706578!16s%2Fg%2F11x11d052n!19sChIJweMfz79ZwokRQEyM65reBjA?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Altman Aesthetic Center Med Spa - Manhattan",
+      "Rating": "5.0",
+      "Category": "5.0(27)",
+      "URL": "https://www.google.com/maps/place/Altman+Aesthetic+Center+Med+Spa+-+Manhattan/data=!4m7!3m6!1s0x89c2590e96444061:0xd175bea7b00c350c!8m2!3d40.7687921!4d-73.9694425!16s%2Fg%2F11ln4vc40r!19sChIJYUBElg5ZwokRDDUMsKe-ddE?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "notJustLips New York",
+      "Rating": "4.7",
+      "Category": "4.7(443)",
+      "URL": "https://www.google.com/maps/place/notJustLips+New+York/data=!4m7!3m6!1s0x89c259345aa0f63f:0x12f88b8a6f629278!8m2!3d40.7715645!4d-73.9611783!16s%2Fg%2F11vb9zml80!19sChIJP_agWjRZwokReJJib4qL-BI?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "KLARA Beauty Lab",
+      "Rating": "5.0",
+      "Category": "5.0(41)",
+      "URL": "https://www.google.com/maps/place/KLARA+Beauty+Lab/data=!4m7!3m6!1s0x89c25895b3a01521:0x1b8acc69065bbf33!8m2!3d40.775299!4d-73.9621913!16s%2Fg%2F124s_1gmp!19sChIJIRWgs5VYwokRM79bBmnMihs?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "The Brightwood Skin",
+      "Rating": "4.9",
+      "Category": "4.9(273)",
+      "URL": "https://www.google.com/maps/place/The+Brightwood+Skin/data=!4m7!3m6!1s0x89c25976fa472b23:0x9abfe9f8552c0a60!8m2!3d40.7661321!4d-73.966288!16s%2Fg%2F11vb3dh33p!19sChIJIytH-nZZwokRYAosVfjpv5o?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Natura Med Spa - Upper East Side",
+      "Rating": "4.5",
+      "Category": "4.5(16)",
+      "URL": "https://www.google.com/maps/place/Natura+Med+Spa+-+Upper+East+Side/data=!4m7!3m6!1s0x89c259eb09f9e8dd:0x66f67b4c4a5c96a6!8m2!3d40.7641145!4d-73.9651826!16s%2Fg%2F11vs6jlxhl!19sChIJ3ej5CetZwokRppZcSkx79mY?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Plump Cosmetics & Injectables",
+      "Rating": "4.7",
+      "Category": "4.7(45)",
+      "URL": "https://www.google.com/maps/place/Plump+Cosmetics+%26+Injectables/data=!4m7!3m6!1s0x89c258e5e3a872bb:0x9109c3d3b16ae006!8m2!3d40.7617547!4d-73.965584!16s%2Fg%2F11h5rg4jys!19sChIJu3Ko4-VYwokRBuBqsdPDCZE?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Central Park West Med Spa",
+      "Rating": "5.0",
+      "Category": "5.0(18)",
+      "URL": "https://www.google.com/maps/place/Central+Park+West+Med+Spa/data=!4m7!3m6!1s0x89c258f4c1eeaaab:0x1dc0068a5ed07a49!8m2!3d40.7730938!4d-73.9788937!16s%2Fg%2F11f63x6lkt!19sChIJq6ruwfRYwokRSXrQXooGwB0?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Skin Laundry - Upper East Side",
+      "Rating": "4.6",
+      "Category": "4.6(198)",
+      "URL": "https://www.google.com/maps/place/Skin+Laundry+-+Upper+East+Side/data=!4m7!3m6!1s0x89c2591b43eb8e3d:0xfe83b9c859054e87!8m2!3d40.7810227!4d-73.9527512!16s%2Fg%2F11kjykh125!19sChIJPY7rQxtZwokRh04FWci5g_4?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Sobel Skin",
+      "Rating": "4.8",
+      "Category": "4.8(177)",
+      "URL": "https://www.google.com/maps/place/Sobel+Skin/data=!4m7!3m6!1s0x89c258bd8a2ed349:0xc352ab61869d4d56!8m2!3d40.7779103!4d-73.9595046!16s%2Fg%2F1tc_0f6_!19sChIJSdMuir1YwokRVk2dhmGrUsM?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Sunshine Health massage",
+      "Rating": "4.7",
+      "Category": "4.7(64)",
+      "URL": "https://www.google.com/maps/place/Sunshine+Health+massage/data=!4m7!3m6!1s0x89c259d279c848e1:0x52c221ef86c8d601!8m2!3d40.7749268!4d-73.9481632!16s%2Fg%2F11rc9n10c1!19sChIJ4UjIedJZwokRAdbIhu8hwlI?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "James Christian Cosmetics - Botox, Fillers and Skincare in NYC",
+      "Rating": "4.8",
+      "Category": "4.8(152)",
+      "URL": "https://www.google.com/maps/place/James+Christian+Cosmetics+-+Botox,+Fillers+and+Skincare+in+NYC/data=!4m7!3m6!1s0x89e833dcaa0e5c4b:0x248952398cf2705!8m2!3d40.7635232!4d-73.9617709!16s%2Fg%2F11bwnxjw2f!19sChIJS1wOqtwz6IkRBSfPmCOVSAI?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "BELLISIMA BEAUTY MEDI SPA NYC",
+      "Rating": "",
+      "Category": "Medical spa",
+      "URL": "https://www.google.com/maps/place/BELLISIMA+BEAUTY+MEDI+SPA+NYC/data=!4m7!3m6!1s0x89c259a2d98227c9:0xa190f504eae55b99!8m2!3d40.7630006!4d-73.9674091!16s%2Fg%2F11vkzn_65n!19sChIJySeC2aJZwokRmVvl6gT1kKE?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Aion Aesthetics",
+      "Rating": "5.0",
+      "Category": "5.0(210)",
+      "URL": "https://www.google.com/maps/place/Aion+Aesthetics/data=!4m7!3m6!1s0x89c25970fdfda3a1:0x8eb19910379f494!8m2!3d40.7722254!4d-73.9638522!16s%2Fg%2F11q96d5d39!19sChIJoaP9_XBZwokRlPR5A5EZ6wg?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Aspire Medical Aesthetics New York City, NY",
+      "Rating": "5.0",
+      "Category": "5.0(7)",
+      "URL": "https://www.google.com/maps/place/Aspire+Medical+Aesthetics+New+York+City,+NY/data=!4m7!3m6!1s0x89c259d3fd2606d5:0xb314ef9f45b9fe87!8m2!3d40.7752951!4d-73.9612618!16s%2Fg%2F11s9k2fl65!19sChIJ1QYm_dNZwokRh_65RZ_vFLM?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Skinova Medspa",
+      "Rating": "4.8",
+      "Category": "4.8(274)",
+      "URL": "https://www.google.com/maps/place/Skinova+Medspa/data=!4m7!3m6!1s0x89c2599129669635:0x1674729557231643!8m2!3d40.7542077!4d-73.9791695!16s%2Fg%2F11fk8cw1vs!19sChIJNZZmKZFZwokRQxYjV5VydBY?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Peach & Fox",
+      "Rating": "4.9",
+      "Category": "4.9(91)",
+      "URL": "https://www.google.com/maps/place/Peach+%26+Fox/data=!4m7!3m6!1s0x89c259d7243caf77:0xa8965008db339e6e!8m2!3d40.76307!4d-73.9673989!16s%2Fg%2F11h1dbn7_0!19sChIJd688JNdZwokRbp4z2whQlqg?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Georgia Louise Beauty Longevity Atelier",
+      "Rating": "4.8",
+      "Category": "4.8(86)",
+      "URL": "https://www.google.com/maps/place/Georgia+Louise+Beauty+Longevity+Atelier/data=!4m7!3m6!1s0x89c258eb0b83618b:0x8f5f75aeaf30aaa!8m2!3d40.7761363!4d-73.9570811!16s%2Fg%2F11bw61gvwp!19sChIJi2GDC-tYwokRqgrz6lr39Qg?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Dr. Leslie Gerstman",
+      "Rating": "4.6",
+      "Category": "4.6(124)",
+      "URL": "https://www.google.com/maps/place/Dr.+Leslie+Gerstman/data=!4m7!3m6!1s0x89c2598f2a981da3:0x3903f8ecd7d41538!8m2!3d40.7639984!4d-73.9662648!16s%2Fg%2F1tkp5x5n!19sChIJox2YKo9ZwokROBXU1-z4Azk?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Ronit Shabtian",
+      "Rating": "5.0",
+      "Category": "5.0(7)",
+      "URL": "https://www.google.com/maps/place/Ronit+Shabtian/data=!4m7!3m6!1s0x89c2899538300001:0x31ef83445ec67789!8m2!3d40.793692!4d-73.733719!16s%2Fg%2F11tn9kxscw!19sChIJAQAwOJWJwokRiXfGXkSD7zE?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Time Skin NYC",
+      "Rating": "5.0",
+      "Category": "5.0(6)",
+      "URL": "https://www.google.com/maps/place/Time+Skin+NYC/data=!4m7!3m6!1s0x89c259399e29bebd:0xee246f97add3749b!8m2!3d40.777474!4d-73.950317!16s%2Fg%2F11x7xlv81w!19sChIJvb4pnjlZwokRm3TTrZdvJO4?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Skin Deep NYC",
+      "Rating": "4.9",
+      "Category": "4.9(59)",
+      "URL": "https://www.google.com/maps/place/Skin+Deep+NYC/data=!4m7!3m6!1s0x89c25908556b0d4f:0xecc044fb24cd1fd3!8m2!3d40.7633801!4d-73.9763535!16s%2Fg%2F11fpmd3vgr!19sChIJTw1rVQhZwokR0x_NJPtEwOw?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Satori Laser",
+      "Rating": "4.9",
+      "Category": "4.9(377)",
+      "URL": "https://www.google.com/maps/place/Satori+Laser/data=!4m7!3m6!1s0x89c258ba52d2ed13:0x375ce696abc80bca!8m2!3d40.777215!4d-73.9506576!16s%2Fg%2F11f0l4848j!19sChIJE-3SUrpYwokRygvIq5bmXDc?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Radiant Beauty & Health Manhattan",
+      "Rating": "4.8",
+      "Category": "4.8(476)",
+      "URL": "https://www.google.com/maps/place/Radiant+Beauty+%26+Health+Manhattan/data=!4m7!3m6!1s0x89c259f86976b0f7:0x89f3d7e998067dea!8m2!3d40.7614749!4d-73.9699584!16s%2Fg%2F11sqkks_1g!19sChIJ97B2afhZwokR6n0GmOnX84k?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Bioskin Laser",
+      "Rating": "4.5",
+      "Category": "4.5(101)",
+      "URL": "https://www.google.com/maps/place/Bioskin+Laser/data=!4m7!3m6!1s0x89c258eb42502553:0x27a2cded15b6834c!8m2!3d40.771101!4d-73.96441!16s%2Fg%2F11c486ts_m!19sChIJUyVQQutYwokRTIO2Fe3Noic?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Red Carpet Aesthetics",
+      "Rating": "4.9",
+      "Category": "4.9(135)",
+      "URL": "https://www.google.com/maps/place/Red+Carpet+Aesthetics/data=!4m7!3m6!1s0x89c259ac8604f74b:0x77323e4055650f74!8m2!3d40.763742!4d-73.9701959!16s%2Fg%2F11mxv0v6t3!19sChIJS_cEhqxZwokRdA9lVUA-Mnc?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Dr. Dennis Gross Dermatology",
+      "Rating": "4.9",
+      "Category": "4.9(361)",
+      "URL": "https://www.google.com/maps/place/Dr.+Dennis+Gross+Dermatology/data=!4m7!3m6!1s0x89c258ecc6f91db9:0xc246881eef31c1ce!8m2!3d40.7718449!4d-73.9673034!16s%2Fg%2F12lkn8j4w!19sChIJuR35xuxYwokRzsEx7x6IRsI?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Haus Of Vanity Beauty MedSpa",
+      "Rating": "5.0",
+      "Category": "5.0(1)",
+      "URL": "https://www.google.com/maps/place/Haus+Of+Vanity+Beauty+MedSpa/data=!4m7!3m6!1s0x89c259ff9d2d6737:0x306f80b44d9b16b1!8m2!3d40.7628197!4d-73.9686316!16s%2Fg%2F11vb29l1t6!19sChIJN2ctnf9ZwokRsRabTbSAbzA?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "BeautyWorks NYC",
+      "Rating": "",
+      "Category": "Medical spa",
+      "URL": "https://www.google.com/maps/place/BeautyWorks+NYC/data=!4m7!3m6!1s0x89c2597c4255e0a9:0x4e8f751a9c65507f!8m2!3d40.7656679!4d-73.9715507!16s%2Fg%2F11f6dr3n6c!19sChIJqeBVQnxZwokRf1BlnBp1j04?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "KINDSKINmedspa",
+      "Rating": "5.0",
+      "Category": "5.0(6)",
+      "URL": "https://www.google.com/maps/place/KINDSKINmedspa/data=!4m7!3m6!1s0x89c259884dd3cac7:0x12a3e55b1ef3424a!8m2!3d40.7703913!4d-73.9637714!16s%2Fg%2F11sskr8_6g!19sChIJx8rTTYhZwokRSkLzHlvloxI?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Lee 91 Spa",
+      "Rating": "4.7",
+      "Category": "4.7(179)",
+      "URL": "https://www.google.com/maps/place/Lee+91+Spa/data=!4m7!3m6!1s0x89c2595dd7e00b23:0x8f4010bc09afe88a!8m2!3d40.7824072!4d-73.9532259!16s%2Fg%2F11j0xpbjs6!19sChIJIwvg111ZwokRiuivCbwQQI8?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Manhattan Medspa",
+      "Rating": "4.5",
+      "Category": "4.5(135)",
+      "URL": "https://www.google.com/maps/place/Manhattan+Medspa/data=!4m7!3m6!1s0x89c259a0df7c65cf:0x858db894dac8c8bf!8m2!3d40.7495372!4d-73.9819791!16s%2Fg%2F11h5q8kwqf!19sChIJz2V836BZwokRv8jI2pS4jYU?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Skin Concept And Laser",
+      "Rating": "4.9",
+      "Category": "4.9(271)",
+      "URL": "https://www.google.com/maps/place/Skin+Concept+And+Laser/data=!4m7!3m6!1s0x89c2593808a38c79:0x46f7360ff15cf7d1!8m2!3d40.7618713!4d-73.9690107!16s%2Fg%2F11pwds6qgf!19sChIJeYyjCDhZwokR0fdc8Q8290Y?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Renaissance Medical by Dr. Yixiu Zheng",
+      "Rating": "4.9",
+      "Category": "4.9(72)",
+      "URL": "https://www.google.com/maps/place/Renaissance+Medical+by+Dr.+Yixiu+Zheng/data=!4m7!3m6!1s0x89c259576e1b2c63:0xb7eca373568d35fe!8m2!3d40.7634685!4d-73.9639573!16s%2Fg%2F11pf1_zyn8!19sChIJYywbbldZwokR_jWNVnOj7Lc?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Serene Max Laser Spa",
+      "Rating": "5.0",
+      "Category": "5.0(84)",
+      "URL": "https://www.google.com/maps/place/Serene+Max+Laser+Spa/data=!4m7!3m6!1s0x89c2590740f807b9:0x3161d5818a41f810!8m2!3d40.763724!4d-73.9702572!16s%2Fg%2F1tdz5r3p!19sChIJuQf4QAdZwokREPhBioHVYTE?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "YORKVILLE DAY SPA",
+      "Rating": "4.3",
+      "Category": "4.3(32)",
+      "URL": "https://www.google.com/maps/place/YORKVILLE+DAY+SPA/data=!4m7!3m6!1s0x89c2591690cbbd45:0x2343dff0c9ca4cde!8m2!3d40.7758297!4d-73.9498688!16s%2Fg%2F11rfqzwg_b!19sChIJRb3LkBZZwokR3kzKyfDfQyM?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "The Dermatology and Laser Group",
+      "Rating": "4.9",
+      "Category": "4.9(459)",
+      "URL": "https://www.google.com/maps/place/The+Dermatology+and+Laser+Group/data=!4m7!3m6!1s0x89c258f7997e7161:0x2c59f3330ce6bf65!8m2!3d40.7630697!4d-73.9688606!16s%2Fg%2F1jmc_f5dl!19sChIJYXF-mfdYwokRZb_mDDPzWSw?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Anastasia Skin Care Studio",
+      "Rating": "5.0",
+      "Category": "5.0(52)",
+      "URL": "https://www.google.com/maps/place/Anastasia+Skin+Care+Studio/data=!4m7!3m6!1s0x89c25999336f2e95:0x5003d6bfcee41a42!8m2!3d40.7610453!4d-73.9649677!16s%2Fg%2F11t115nmxj!19sChIJlS5vM5lZwokRQhrkzr_WA1A?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Lash Decor and Serenity Spa (79st)",
+      "Rating": "4.8",
+      "Category": "4.8(461)",
+      "URL": "https://www.google.com/maps/place/Lash+Decor+and+Serenity+Spa+%2879st%29/data=!4m7!3m6!1s0x89c259d9fe74cc49:0xb6228463f341a3fb!8m2!3d40.774595!4d-73.956836!16s%2Fg%2F1v2jdtvm!19sChIJScx0_tlZwokR-6NB82OEIrY?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Luna Wellness",
+      "Rating": "5.0",
+      "Category": "5.0(8)",
+      "URL": "https://www.google.com/maps/place/Luna+Wellness/data=!4m7!3m6!1s0x89c25b14d2e6a6f1:0xff3553a62bc51ca!8m2!3d40.707843!4d-74.005636!16s%2Fg%2F11zhybmg_n!19sChIJ8abm0hRbwokRylG8YjpV8w8?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "B Free Electrolysis",
+      "Rating": "5.0",
+      "Category": "5.0(43)",
+      "URL": "https://www.google.com/maps/place/B+Free+Electrolysis/data=!4m7!3m6!1s0x89c259b01f3082c5:0xf4b87abaabbc52e9!8m2!3d40.744542!4d-73.990342!16s%2Fg%2F11yb_g19dp!19sChIJxYIwH7BZwokR6VK8q7p6uPQ?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Sisu Clinic Soho",
+      "Rating": "4.9",
+      "Category": "4.9(269)",
+      "URL": "https://www.google.com/maps/place/Sisu+Clinic+Soho/data=!4m7!3m6!1s0x89c259c33182b935:0x27b47999f43acca2!8m2!3d40.7217457!4d-74.0039841!16s%2Fg%2F11tflqfk8l!19sChIJNbmCMcNZwokRosw69Jl5tCc?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "FILD Studio",
+      "Rating": "4.9",
+      "Category": "4.9(313)",
+      "URL": "https://www.google.com/maps/place/FILD+Studio/data=!4m7!3m6!1s0x89c25999000ace4b:0xc95218621fc7b8db!8m2!3d40.7221624!4d-74.0010693!16s%2Fg%2F11sbh5fxnw!19sChIJS84KAJlZwokR27jHH2IYUsk?authuser=0&hl=en&rclk=1"
+    }
+  ]
+}

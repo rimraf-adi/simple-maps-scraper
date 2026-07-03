@@ -1,0 +1,612 @@
+{
+  "query": "med sps or aesthetics clinic in los angeles,CA",
+  "started_at": "2026-06-12T08:32:04.608886+00:00",
+  "resumed_at": null,
+  "leads": [
+    {
+      "Name": "Beverly Wilshire Aesthetics Beverly Hills Medical Spa",
+      "Rating": "5.0",
+      "Category": "5.0",
+      "URL": "https://www.google.com/maps/place/Beverly+Wilshire+Aesthetics+Beverly+Hills+Medical+Spa/data=!4m7!3m6!1s0x80c2b92d729a7945:0x275eda4418a058cd!8m2!3d34.0666697!4d-118.3900661!16s%2Fg%2F11k11xl5nd!19sChIJRXmaci25woARzVigGETaXic?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "The MedSpa at Beverly Hills",
+      "Rating": "5.0",
+      "Category": "5.0",
+      "URL": "https://www.google.com/maps/place/The+MedSpa+at+Beverly+Hills/data=!4m7!3m6!1s0x80c2bb11f2055901:0x644dd75d40cd717f!8m2!3d34.068396!4d-118.405003!16s%2Fg%2F11q96w7n3l!19sChIJAVkF8hG7woARf3HNQF3XTWQ?authuser=0&hl=en&rclk=1",
+      "Phone": "+1 424-355-0116",
+      "Website": "http://www.themedspaatbeverlyhills.com/",
+      "Address": "416 N Bedford Dr #100, Beverly Hills, CA 90210, United States",
+      "Email": "",
+      "done": true
+    },
+    {
+      "Name": "Skin Verse Medical Spa",
+      "Rating": "4.9",
+      "Category": "4.9",
+      "URL": "https://www.google.com/maps/place/Skin+Verse+Medical+Spa/data=!4m7!3m6!1s0x80c2b9ff11c6f29d:0xa7ad7dc5d29ee695!8m2!3d34.0673956!4d-118.376628!16s%2Fg%2F11t9bb558h!19sChIJnfLGEf-5woARleae0sV9rac?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "NakedMD Beverly Hills",
+      "Rating": "4.9",
+      "Category": "4.9",
+      "URL": "https://www.google.com/maps/place/NakedMD+Beverly+Hills/data=!4m7!3m6!1s0x80c2b9cff8c28245:0x55ed1e183326cf4f!8m2!3d34.0665829!4d-118.3802063!16s%2Fg%2F11w25wddy8!19sChIJRYLC-M-5woART88mMxge7VU?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Beverly Hills Beauty & Aesthetics",
+      "Rating": "4.9",
+      "Category": "4.9",
+      "URL": "https://www.google.com/maps/place/Beverly+Hills+Beauty+%26+Aesthetics/data=!4m7!3m6!1s0x80c2b945f240d765:0x1e095e6c109dafe4!8m2!3d34.0675314!4d-118.4077291!16s%2Fg%2F11c1vjzmnx!19sChIJZddA8kW5woAR5K-dEGxeCR4?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Modern Aesthetica",
+      "Rating": "4.8",
+      "Category": "4.8",
+      "URL": "https://www.google.com/maps/place/Modern+Aesthetica/data=!4m7!3m6!1s0x80c2a4d214ab6275:0xee79497f0efcb6c9!8m2!3d34.0673362!4d-118.3859662!16s%2Fg%2F11d_tv49lq!19sChIJdWKrFNKkwoARybb8Dn9Jee4?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "ELin Medical office",
+      "Rating": "4.8",
+      "Category": "4.8",
+      "URL": "https://www.google.com/maps/place/ELin+Medical+office/data=!4m7!3m6!1s0x80c2bb006d1553bf:0x62502058036477c5!8m2!3d34.0610317!4d-118.3993634!16s%2Fg%2F11y4ltgdcy!19sChIJv1MVbQC7woARxXdkA1ggUGI?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Luxe Aesthetic Surgery & Medical Spa -",
+      "Rating": "5.0",
+      "Category": "5.0(54)",
+      "URL": "https://www.google.com/maps/place/Luxe+Aesthetic+Surgery+%26+Medical+Spa+-/data=!4m7!3m6!1s0x80c2b90f5d09a7a7:0xa846d270a57a67d5!8m2!3d34.0666713!4d-118.3913047!16s%2Fg%2F11qbxtqc5v!19sChIJp6cJXQ-5woAR1Wd6pXDSRqg?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "VS Med Spas",
+      "Rating": "4.9",
+      "Category": "4.9",
+      "URL": "https://www.google.com/maps/place/VS+Med+Spas/data=!4m7!3m6!1s0x80c2a5c291eee369:0x73c8f9e94b311ba0!8m2!3d34.0677224!4d-118.4067437!16s%2Fg%2F11fqbvm9qv!19sChIJaePukcKlwoARoBsxS-n5yHM?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Maven Medi Spa",
+      "Rating": "4.9",
+      "Category": "4.9",
+      "URL": "https://www.google.com/maps/place/Maven+Medi+Spa/data=!4m7!3m6!1s0xaccd77d9d2bd53f9:0xaab4c77e07fda3a9!8m2!3d34.0714511!4d-118.400596!16s%2Fg%2F11y5zpf9mt!19sChIJ-VO90tl3zawRqaP9B37HtKo?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "SkinSpirit at Lasky",
+      "Rating": "4.9",
+      "Category": "4.9",
+      "URL": "https://www.google.com/maps/place/SkinSpirit+at+Lasky/data=!4m7!3m6!1s0x80c2bbf679a70c23:0xa13f0833ab5abe92!8m2!3d34.0652208!4d-118.4102631!16s%2Fg%2F1tm12w7s!19sChIJIwynefa7woARkr5aqzMIP6E?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "LA Ageless Medical Aesthetics",
+      "Rating": "5.0",
+      "Category": "5.0",
+      "URL": "https://www.google.com/maps/place/LA+Ageless+Medical+Aesthetics/data=!4m7!3m6!1s0x80c2bb98b5a8cf59:0x3dede690128a98f6!8m2!3d34.0587227!4d-118.3975539!16s%2Fg%2F11k3z4g8rr!19sChIJWc-otZi7woAR9piKEpDm7T0?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "LYEV Beverly Hills- Medical Spa",
+      "Rating": "4.9",
+      "Category": "4.9",
+      "URL": "https://www.google.com/maps/place/LYEV+Beverly+Hills-+Medical+Spa/data=!4m7!3m6!1s0x80c2b98254b7f517:0x1c6fc6a690b7aa9e!8m2!3d34.071976!4d-118.3842534!16s%2Fg%2F11vry5bvf_!19sChIJF_W3VIK5woARnqq3kKbGbxw?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "SKINnovative Medical Aesthetics",
+      "Rating": "4.9",
+      "Category": "4.9",
+      "URL": "https://www.google.com/maps/place/SKINnovative+Medical+Aesthetics/data=!4m7!3m6!1s0x80c2bbd2c2b4f49b:0x9c472d770fd84843!8m2!3d34.0587201!4d-118.3975774!16s%2Fg%2F11vywkz7h1!19sChIJm_S0wtK7woARQ0jYD3ctR5w?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "The Aesthetic Room by Dr. Rahi",
+      "Rating": "4.8",
+      "Category": "4.8",
+      "URL": "https://www.google.com/maps/place/The+Aesthetic+Room+by+Dr.+Rahi/data=!4m7!3m6!1s0x80c2bb482d36b0f5:0xc9ba7432e81c341d!8m2!3d34.067407!4d-118.3884313!16s%2Fg%2F11g8w8tvp2!19sChIJ9bA2LUi7woARHTQc6DJ0usk?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "SMOOTH SKIN LOUNGE",
+      "Rating": "4.9",
+      "Category": "4.9",
+      "URL": "https://www.google.com/maps/place/SMOOTH+SKIN+LOUNGE/data=!4m7!3m6!1s0x80c2bd029807b1ef:0xd3fd7f8cc93565b5!8m2!3d34.0702769!4d-118.4010529!16s%2Fg%2F11h3gc6m_2!19sChIJ77EHmAK9woARtWU1yYx__dM?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Modern Esthetics",
+      "Rating": "5.0",
+      "Category": "5.0",
+      "URL": "https://www.google.com/maps/place/Modern+Esthetics/data=!4m7!3m6!1s0x80c2bd813a306f27:0xcb8bf51ede2677f4!8m2!3d34.0699451!4d-118.4004148!16s%2Fg%2F11s62jgdt2!19sChIJJ28wOoG9woAR9Hcm3h71i8s?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Beverly Hills Aesthetic Medics",
+      "Rating": "4.2",
+      "Category": "4.2",
+      "URL": "https://www.google.com/maps/place/Beverly+Hills+Aesthetic+Medics/data=!4m7!3m6!1s0x80c2b9596d45bd61:0xa528e8d72f42cbf4!8m2!3d34.058748!4d-118.397501!16s%2Fg%2F1tdp0qs2!19sChIJYb1FbVm5woAR9MtCL9foKKU?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Beverly Hills Med Spa",
+      "Rating": "4.5",
+      "Category": "4.5",
+      "URL": "https://www.google.com/maps/place/Beverly+Hills+Med+Spa/data=!4m7!3m6!1s0x80c2b94f362caef7:0xac8932ef55f99897!8m2!3d34.0695803!4d-118.4038048!16s%2Fg%2F11g9q6wtps!19sChIJ964sNk-5woARl5j5Ve8yiaw?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Go See Sari - Medical Aesthetics",
+      "Rating": "5.0",
+      "Category": "5.0",
+      "URL": "https://www.google.com/maps/place/Go+See+Sari+-+Medical+Aesthetics/data=!4m7!3m6!1s0x80c2bfe514e6cbb5:0xe4b6363a2fa1c33e!8m2!3d34.0682823!4d-118.40595!16s%2Fg%2F11jpyx7jnq!19sChIJtcvmFOW_woARPsOhLzo2tuQ?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Emana Medical",
+      "Rating": "4.9",
+      "Category": "4.9(157)",
+      "URL": "https://www.google.com/maps/place/Emana+Medical/data=!4m7!3m6!1s0x80c2bd7fdef3eecb:0x8aafdc291b45e2f2!8m2!3d34.0686433!4d-118.4054706!16s%2Fg%2F11gj0w8db4!19sChIJy-7z3n-9woAR8uJFGyncr4o?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "No Pain All Gain Med Spa - Beverly Hills",
+      "Rating": "4.8",
+      "Category": "4.8(91)",
+      "URL": "https://www.google.com/maps/place/No+Pain+All+Gain+Med+Spa+-+Beverly+Hills/data=!4m7!3m6!1s0x80c2bbad792ea995:0xe684a72e31ed602e!8m2!3d34.067407!4d-118.3884313!16s%2Fg%2F11kpd3501p!19sChIJlakuea27woARLmDtMS6nhOY?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Ozraya Beverly Hills Aesthetics",
+      "Rating": "4.9",
+      "Category": "4.9(47)",
+      "URL": "https://www.google.com/maps/place/Ozraya+Beverly+Hills+Aesthetics/data=!4m7!3m6!1s0x80c2b9288035ffd1:0x97c01687a8e098c9!8m2!3d34.0629662!4d-118.3764665!16s%2Fg%2F11stjnzl11!19sChIJ0f81gCi5woARyZjgqIcWwJc?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "HALO Beverly Hills",
+      "Rating": "4.9",
+      "Category": "4.9(154)",
+      "URL": "https://www.google.com/maps/place/HALO+Beverly+Hills/data=!4m7!3m6!1s0x80c2bd2fa1e28181:0x8e2f783c755438f7!8m2!3d34.069077!4d-118.40488!16s%2Fg%2F11ty4nxq_v!19sChIJgYHioS-9woAR9zhUdTx4L44?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "iGlow Med Spa",
+      "Rating": "4.4",
+      "Category": "4.4(55)",
+      "URL": "https://www.google.com/maps/place/iGlow+Med+Spa/data=!4m7!3m6!1s0x80c2bc07701a69fd:0xa32826a0baea6c88!8m2!3d34.0703594!4d-118.4010759!16s%2Fg%2F1hhh_st98!19sChIJ_WkacAe8woARiGzquqAmKKM?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "BH Aesthetic Medical Company",
+      "Rating": "5.0",
+      "Category": "5.0(12)",
+      "URL": "https://www.google.com/maps/place/BH+Aesthetic+Medical+Company/data=!4m7!3m6!1s0x80c2bb1862754393:0x70ce06c435fc2db0!8m2!3d34.0677348!4d-118.4067726!16s%2Fg%2F11kpz0g4zh!19sChIJk0N1Yhi7woARsC38NcQGznA?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Beverly Hills Lux Body and Aesthetics",
+      "Rating": "4.9",
+      "Category": "4.9(36)",
+      "URL": "https://www.google.com/maps/place/Beverly+Hills+Lux+Body+and+Aesthetics/data=!4m7!3m6!1s0x80c2bbec43d49fc7:0x55897fb4983cea5f!8m2!3d34.0629666!4d-118.3764672!16s%2Fg%2F11n0pt_9ln!19sChIJx5_UQ-y7woARX-o8mLR_iVU?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Robertson Wellness and Aesthetics",
+      "Rating": "4.9",
+      "Category": "4.9(137)",
+      "URL": "https://www.google.com/maps/place/Robertson+Wellness+and+Aesthetics/data=!4m7!3m6!1s0x80c2b99b210f8cb7:0xc59b677c9f8fb7ec!8m2!3d34.0666545!4d-118.3862835!16s%2Fg%2F11j9cm90jz!19sChIJt4wPIZu5woAR7LePn3xnm8U?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Santosha Aesthetics, Inc.",
+      "Rating": "5.0",
+      "Category": "5.0(86)",
+      "URL": "https://www.google.com/maps/place/Santosha+Aesthetics,+Inc./data=!4m7!3m6!1s0x80c2b968ee8f89db:0xf2ff3f0c757a1d31!8m2!3d34.06495!4d-118.3766776!16s%2Fg%2F11g1y2yljd!19sChIJ24mP7mi5woARMR16dQw___I?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Cloud Med Spa Beverly Hills",
+      "Rating": "5.0",
+      "Category": "5.0(2)",
+      "URL": "https://www.google.com/maps/place/Cloud+Med+Spa+Beverly+Hills/data=!4m7!3m6!1s0x80c2bb0aaf6f78c9:0x76f34e7178811ad0!8m2!3d34.0662888!4d-118.4085185!16s%2Fg%2F11g3j7mv3c!19sChIJyXhvrwq7woAR0BqBeHFO83Y?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "EMERALD AESTHETICS BEVERLY HILLS",
+      "Rating": "5.0",
+      "Category": "5.0(6)",
+      "URL": "https://www.google.com/maps/place/EMERALD+AESTHETICS+BEVERLY+HILLS/data=!4m7!3m6!1s0x80c2bbd5b2468d9d:0x60408974813159e0!8m2!3d34.0683002!4d-118.4059382!16s%2Fg%2F11rb9rw64q!19sChIJnY1GstW7woAR4FkxgXSJQGA?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "ROX Spa Aesthetics",
+      "Rating": "5.0",
+      "Category": "5.0(14)",
+      "URL": "https://www.google.com/maps/place/ROX+Spa+Aesthetics/data=!4m7!3m6!1s0x80c2bc082c06c345:0x7f5c6bd34293ead6!8m2!3d34.068169!4d-118.407462!16s%2Fg%2F11clgt_gsv!19sChIJRcMGLAi8woAR1uqTQtNrXH8?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "The Beverly Hills Medspa",
+      "Rating": "4.4",
+      "Category": "4.4(7)",
+      "URL": "https://www.google.com/maps/place/The+Beverly+Hills+Medspa/data=!4m7!3m6!1s0xa0f8f1ce01023e95:0x61bdca1c3d3d404c!8m2!3d34.0677348!4d-118.4067726!16s%2Fg%2F11x1h4bnmc!19sChIJlT4CAc7x-KARTEA9PRzKvWE?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "BevMed LA",
+      "Rating": "5.0",
+      "Category": "5.0(117)",
+      "URL": "https://www.google.com/maps/place/BevMed+LA/data=!4m7!3m6!1s0x80c2b98f135a0e87:0x2ef2d944901fdbc9!8m2!3d34.0680272!4d-118.4064381!16s%2Fg%2F11qqkbpp1l!19sChIJhw5aE4-5woARydsfkETZ8i4?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Beverly Hills Aesthetic Group",
+      "Rating": "5.0",
+      "Category": "5.0(3)",
+      "URL": "https://www.google.com/maps/place/Beverly+Hills+Aesthetic+Group/data=!4m7!3m6!1s0x80c2b9e30e3d91ff:0x8ae8875c379f7521!8m2!3d34.067407!4d-118.3884313!16s%2Fg%2F11xrm3769m!19sChIJ_5E9DuO5woARIXWfN1yH6Io?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Dr Juventas",
+      "Rating": "4.8",
+      "Category": "4.8(16)",
+      "URL": "https://www.google.com/maps/place/Dr+Juventas/data=!4m7!3m6!1s0x80c2bbce1c158339:0xa3426d9b59f01d65!8m2!3d34.0668534!4d-118.4075018!16s%2Fg%2F11nxv2v6jy!19sChIJOYMVHM67woARZR3wWZttQqM?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Beauty Villa Vergara - Med Spa In Beverly Hills",
+      "Rating": "5.0",
+      "Category": "5.0(26)",
+      "URL": "https://www.google.com/maps/place/Beauty+Villa+Vergara+-+Med+Spa+In+Beverly+Hills/data=!4m7!3m6!1s0x80c2bb2529bfc6a9:0x99035bba1dda7099!8m2!3d34.0656158!4d-118.4119316!16s%2Fg%2F11w82qkvy1!19sChIJqca_KSW7woARmXDaHbpbA5k?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Aère Aesthetics",
+      "Rating": "5.0",
+      "Category": "5.0(288)",
+      "URL": "https://www.google.com/maps/place/A%C3%A8re+Aesthetics/data=!4m7!3m6!1s0x80c2bf407233f56d:0x2b5f8ed76415f5af!8m2!3d34.0679441!4d-118.4062615!16s%2Fg%2F11qpv_0qdd!19sChIJbfUzckC_woARr_UVZNeOXys?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Atelier Aesthetix",
+      "Rating": "4.9",
+      "Category": "4.9(124)",
+      "URL": "https://www.google.com/maps/place/Atelier+Aesthetix/data=!4m7!3m6!1s0x441eae1dc45a0fe5:0x211db487f49f49f5!8m2!3d34.0673927!4d-118.3946762!16s%2Fg%2F11lnfl2h86!19sChIJ5Q9axB2uHkQR9Umf9Ie0HSE?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Snatched Beverly Hills",
+      "Rating": "4.4",
+      "Category": "4.4(353)",
+      "URL": "https://www.google.com/maps/place/Snatched+Beverly+Hills/data=!4m7!3m6!1s0x80c2bb6992db6f23:0xac7e8823a32e3594!8m2!3d34.0655882!4d-118.3989538!16s%2Fg%2F11pcsm6l5n!19sChIJI2_bkmm7woARlDUuoyOIfqw?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Pure Skin of Beverly Hills",
+      "Rating": "5.0",
+      "Category": "5.0(17)",
+      "URL": "https://www.google.com/maps/place/Pure+Skin+of+Beverly+Hills/data=!4m7!3m6!1s0x80c2bbdcfa0924f7:0xbc1c01d84ead2a4e!8m2!3d34.0684536!4d-118.4043767!16s%2Fg%2F11h3cbrg99!19sChIJ9yQJ-ty7woARTiqtTtgBHLw?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Spa26",
+      "Rating": "4.8",
+      "Category": "4.8(39)",
+      "URL": "https://www.google.com/maps/place/Spa26/data=!4m7!3m6!1s0x80c2bbde3d0b0c61:0x24c6ac6ddf4e2c0c!8m2!3d34.0662693!4d-118.408568!16s%2Fg%2F11shkmwhnp!19sChIJYQwLPd67woARDCxO322sxiQ?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Beverly Hills Sculptress",
+      "Rating": "5.0",
+      "Category": "5.0(34)",
+      "URL": "https://www.google.com/maps/place/Beverly+Hills+Sculptress/data=!4m7!3m6!1s0x80c2bc07f9ccad85:0x58e8def1b442150e!8m2!3d34.067331!4d-118.407524!16s%2Fg%2F11cntct42l!19sChIJha3M-Qe8woARDhVCtPHe6Fg?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Esthetics Beverly Hills",
+      "Rating": "5.0",
+      "Category": "5.0(11)",
+      "URL": "https://www.google.com/maps/place/Esthetics+Beverly+Hills/data=!4m7!3m6!1s0x80c2bd0a23af43cb:0x2f08089babd72d18!8m2!3d34.0685832!4d-118.4054661!16s%2Fg%2F11lp6dzqf9!19sChIJy0OvIwq9woARGC3Xq5sICC8?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "LA Aesthetics Center - Concierge Longevity Clinic",
+      "Rating": "5.0",
+      "Category": "5.0(18)",
+      "URL": "https://www.google.com/maps/place/LA+Aesthetics+Center+-+Concierge+Longevity+Clinic/data=!4m7!3m6!1s0x80c2bdc0deb496a7:0xb0700d849f5911a0!8m2!3d34.0686423!4d-118.4054709!16s%2Fg%2F11vy1dw66q!19sChIJp5a03sC9woARoBFZn4QNcLA?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "V Sculpt Aesthetics",
+      "Rating": "5.0",
+      "Category": "5.0(45)",
+      "URL": "https://www.google.com/maps/place/V+Sculpt+Aesthetics/data=!4m7!3m6!1s0x80c2bd5b28ac0c7b:0x665ff55c71aad64e!8m2!3d34.0695803!4d-118.4038048!16s%2Fg%2F11sv64gdbz!19sChIJewysKFu9woARTtaqcVz1X2Y?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Artisan of Skin",
+      "Rating": "4.9",
+      "Category": "4.9(81)",
+      "URL": "https://www.google.com/maps/place/Artisan+of+Skin/data=!4m7!3m6!1s0x80c2bdb6a832c755:0x2f7310835eb51f80!8m2!3d34.0696751!4d-118.4036436!16s%2Fg%2F11gr3fv2t1!19sChIJVccyqLa9woARgB-1XoMQcy8?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Resplendence",
+      "Rating": "4.9",
+      "Category": "4.9(53)",
+      "URL": "https://www.google.com/maps/place/Resplendence/data=!4m7!3m6!1s0x80c2bb31e7f7f539:0x6c04e92d10e53fec!8m2!3d34.056839!4d-118.3968868!16s%2Fg%2F11j0wjbnmh!19sChIJOfX35zG7woAR7D_lEC3pBGw?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Beverly Hills Aesthetics",
+      "Rating": "4.8",
+      "Category": "4.8(94)",
+      "URL": "https://www.google.com/maps/place/Beverly+Hills+Aesthetics/data=!4m7!3m6!1s0x80c2bbe4b4c5a175:0xf6c0a62147705cd4!8m2!3d34.0654638!4d-118.3724056!16s%2Fg%2F1tvdk1dq!19sChIJdaHFtOS7woAR1FxwRyGmwPY?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Dr. John Diaz Med Spa",
+      "Rating": "5.0",
+      "Category": "5.0(35)",
+      "URL": "https://www.google.com/maps/place/Dr.+John+Diaz+Med+Spa/data=!4m7!3m6!1s0x80c2bd616f54199f:0x5050adedaa8d7c70!8m2!3d34.068169!4d-118.407462!16s%2Fg%2F11tdcltd0_!19sChIJnxlUb2G9woARcHyNqu2tUFA?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Epione",
+      "Rating": "4.4",
+      "Category": "4.4(395)",
+      "URL": "https://www.google.com/maps/place/Epione/data=!4m7!3m6!1s0x80c2bc0809dbf2bb:0x4a00d019445b00d9!8m2!3d34.0694927!4d-118.4047584!16s%2Fg%2F11cm3xqgmv!19sChIJu_LbCQi8woAR2QBbRBnQAEo?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "PARA Aesthetics",
+      "Rating": "5.0",
+      "Category": "5.0(10)",
+      "URL": "https://www.google.com/maps/place/PARA+Aesthetics/data=!4m7!3m6!1s0x80c2b925798c58cd:0xf7407a1ed49dc7bd!8m2!3d34.0629662!4d-118.3764665!16s%2Fg%2F11xkvqknfd!19sChIJzViMeSW5woARvced1B56QPc?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Cienega Medical",
+      "Rating": "4.7",
+      "Category": "4.7(760)",
+      "URL": "https://www.google.com/maps/place/Cienega+Medical/data=!4m7!3m6!1s0x80c2b945ebe14b0d:0x34832af75c50cfa5!8m2!3d34.078423!4d-118.376869!16s%2Fg%2F1tf3p4vl!19sChIJDUvh60W5woARpc9QXPcqgzQ?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "MT Skin Clinic – Facial & Microdermabrasion Treatments",
+      "Rating": "4.9",
+      "Category": "4.9(199)",
+      "URL": "https://www.google.com/maps/place/MT+Skin+Clinic+%E2%80%93+Facial+%26+Microdermabrasion+Treatments/data=!4m7!3m6!1s0x80c2b9312b1f344d:0x46f8cbec1e207f05!8m2!3d34.0686061!4d-118.404421!16s%2Fg%2F11g86nwj18!19sChIJTTQfKzG5woARBX8gHuzL-EY?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Ideal Aesthetics",
+      "Rating": "5.0",
+      "Category": "5.0(35)",
+      "URL": "https://www.google.com/maps/place/Ideal+Aesthetics/data=!4m7!3m6!1s0x80c2bb5805abddb5:0x97c3e4ef12aa8d4d!8m2!3d34.0683614!4d-118.40343!16s%2Fg%2F11lgzs53lm!19sChIJtd2rBVi7woARTY2qEu_kw5c?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "LA RIUSH AESTHETIC",
+      "Rating": "5.0",
+      "Category": "5.0(26)",
+      "URL": "https://www.google.com/maps/place/LA+RIUSH+AESTHETIC/data=!4m7!3m6!1s0x80c2b950b56b4703:0x2ec62b98f988688b!8m2!3d34.0653914!4d-118.3898408!16s%2Fg%2F11wg22b4dn!19sChIJA0drtVC5woARi2iI-Zgrxi4?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Casa Derma",
+      "Rating": "5.0",
+      "Category": "5.0(29)",
+      "URL": "https://www.google.com/maps/place/Casa+Derma/data=!4m7!3m6!1s0x80c2b91810c69c6b:0x98df0e8f33118e05!8m2!3d34.0620724!4d-118.3988298!16s%2Fg%2F11v6kdcv1v!19sChIJa5zGEBi5woARBY4RM48O35g?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "PICO Clinic Beverly Hills",
+      "Rating": "4.6",
+      "Category": "4.6(130)",
+      "URL": "https://www.google.com/maps/place/PICO+Clinic+Beverly+Hills/data=!4m7!3m6!1s0x80c2bb202b503403:0xdfadd1d48e18d9dc!8m2!3d34.0682992!4d-118.4059365!16s%2Fg%2F11kk8g_076!19sChIJAzRQKyC7woAR3NkYjtTRrd8?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Rush To Beauty",
+      "Rating": "5.0",
+      "Category": "5.0(30)",
+      "URL": "https://www.google.com/maps/place/Rush+To+Beauty/data=!4m7!3m6!1s0x80c2bbf7fca44dc9:0x38d32c0d972aed1f!8m2!3d34.0668854!4d-118.3992587!16s%2Fg%2F1235dnzm7!19sChIJyU2k_Pe7woARH-0qlw0s0zg?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Aesthetica clinic",
+      "Rating": "4.6",
+      "Category": "4.6(20)",
+      "URL": "https://www.google.com/maps/place/Aesthetica+clinic/data=!4m7!3m6!1s0x80c2b93177417f6b:0xf83cf67a5b2e15bd!8m2!3d34.0728663!4d-118.3835455!16s%2Fg%2F11ldy99vwn!19sChIJa39BdzG5woARvRUuW3r2PPg?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Rejuvalife Vitality Institute",
+      "Rating": "4.7",
+      "Category": "4.7(79)",
+      "URL": "https://www.google.com/maps/place/Rejuvalife+Vitality+Institute/data=!4m7!3m6!1s0x80c2bc0771bcb31f:0x1ccbed941a4d631a!8m2!3d34.067271!4d-118.4075707!16s%2Fg%2F1vgqdbxr!19sChIJH7O8cQe8woARGmNNGpTtyxw?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "LA SkinAesthetics",
+      "Rating": "5.0",
+      "Category": "5.0(3)",
+      "URL": "https://www.google.com/maps/place/LA+SkinAesthetics/data=!4m7!3m6!1s0x80c2b9514560e8d3:0x3f7415d73f5f3bac!8m2!3d34.064998!4d-118.37673!16s%2Fg%2F11gzw0s06!19sChIJ0-hgRVG5woARrDtfP9cVdD8?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "YouthFill MD Med Spa - Beverly Hills",
+      "Rating": "4.5",
+      "Category": "4.5(102)",
+      "URL": "https://www.google.com/maps/place/YouthFill+MD+Med+Spa+-+Beverly+Hills/data=!4m7!3m6!1s0x80c2bead289ed0b1:0x4a64d6dda08e7992!8m2!3d34.0745828!4d-118.3839216!16s%2Fg%2F11tdr4tm3q!19sChIJsdCeKK2-woARknmOoN3WZEo?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Onassis Skin",
+      "Rating": "5.0",
+      "Category": "5.0(229)",
+      "URL": "https://www.google.com/maps/place/Onassis+Skin/data=!4m7!3m6!1s0x80c2bb9041eee725:0x73c021381c5cbdd6!8m2!3d34.0675655!4d-118.4079342!16s%2Fg%2F11rplrvp49!19sChIJJefuQZC7woAR1r1cHDghwHM?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "NassifMD Medspa",
+      "Rating": "4.8",
+      "Category": "4.8(65)",
+      "URL": "https://www.google.com/maps/place/NassifMD+Medspa/data=!4m7!3m6!1s0x80c2bbf6472fbad7:0x30210b4b3813db04!8m2!3d34.066252!4d-118.408568!16s%2Fg%2F11dfps9msl!19sChIJ17ovR_a7woARBNsTOEsLITA?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Elite Med Spa BH",
+      "Rating": "5.0",
+      "Category": "5.0(3)",
+      "URL": "https://www.google.com/maps/place/Elite+Med+Spa+BH/data=!4m7!3m6!1s0x80c2b95c887f6a13:0x46eed89e032a09fe!8m2!3d34.0578351!4d-118.3840259!16s%2Fg%2F11c5j57v5f!19sChIJE2p_iFy5woAR_gkqA57Y7kY?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Century Advanced European Skin Care of Beverly Hills",
+      "Rating": "4.9",
+      "Category": "4.9(44)",
+      "URL": "https://www.google.com/maps/place/Century+Advanced+European+Skin+Care+of+Beverly+Hills/data=!4m7!3m6!1s0x80c2b959604efab3:0xf8085fae0e636b35!8m2!3d34.0587144!4d-118.3975518!16s%2Fg%2F11g8pb7gwm!19sChIJs_pOYFm5woARNWtjDq5fCPg?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "THE LA FACIALIST",
+      "Rating": "4.9",
+      "Category": "4.9(88)",
+      "URL": "https://www.google.com/maps/place/THE+LA+FACIALIST/data=!4m7!3m6!1s0x80c2bb86166ce24b:0x8722e03785687abb!8m2!3d34.0685091!4d-118.4058269!16s%2Fg%2F11lgq743dl!19sChIJS-JsFoa7woARu3pohTfgIoc?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Skin Perfect Medical Aesthetics - West Hollywood",
+      "Rating": "4.9",
+      "Category": "4.9(63)",
+      "URL": "https://www.google.com/maps/place/Skin+Perfect+Medical+Aesthetics+-+West+Hollywood/data=!4m7!3m6!1s0x80c2bfd0522c4a57:0x21a29a7f5246845e!8m2!3d34.0819931!4d-118.3851815!16s%2Fg%2F11nn0bv6h_!19sChIJV0osUtC_woARXoRGUn-aoiE?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Ma Maison de Beaute",
+      "Rating": "4.9",
+      "Category": "4.9(46)",
+      "URL": "https://www.google.com/maps/place/Ma+Maison+de+Beaute/data=!4m7!3m6!1s0x80c2beadcada90af:0x838aada32bc379e7!8m2!3d34.0709675!4d-118.3834381!16s%2Fg%2F1tdz06q6!19sChIJr5Dayq2-woAR53nDK6OtioM?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Biomed Spa",
+      "Rating": "4.9",
+      "Category": "4.9(7)",
+      "URL": "https://www.google.com/maps/place/Biomed+Spa/data=!4m7!3m6!1s0x80c2bbf646cab92f:0xae04ad6b8edc7f63!8m2!3d34.0662638!4d-118.4086082!16s%2Fg%2F11bbw_kv3g!19sChIJL7nKRva7woARY3_cjmutBK4?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Dr Tess Mauricio - M Beauty Clinic Beverly Hills",
+      "Rating": "4.8",
+      "Category": "4.8(31)",
+      "URL": "https://www.google.com/maps/place/Dr+Tess+Mauricio+-+M+Beauty+Clinic+Beverly+Hills/data=!4m7!3m6!1s0x80c2bbf8016eb3fb:0xedad2d1e1887987b!8m2!3d34.0696421!4d-118.4039254!16s%2Fg%2F11cn7x91nz!19sChIJ-7NuAfi7woARe5iHGB4tre0?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Escape Med Spa",
+      "Rating": "4.9",
+      "Category": "4.9(80)",
+      "URL": "https://www.google.com/maps/place/Escape+Med+Spa/data=!4m7!3m6!1s0x80c2b907007c9c83:0x72b88a710b12f7bc!8m2!3d34.0606544!4d-118.3838507!16s%2Fg%2F11vq3wsd9n!19sChIJg5x8AAe5woARvPcSC3GKuHI?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Juliana Clinics",
+      "Rating": "4.9",
+      "Category": "4.9(132)",
+      "URL": "https://www.google.com/maps/place/Juliana+Clinics/data=!4m7!3m6!1s0x80c2bb17082dc09d:0xcac4291c21cc0458!8m2!3d34.0668534!4d-118.4075018!16s%2Fg%2F11y1rvsnpc!19sChIJncAtCBe7woARWATMIRwpxMo?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Ideal Face & Body",
+      "Rating": "4.9",
+      "Category": "4.9(247)",
+      "URL": "https://www.google.com/maps/place/Ideal+Face+%26+Body/data=!4m7!3m6!1s0x80c2bc081d044275:0xefc5da72d8dd8f3c!8m2!3d34.0672684!4d-118.4074949!16s%2Fg%2F1hjgn769x!19sChIJdUIEHQi8woARPI_d2HLaxe8?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "August Aesthetics",
+      "Rating": "5.0",
+      "Category": "5.0(12)",
+      "URL": "https://www.google.com/maps/place/August+Aesthetics/data=!4m7!3m6!1s0x80c2bc081d018cbf:0xa218be922b148730!8m2!3d34.0677724!4d-118.405374!16s%2Fg%2F1v6qhx2t!19sChIJv4wBHQi8woARMIcUK5K-GKI?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Radiant Beauty & Health",
+      "Rating": "4.6",
+      "Category": "4.6(238)",
+      "URL": "https://www.google.com/maps/place/Radiant+Beauty+%26+Health/data=!4m7!3m6!1s0x80c2bd0c772431d5:0xf1e3728f288d0e57!8m2!3d34.0683901!4d-118.4043853!16s%2Fg%2F11vhqfxch6!19sChIJ1TEkdwy9woARVw6NKI9y4_E?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Rich Angel Salon",
+      "Rating": "4.9",
+      "Category": "4.9(691)",
+      "URL": "https://www.google.com/maps/place/Rich+Angel+Salon/data=!4m7!3m6!1s0x80c2bb0024edd917:0xaf6d2c6008efbcd6!8m2!3d34.00329!4d-118.48458!16s%2Fg%2F11w8k41t8c!19sChIJF9ntJAC7woAR1rzvCGAsba8?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Sisley Spa at The Ritz-Carlton",
+      "Rating": "4.4",
+      "Category": "4.4(62)",
+      "URL": "https://www.google.com/maps/place/Sisley+Spa+at+The+Ritz-Carlton/data=!4m7!3m6!1s0x80c2ba8537e7b0b3:0x771ded9626586994!8m2!3d33.984046!4d-118.450651!16s%2Fg%2F1q5gj0y0f!19sChIJs7DnN4W6woARlGlYJpbtHXc?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Moy, Fincher, Chipps Facial Plastics & Dermatology - Beverly Hills",
+      "Rating": "4.8",
+      "Category": "4.8(474)",
+      "URL": "https://www.google.com/maps/place/Moy,+Fincher,+Chipps+Facial+Plastics+%26+Dermatology+-+Beverly+Hills/data=!4m7!3m6!1s0x80c2bc07f0107079:0xf71e0f71592bb0df!8m2!3d34.0696839!4d-118.4036305!16s%2Fg%2F1vfp8gnj!19sChIJeXAQ8Ae8woAR37ArWXEPHvc?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "The Skin Agency",
+      "Rating": "4.8",
+      "Category": "4.8(54)",
+      "URL": "https://www.google.com/maps/place/The+Skin+Agency/data=!4m7!3m6!1s0x80c2b9604fa3ac3d:0xc62531812456f706!8m2!3d34.066856!4d-118.375991!16s%2Fg%2F11wb08xdb1!19sChIJPayjT2C5woARBvdWJIExJcY?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "90210 Aesthetics",
+      "Rating": "5.0",
+      "Category": "5.0(2)",
+      "URL": "https://www.google.com/maps/place/90210+Aesthetics/data=!4m7!3m6!1s0x80c2bd1fb3e70fdd:0x2c582f6335a34d25!8m2!3d34.0681541!4d-118.4074268!16s%2Fg%2F11l2xb9fss!19sChIJ3Q_nsx-9woARJU2jNWMvWCw?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Feldmar Plastic Surgery & Aesthetics",
+      "Rating": "4.9",
+      "Category": "4.9(135)",
+      "URL": "https://www.google.com/maps/place/Feldmar+Plastic+Surgery+%26+Aesthetics/data=!4m7!3m6!1s0x80c2b9514392cdbb:0xef0032d665ba210e!8m2!3d34.0673912!4d-118.3946774!16s%2Fg%2F11cn9bzfkv!19sChIJu82SQ1G5woARDiG6ZdYyAO8?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Glam Bar Medical Spa",
+      "Rating": "4.8",
+      "Category": "4.8(52)",
+      "URL": "https://www.google.com/maps/place/Glam+Bar+Medical+Spa/data=!4m7!3m6!1s0x80c2bfbeed94c4df:0x1dc66cb136dfdc47!8m2!3d34.0774243!4d-118.3763367!16s%2Fg%2F11snxbnqc1!19sChIJ38SU7b6_woARR9zfNrFsxh0?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Volure",
+      "Rating": "4.9",
+      "Category": "4.9(233)",
+      "URL": "https://www.google.com/maps/place/Volure/data=!4m7!3m6!1s0x80c2b9cedc4444d1:0xd574bcfa3d3856da!8m2!3d34.0638949!4d-118.3663645!16s%2Fg%2F11g1t_917m!19sChIJ0URE3M65woAR2lY4Pfq8dNU?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Nazarian Plastic Surgery - Dr. Sheila Nazarian",
+      "Rating": "4.7",
+      "Category": "4.7(213)",
+      "URL": "https://www.google.com/maps/place/Nazarian+Plastic+Surgery+-+Dr.+Sheila+Nazarian/data=!4m7!3m6!1s0x80c2b9514560e8d1:0xf6d60b0168dcf786!8m2!3d34.0662558!4d-118.4086175!16s%2Fg%2F1ydpvbgt8!19sChIJ0ehgRVG5woARhvfcaAEL1vY?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Vendôme Clinique & Spa",
+      "Rating": "4.8",
+      "Category": "4.8(81)",
+      "URL": "https://www.google.com/maps/place/Vend%C3%B4me+Clinique+%26+Spa/data=!4m7!3m6!1s0x80c2bf0055496b59:0xc4632a3a23ad7612!8m2!3d34.0764194!4d-118.3773879!16s%2Fg%2F11t40_x_sb!19sChIJWWtJVQC_woAREnatIzoqY8Q?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Allure Cosmetic",
+      "Rating": "4.0",
+      "Category": "4.0(21)",
+      "URL": "https://www.google.com/maps/place/Allure+Cosmetic/data=!4m7!3m6!1s0x80c2bbe41a3b3471:0xb53c794c1c58a7ad!8m2!3d34.065704!4d-118.3726363!16s%2Fg%2F11bbwwsly3!19sChIJcTQ7GuS7woARradYHEx5PLU?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Truesdale Facial Plastic Surgery",
+      "Rating": "4.9",
+      "Category": "4.9(468)",
+      "URL": "https://www.google.com/maps/place/Truesdale+Facial+Plastic+Surgery/data=!4m7!3m6!1s0x80c2bb38a6f17291:0x36189cdd181b044d!8m2!3d34.0654641!4d-118.4009294!16s%2Fg%2F11q8gxwsj_!19sChIJkXLxpji7woARTQQbGN2cGDY?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "SKINIC",
+      "Rating": "5.0",
+      "Category": "5.0(570)",
+      "URL": "https://www.google.com/maps/place/SKINIC/data=!4m7!3m6!1s0x80dd31152e1d9acd:0x23a3a2267125351!8m2!3d34.0901152!4d-118.3745966!16s%2Fg%2F11h24qh7k3!19sChIJzZodLhUx3YARUVMSZyI6OgI?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Donlan Aesthetics",
+      "Rating": "5.0",
+      "Category": "5.0(44)",
+      "URL": "https://www.google.com/maps/place/Donlan+Aesthetics/data=!4m7!3m6!1s0x80c2b99b4516e4e7:0xe1aa7117025d3a39!8m2!3d34.0681216!4d-118.3839804!16s%2Fg%2F11pzhlqk0t!19sChIJ5-QWRZu5woAROTpdAhdxquE?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Rejuvify Med Spa",
+      "Rating": "4.9",
+      "Category": "4.9(64)",
+      "URL": "https://www.google.com/maps/place/Rejuvify+Med+Spa/data=!4m7!3m6!1s0x80c2b99329185209:0xb188d3dcd419fba7!8m2!3d34.073192!4d-118.373488!16s%2Fg%2F11w_yrhdp8!19sChIJCVIYKZO5woARp_sZ1NzTiLE?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Beverly Hills Beauty Lab",
+      "Rating": "4.4",
+      "Category": "4.4(427)",
+      "URL": "https://www.google.com/maps/place/Beverly+Hills+Beauty+Lab/data=!4m7!3m6!1s0x80c2bb6130385f59:0x2ea968dfd2279233!8m2!3d34.0639814!4d-118.3765606!16s%2Fg%2F1jgm3vmj8!19sChIJWV84MGG7woARM5In0t9oqS4?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Tamara Day Spa Beverly Hills",
+      "Rating": "5.0",
+      "Category": "5.0(13)",
+      "URL": "https://www.google.com/maps/place/Tamara+Day+Spa+Beverly+Hills/data=!4m7!3m6!1s0x80c2b959604ee54b:0x891d037121261e5d!8m2!3d34.0590311!4d-118.3871708!16s%2Fg%2F1td1q42d!19sChIJS-VOYFm5woARXR4mIXEDHYk?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Dr. Busso Cosmetic Dermatology",
+      "Rating": "5.0",
+      "Category": "5.0(14)",
+      "URL": "https://www.google.com/maps/place/Dr.+Busso+Cosmetic+Dermatology/data=!4m7!3m6!1s0x80c2bb578382fbf3:0x3dc32cb1165ff242!8m2!3d34.0654641!4d-118.4009294!16s%2Fg%2F11ldv9bg3l!19sChIJ8_uCg1e7woARQvJfFrEswz0?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Dr. Eman Abdallah",
+      "Rating": "5.0",
+      "Category": "5.0(11)",
+      "URL": "https://www.google.com/maps/place/Dr.+Eman+Abdallah/data=!4m7!3m6!1s0x80c2bbf7e03aaaab:0x8fcd0df1fcdadf2d!8m2!3d34.0686433!4d-118.4054706!16s%2Fg%2F11trc1zglt!19sChIJq6o64Pe7woARLd_a_PENzY8?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Basma Hameed Clinic Beverly Hills",
+      "Rating": "4.4",
+      "Category": "4.4(13)",
+      "URL": "https://www.google.com/maps/place/Basma+Hameed+Clinic+Beverly+Hills/data=!4m7!3m6!1s0x80c2bbf7ded45ac5:0x8176e4533fc4bd83!8m2!3d34.068027!4d-118.406438!16s%2Fg%2F11c0vxsmf1!19sChIJxVrU3ve7woARg73EP1PkdoE?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Advanced Hair Restoration",
+      "Rating": "4.6",
+      "Category": "4.6(74)",
+      "URL": "https://www.google.com/maps/place/Advanced+Hair+Restoration/data=!4m7!3m6!1s0x80c2bbfe41eaafd7:0xff96f2e2e4d8f08e!8m2!3d34.067428!4d-118.394676!16s%2Fg%2F11gc3hfsfr!19sChIJ16_qQf67woARjvDY5OLylv8?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "West Empire Aesthetics",
+      "Rating": "5.0",
+      "Category": "5.0(378)",
+      "URL": "https://www.google.com/maps/place/West+Empire+Aesthetics/data=!4m7!3m6!1s0x80c2bb1c2dda5527:0xab3c8bb66c03a02f!8m2!3d34.0502548!4d-118.4603285!16s%2Fg%2F11j6rdzzf0!19sChIJJ1XaLRy7woARL6ADbLaLPKs?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "West Medical Beverly Hills",
+      "Rating": "4.3",
+      "Category": "4.3(14)",
+      "URL": "https://www.google.com/maps/place/West+Medical+Beverly+Hills/data=!4m7!3m6!1s0x80c2bbfe41e7c44d:0xb6421537c8c0781a!8m2!3d34.067393!4d-118.394676!16s%2Fg%2F1q67rm4yg!19sChIJTcTnQf67woARGnjAyDcVQrY?authuser=0&hl=en&rclk=1"
+    }
+  ]
+}

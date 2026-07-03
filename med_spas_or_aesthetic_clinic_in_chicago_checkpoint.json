@@ -1,0 +1,717 @@
+{
+  "query": "med spas or aesthetic clinic in chicago",
+  "started_at": "2026-06-12T13:42:48.850476+00:00",
+  "resumed_at": null,
+  "leads": [
+    {
+      "Name": "Dvida Spa | Med Spa Services 60654",
+      "Rating": "4.9",
+      "Category": "4.9",
+      "URL": "https://www.google.com/maps/place/Dvida+Spa+%7C+Med+Spa+Services+60654/data=!4m7!3m6!1s0x880e2cb405ffcfdd:0x5c608347f44f7cdf!8m2!3d41.8947914!4d-87.6311199!16s%2Fg%2F1pzs3j4jr!19sChIJ3c__BbQsDogR33xP9EeDYFw?authuser=0&hl=en&rclk=1",
+      "Phone": "+1 312-374-3352",
+      "Website": "http://www.dvidaspa.com/",
+      "Address": "677 N Clark St, Chicago, IL 60654, United States",
+      "Email": "",
+      "done": true
+    },
+    {
+      "Name": "VIO Med Spa | Chicago",
+      "Rating": "4.9",
+      "Category": "4.9",
+      "URL": "https://www.google.com/maps/place/VIO+Med+Spa+%7C+Chicago/data=!4m7!3m6!1s0x880e2dd4795f6129:0xbce3348e2636ae18!8m2!3d41.8945366!4d-87.633815!16s%2Fg%2F11jpkr0nzp!19sChIJKWFfedQtDogRGK42Jo4047w?authuser=0&hl=en&rclk=1",
+      "Phone": "+1 312-376-4846",
+      "Website": "https://www.viomedspa.com/locations/river-north",
+      "Address": "663 N Wells St, Chicago, IL 60654, United States",
+      "Email": "",
+      "done": true
+    },
+    {
+      "Name": "River North Wellness and Med Spa",
+      "Rating": "4.8",
+      "Category": "4.8",
+      "URL": "https://www.google.com/maps/place/River+North+Wellness+and+Med+Spa/data=!4m7!3m6!1s0x880e2dd4d6eb5efd:0x451affba70ebca19!8m2!3d41.8897553!4d-87.626013!16s%2Fg%2F11w3vtnpz6!19sChIJ_V7r1tQtDogRGcrrcLr_GkU?authuser=0&hl=en&rclk=1",
+      "Phone": "+1 312-544-9196",
+      "Website": "https://rnmedspa.com/",
+      "Address": "405 N Wabash Ave, Chicago, IL 60611, United States",
+      "Email": "",
+      "done": true
+    },
+    {
+      "Name": "Old Town Med Spa",
+      "Rating": "4.6",
+      "Category": "4.6",
+      "URL": "https://www.google.com/maps/place/Old+Town+Med+Spa/data=!4m7!3m6!1s0x880fd3478b8be401:0xfc4f2998b66bbdc3!8m2!3d41.8950493!4d-87.6335364!16s%2Fg%2F11cky77htw!19sChIJAeSLi0fTD4gRw71rtpgpT_w?authuser=0&hl=en&rclk=1",
+      "Phone": "+1 312-643-1689",
+      "Website": "https://oldtownmedspa.com/",
+      "Address": "152 W Huron St Unit 100, Chicago, IL 60654, United States",
+      "Email": "",
+      "done": true
+    },
+    {
+      "Name": "Innovative MedSpa",
+      "Rating": "4.9",
+      "Category": "4.9",
+      "URL": "https://www.google.com/maps/place/Innovative+MedSpa/data=!4m7!3m6!1s0x880e2dc38329d7b5:0x8536eefbf477082!8m2!3d41.8912162!4d-87.6367894!16s%2Fg%2F11rqk_0lt5!19sChIJtdcpg8MtDogRgnBHv-9uUwg?authuser=0&hl=en&rclk=1",
+      "Phone": "+1 773-657-8377",
+      "Website": "https://www.innovative-medspa.com/",
+      "Address": "511 N Orleans St, Chicago, IL 60654, United States",
+      "Email": "",
+      "done": true
+    },
+    {
+      "Name": "Natural Beauty Med Spa- Chicago",
+      "Rating": "4.9",
+      "Category": "4.9",
+      "URL": "https://www.google.com/maps/place/Natural+Beauty+Med+Spa-+Chicago/data=!4m7!3m6!1s0x880fd34d34d0f6cd:0x5a5b0a3eaace102a!8m2!3d41.895332!4d-87.6300332!16s%2Fg%2F1vf9czjm!19sChIJzfbQNE3TD4gRKhDOqj4KW1o?authuser=0&hl=en&rclk=1",
+      "Phone": "+1 312-981-1291",
+      "Website": "https://www.naturalbeautymedspa.com/",
+      "Address": "712 N Dearborn St 4th floor, Chicago, IL 60654, United States",
+      "Email": "",
+      "done": true
+    },
+    {
+      "Name": "Northwestern Med Spa River North",
+      "Rating": "4.9",
+      "Category": "4.9",
+      "URL": "https://www.google.com/maps/place/Northwestern+Med+Spa+River+North/data=!4m7!3m6!1s0x880e2d283f702fb3:0xbb6235400e0b90ba!8m2!3d41.894628!4d-87.6278716!16s%2Fg%2F11j36pn99l!19sChIJsy9wPygtDogRupALDkA1Yrs?authuser=0&hl=en&rclk=1",
+      "Phone": "+1 312-266-6240",
+      "Website": "https://northwesternplastics.com/river-north-med-spa/",
+      "Address": "3 E Huron St 3rd Floor, Chicago, IL 60611, United States",
+      "Email": "",
+      "done": true
+    },
+    {
+      "Name": "Pure Med Spa",
+      "Rating": "4.5",
+      "Category": "4.5",
+      "URL": "https://www.google.com/maps/place/Pure+Med+Spa/data=!4m7!3m6!1s0x880e2d8e73a36581:0x81470a20166ea83a!8m2!3d41.8988448!4d-87.6295034!16s%2Fg%2F11f7jxv2j8!19sChIJgWWjc44tDogROqhuFiAKR4E?authuser=0&hl=en&rclk=1",
+      "Phone": "+1 312-312-7873",
+      "Website": "https://www.puremedicalspa.us/locations/north-dearborn-chicago/",
+      "Address": "875 N Dearborn St, Chicago, IL 60610, United States",
+      "Email": "",
+      "done": true
+    },
+    {
+      "Name": "Elysium Aesthetics + Longevity",
+      "Rating": "4.9",
+      "Category": "4.9(552)",
+      "URL": "https://www.google.com/maps/place/Elysium+Aesthetics+%2B+Longevity/data=!4m7!3m6!1s0x880e2ccb6b905f9b:0x80eef8e53144b7bd!8m2!3d41.894364!4d-87.6423119!16s%2Fg%2F11bvtc6kry!19sChIJm1-Qa8ssDogRvbdEMeX47oA?authuser=0&hl=en&rclk=1",
+      "Phone": "+1 312-888-9361",
+      "Website": "https://elysiumchicago.com/?utm_source=google&utm_medium=localsearch&utm_campaign=gmb",
+      "Address": "520 W Erie St Ste 110, Chicago, IL 60654, United States",
+      "Email": "",
+      "done": true
+    },
+    {
+      "Name": "Lume",
+      "Rating": "4.9",
+      "Category": "4.9",
+      "URL": "https://www.google.com/maps/place/Lume/data=!4m7!3m6!1s0x880e2d06786158eb:0xc87be7b65ff5966c!8m2!3d41.8896689!4d-87.6374896!16s%2Fg%2F11h_zvlvyx!19sChIJ61hheAYtDogRbJb1X7bne8g?authuser=0&hl=en&rclk=1",
+      "Phone": "+1 312-285-2004",
+      "Website": "https://lume-wellness.com/",
+      "Address": "351 W Hubbard St, Chicago, IL 60654, United States",
+      "Email": "",
+      "done": true
+    },
+    {
+      "Name": "Nūva Haus",
+      "Rating": "4.9",
+      "Category": "4.9",
+      "URL": "https://www.google.com/maps/place/N%C5%ABva+Haus/data=!4m7!3m6!1s0x880e2d8523c75ed1:0x92609253b32b8f3e!8m2!3d41.8928519!4d-87.6384142!16s%2Fg%2F11fhnhzd32!19sChIJ0V7HI4UtDogRPo8rs1OSYJI?authuser=0&hl=en&rclk=1",
+      "Phone": "+1 312-809-7008",
+      "Website": "http://nuvahaus.com/",
+      "Address": "371 W Ontario St, Chicago, IL 60654, United States",
+      "Email": "",
+      "done": true
+    },
+    {
+      "Name": "GOLDCOAST medspa",
+      "Rating": "4.5",
+      "Category": "4.5",
+      "URL": "https://www.google.com/maps/place/GOLDCOAST+medspa/data=!4m7!3m6!1s0x880e2cad5d4c5fc7:0xbef03b064d34b2cb!8m2!3d41.8939762!4d-87.6216083!16s%2Fg%2F1tfmctxf!19sChIJx19MXa0sDogRy7I0TQY78L4?authuser=0&hl=en&rclk=1",
+      "Phone": "+1 312-664-2128",
+      "Website": "https://www.goldcoastmedspa.com/",
+      "Address": "233 E Erie St Suite #100, Chicago, IL 60611, United States",
+      "Email": "",
+      "done": true
+    },
+    {
+      "Name": "The One Spa Chicago",
+      "Rating": "5.0",
+      "Category": "5.0",
+      "URL": "https://www.google.com/maps/place/The+One+Spa+Chicago/data=!4m7!3m6!1s0x880e2b3efa82b9e5:0x281f596a53d7eada!8m2!3d41.891999!4d-87.6163387!16s%2Fg%2F11l8rp_9ds!19sChIJ5bmC-j4rDogR2urXU2pZHyg?authuser=0&hl=en&rclk=1",
+      "Phone": "+1 312-340-6740",
+      "Website": "https://theonespachicago.com/",
+      "Address": "432 E Grand Ave Ste D, Chicago, IL 60611, United States",
+      "Email": "",
+      "done": true
+    },
+    {
+      "Name": "Chicago Aesthetics",
+      "Rating": "4.8",
+      "Category": "4.8(211)",
+      "URL": "https://www.google.com/maps/place/Chicago+Aesthetics/data=!4m7!3m6!1s0x880fd3d3e159be8f:0x5921415c27a85d05!8m2!3d41.8958324!4d-87.6363317!16s%2Fg%2F11j7dnd9k_!19sChIJj75Z4dPTD4gRBV2oJ1xBIVk?authuser=0&hl=en&rclk=1",
+      "Phone": "",
+      "Website": "https://www.chicagoaesthetics.com/",
+      "Address": "310 W Superior St Fl 2 Ste 200, Chicago, IL 60654, United States",
+      "Email": "",
+      "done": true
+    },
+    {
+      "Name": "Northwestern Med Spa",
+      "Rating": "4.5",
+      "Category": "4.5",
+      "URL": "https://www.google.com/maps/place/Northwestern+Med+Spa/data=!4m7!3m6!1s0x880e2cab50948409:0x643a004662034586!8m2!3d41.8945828!4d-87.6231705!16s%2Fg%2F11c542nfdb!19sChIJCYSUUKssDogRhkUDYkYAOmQ?authuser=0&hl=en&rclk=1",
+      "Phone": "+1 312-266-6240",
+      "Website": "http://northwesternmedspa.com/",
+      "Address": "676 N St Clair St Ste 1575, Chicago, IL 60611, United States",
+      "Email": "",
+      "done": true
+    },
+    {
+      "Name": "Old Town Med Spa (Lincoln Park)",
+      "Rating": "4.9",
+      "Category": "4.9(426)",
+      "URL": "https://www.google.com/maps/place/Old+Town+Med+Spa+%28Lincoln+Park%29/data=!4m7!3m6!1s0x880fd310546e791b:0x94ac1b25e1082dc3!8m2!3d41.9231472!4d-87.6459895!16s%2Fg%2F11f0213s2z!19sChIJG3luVBDTD4gRwy0I4SUbrJQ?authuser=0&hl=en&rclk=1",
+      "Phone": "+1 312-882-0700",
+      "Website": "https://oldtownmedspa.com/",
+      "Address": "2266 N Lincoln Ave Unit 2, Chicago, IL 60614, United States",
+      "Email": "",
+      "done": true
+    },
+    {
+      "Name": "Refine by Tulsi Med Spa",
+      "Rating": "5.0",
+      "Category": "5.0(279)",
+      "URL": "https://www.google.com/maps/place/Refine+by+Tulsi+Med+Spa/data=!4m7!3m6!1s0x880fd37b36f58ac5:0xa9bcd24df9bd3863!8m2!3d41.9217813!4d-87.6635618!16s%2Fg%2F11q3c_s7kd!19sChIJxYr1NnvTD4gRYzi9-U3SvKk?authuser=0&hl=en&rclk=1",
+      "Phone": "+1 618-298-8574",
+      "Website": "https://refinebytulsi.com/?utm_source=google&utm_medium=organic&utm_campaign=gmb_listing",
+      "Address": "1400 W Webster Ave, Chicago, IL 60614, United States",
+      "Email": "",
+      "done": true
+    },
+    {
+      "Name": "Derma Bliss Medical Spa",
+      "Rating": "4.8",
+      "Category": "4.8(315)",
+      "URL": "https://www.google.com/maps/place/Derma+Bliss+Medical+Spa/data=!4m7!3m6!1s0x880fd3db09bf4b11:0xf4ba53a135ebcaac!8m2!3d41.9247948!4d-87.6397435!16s%2Fg%2F11hz6tw944!19sChIJEUu_CdvTD4gRrMrrNaFTuvQ?authuser=0&hl=en&rclk=1",
+      "Phone": "+1 773-666-5037",
+      "Website": "https://dermablissmedspa.com/?utm_source=google&utm_medium=organic&utm_campaign=gbp",
+      "Address": "2335 N Clark St, Chicago, IL 60614, United States",
+      "Email": "",
+      "done": true
+    },
+    {
+      "Name": "OVME",
+      "Rating": "4.8",
+      "Category": "4.8(213)",
+      "URL": "https://www.google.com/maps/place/OVME/data=!4m7!3m6!1s0x880fd3084d207ce5:0x9ab23627b36a1ed2!8m2!3d41.9172811!4d-87.6481739!16s%2Fg%2F11hnyb_s1w!19sChIJ5XwgTQjTD4gR0h5qsyc2spo?authuser=0&hl=en&rclk=1",
+      "Phone": "+1 872-245-6863",
+      "Website": "https://ovme.com/pages/lincoln-park-chicago-il",
+      "Address": "1945 N Halsted St #101, Chicago, IL 60614, United States",
+      "Email": "",
+      "done": true
+    },
+    {
+      "Name": "Elase Med Spa",
+      "Rating": "4.9",
+      "Category": "4.9(103)",
+      "URL": "https://www.google.com/maps/place/Elase+Med+Spa/data=!4m7!3m6!1s0x880fd365d6e22693:0x6c8f245a2edff5a!8m2!3d41.9183044!4d-87.6538118!16s%2Fg%2F11g_qpzn78!19sChIJkybi1mXTD4gRWv_tokXyyAY?authuser=0&hl=en&rclk=1",
+      "Phone": "+1 312-940-3844",
+      "Website": "https://elase.com/locations/lincoln-park/?utm_source=gmb&utm_medium=organic&utm_campaign=lincoln-park",
+      "Address": "Upper Level, 1006 W Armitage Ave, Chicago, IL 60614, United States",
+      "Email": "",
+      "done": true
+    },
+    {
+      "Name": "Skinovatio Medical Spa - Lincoln Park",
+      "Rating": "4.4",
+      "Category": "4.4(123)",
+      "URL": "https://www.google.com/maps/place/Skinovatio+Medical+Spa+-+Lincoln+Park/data=!4m7!3m6!1s0x880fd303c58fc34d:0x9533033d5114f13!8m2!3d41.9296881!4d-87.655004!16s%2Fg%2F11fy5hlq_m!19sChIJTcOPxQPTD4gRE08R1TMwUwk?authuser=0&hl=en&rclk=1",
+      "Phone": "+1 773-799-8278",
+      "Website": "https://www.lincolnparkskinovatio.com/",
+      "Address": "2632 N Lincoln Ave, Chicago, IL 60614, United States",
+      "Email": "",
+      "done": true
+    },
+    {
+      "Name": "Lincoln Park Aesthetics",
+      "Rating": "4.0",
+      "Category": "4.0(56)",
+      "URL": "https://www.google.com/maps/place/Lincoln+Park+Aesthetics/data=!4m7!3m6!1s0x880fd3191ccee4bf:0xc44b7579fcdd790f!8m2!3d41.9182886!4d-87.6514154!16s%2Fg%2F1tp8_n1p!19sChIJv-TOHBnTD4gRD3nd_Hl1S8Q?authuser=0&hl=en&rclk=1",
+      "Phone": "+1 773-857-1001",
+      "Website": "",
+      "Address": "908 W Armitage Ave, Chicago, IL 60614, United States",
+      "Email": "",
+      "done": true
+    },
+    {
+      "Name": "SpaDerma",
+      "Rating": "4.9",
+      "Category": "4.9(726)",
+      "URL": "https://www.google.com/maps/place/SpaDerma/data=!4m7!3m6!1s0x880e2cd943ddc651:0xe872fff02b33e27!8m2!3d41.8819019!4d-87.6540787!16s%2Fg%2F11f2q5tvnh!19sChIJUcbdQ9ksDogRJz6zAv8vhw4?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "VITAHL Medical Aesthetics",
+      "Rating": "4.8",
+      "Category": "4.8(111)",
+      "URL": "https://www.google.com/maps/place/VITAHL+Medical+Aesthetics/data=!4m7!3m6!1s0x880e2cd8d651a39b:0xe60876008b6fbf80!8m2!3d41.8814656!4d-87.6557508!16s%2Fg%2F11g87b2z6f!19sChIJm6NR1tgsDogRgL9viwB2COY?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Optimal Wellness & Beauty",
+      "Rating": "5.0",
+      "Category": "5.0(327)",
+      "URL": "https://www.google.com/maps/place/Optimal+Wellness+%26+Beauty/data=!4m7!3m6!1s0x880fd356b40144bd:0x12bccd7d492ac7fd!8m2!3d41.8865428!4d-87.6531612!16s%2Fg%2F11rkg8hn9_!19sChIJvUQBtFbTD4gR_ccqSX3NvBI?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Chapter Aesthetic Studio",
+      "Rating": "4.6",
+      "Category": "4.6(215)",
+      "URL": "https://www.google.com/maps/place/Chapter+Aesthetic+Studio/data=!4m7!3m6!1s0x880e2d8fb959501d:0x3e7a652dbcbefb03!8m2!3d41.8870369!4d-87.6481261!16s%2Fg%2F11l28ygd96!19sChIJHVBZuY8tDogRA_u-vC1lej4?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Opulence Chicago",
+      "Rating": "4.9",
+      "Category": "4.9(195)",
+      "URL": "https://www.google.com/maps/place/Opulence+Chicago/data=!4m7!3m6!1s0x880e2dcc1a7fdcef:0x50367bfeee50c669!8m2!3d41.885843!4d-87.6438871!16s%2Fg%2F11hzyynt82!19sChIJ79x_GswtDogRacZQ7v57NlA?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Aesthetica by Dr. Adam",
+      "Rating": "4.9",
+      "Category": "4.9(230)",
+      "URL": "https://www.google.com/maps/place/Aesthetica+by+Dr.+Adam/data=!4m7!3m6!1s0x880e2d09518ade9d:0x5e0c83c531730da1!8m2!3d41.8819213!4d-87.6506295!16s%2Fg%2F11hgfr2f5y!19sChIJnd6KUQktDogRoQ1zMcWDDF4?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "DEMI Med Spa",
+      "Rating": "5.0",
+      "Category": "5.0(48)",
+      "URL": "https://www.google.com/maps/place/DEMI+Med+Spa/data=!4m7!3m6!1s0x880fd37dee55400d:0x733eb9e97172167a!8m2!3d41.883904!4d-87.641417!16s%2Fg%2F11vhcr7m_b!19sChIJDUBV7n3TD4gRehZycem5PnM?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Serebro Med Spa",
+      "Rating": "5.0",
+      "Category": "5.0(1)",
+      "URL": "https://www.google.com/maps/place/Serebro+Med+Spa/data=!4m7!3m6!1s0x880e2d60414fa72d:0x9b4c136e126ab208!8m2!3d41.8833912!4d-87.6421987!16s%2Fg%2F11z4c59f8c!19sChIJLadPQWAtDogRCLJqEm4TTJs?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Skin By Zana",
+      "Rating": "4.7",
+      "Category": "4.7(118)",
+      "URL": "https://www.google.com/maps/place/Skin+By+Zana/data=!4m7!3m6!1s0x880e2cd8ca9b8d4b:0x67b7f48034b50808!8m2!3d41.8810356!4d-87.6567478!16s%2Fg%2F11b5ynx5nw!19sChIJS42bytgsDogRCAi1NID0t2c?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Peachy West Loop",
+      "Rating": "5.0",
+      "Category": "5.0(523)",
+      "URL": "https://www.google.com/maps/place/Peachy+West+Loop/data=!4m7!3m6!1s0x880e2db0ecc0572b:0xe18d7b245634ec54!8m2!3d41.8840122!4d-87.6552855!16s%2Fg%2F11x78ncvrs!19sChIJK1fA7LAtDogRVOw0ViR7jeE?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Tres Jolie Medical Spa and Wellness Center",
+      "Rating": "4.8",
+      "Category": "4.8(137)",
+      "URL": "https://www.google.com/maps/place/Tres+Jolie+Medical+Spa+and+Wellness+Center/data=!4m7!3m6!1s0x880e2d1df41c9beb:0x9e74491386d9d43d!8m2!3d41.8579794!4d-87.648905!16s%2Fg%2F11h0lkl7r0!19sChIJ65sc9B0tDogRPdTZhhNJdJ4?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "KB Aesthetics Chicago",
+      "Rating": "5.0",
+      "Category": "5.0(46)",
+      "URL": "https://www.google.com/maps/place/KB+Aesthetics+Chicago/data=!4m7!3m6!1s0x880e2d450cfd0c61:0xd7e1f09303033e9d!8m2!3d41.8875106!4d-87.6560312!16s%2Fg%2F11wjpcy769!19sChIJYQz9DEUtDogRnT4DA5Pw4dc?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "SpaSpace Chicago",
+      "Rating": "4.6",
+      "Category": "4.6(415)",
+      "URL": "https://www.google.com/maps/place/SpaSpace+Chicago/data=!4m7!3m6!1s0x880e2cc7c3102b49:0xb1fdcb49d39e5a1b!8m2!3d41.8848667!4d-87.6396579!16s%2Fg%2F1tfczdb2!19sChIJSSsQw8csDogRG1qe00nL_bE?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Velora Med Spa",
+      "Rating": "4.7",
+      "Category": "4.7(88)",
+      "URL": "https://www.google.com/maps/place/Velora+Med+Spa/data=!4m7!3m6!1s0x880e2d1ea9b95673:0xc31c5618fe46b85e!8m2!3d41.8834917!4d-87.6288079!16s%2Fg%2F11xdqx03kc!19sChIJc1a5qR4tDogRXrhG_hhWHMM?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "ellehomme Holistic Spa",
+      "Rating": "4.4",
+      "Category": "4.4(34)",
+      "URL": "https://www.google.com/maps/place/ellehomme+Holistic+Spa/data=!4m7!3m6!1s0x880e2cdcc8902193:0x21bd9d3f8a542db9!8m2!3d41.8793592!4d-87.6486338!16s%2Fg%2F1hdzmvkf8!19sChIJkyGQyNwsDogRuS1Uij-dvSE?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "San Spa",
+      "Rating": "4.9",
+      "Category": "4.9(92)",
+      "URL": "https://www.google.com/maps/place/San+Spa/data=!4m7!3m6!1s0x880e2d61127a4611:0x2f21b6bad5a83f96!8m2!3d41.8878355!4d-87.6452789!16s%2Fg%2F11m6tw474x!19sChIJEUZ6EmEtDogRlj-o1bq2IS8?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Restore Hyper Wellness",
+      "Rating": "4.8",
+      "Category": "4.8(63)",
+      "URL": "https://www.google.com/maps/place/Restore+Hyper+Wellness/data=!4m7!3m6!1s0x880e2df47497657d:0xeb59b9fcbb5ea6fb!8m2!3d41.8809484!4d-87.6478579!16s%2Fg%2F11t45cj8xy!19sChIJfWWXdPQtDogR-6Zeu_y5Wes?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Aesthetics By Alyssa",
+      "Rating": "5.0",
+      "Category": "5.0(72)",
+      "URL": "https://www.google.com/maps/place/Aesthetics+By+Alyssa/data=!4m7!3m6!1s0x880e2dcd0dfe5ca1:0xbd247071f6a561bc!8m2!3d41.887346!4d-87.6534977!16s%2Fg%2F11wwrgj3z7!19sChIJoVz-Dc0tDogRvGGl9nFwJL0?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Radiant Beauty Med Spa",
+      "Rating": "5.0",
+      "Category": "5.0(119)",
+      "URL": "https://www.google.com/maps/place/Radiant+Beauty+Med+Spa/data=!4m7!3m6!1s0x880e2b42a41e887b:0x9d329fa1594a4795!8m2!3d41.8629784!4d-87.6243933!16s%2Fg%2F11p10v8p5l!19sChIJe4gepEIrDogRlUdKWaGfMp0?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "MEET SPA",
+      "Rating": "4.6",
+      "Category": "4.6(119)",
+      "URL": "https://www.google.com/maps/place/MEET+SPA/data=!4m7!3m6!1s0x880e2df14d54c4dd:0xb5ab0499b5584011!8m2!3d41.8825939!4d-87.6518002!16s%2Fg%2F11r3dfnrnp!19sChIJ3cRUTfEtDogREUBYtZkEq7U?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Skin Pharm",
+      "Rating": "5.0",
+      "Category": "5.0(112)",
+      "URL": "https://www.google.com/maps/place/Skin+Pharm/data=!4m7!3m6!1s0x880e2d38d103b92d:0xfd7dde8a688a4565!8m2!3d41.8881893!4d-87.6518326!16s%2Fg%2F11m5zvh0jx!19sChIJLbkD0TgtDogRZUWKaIreff0?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "The Confidence Bar",
+      "Rating": "5.0",
+      "Category": "5.0(457)",
+      "URL": "https://www.google.com/maps/place/The+Confidence+Bar/data=!4m7!3m6!1s0x880e2cab50464805:0xec5cf2abcc9f6ed!8m2!3d41.8818892!4d-87.6560635!16s%2Fg%2F11hzyswktv!19sChIJBUhGUKssDogR7fbJvCrPxQ4?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Spavia Day Spa - West Loop",
+      "Rating": "4.9",
+      "Category": "4.9(188)",
+      "URL": "https://www.google.com/maps/place/Spavia+Day+Spa+-+West+Loop/data=!4m7!3m6!1s0x880e2dc007cfbce5:0x2cc20872c4ab7cc6!8m2!3d41.8791351!4d-87.6468645!16s%2Fg%2F11vryzt26n!19sChIJ5bzPB8AtDogRxnyrxHIIwiw?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Thrive Wellness + Aesthetics",
+      "Rating": "4.8",
+      "Category": "4.8(28)",
+      "URL": "https://www.google.com/maps/place/Thrive+Wellness+%2B+Aesthetics/data=!4m7!3m6!1s0x880e2db5f777dbb7:0xc4a50ed57f38777a!8m2!3d41.8963074!4d-87.666343!16s%2Fg%2F11w4h2w7gg!19sChIJt9t397UtDogRenc4f9UOpcQ?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Ethos MedSpa Chicago",
+      "Rating": "4.9",
+      "Category": "4.9(126)",
+      "URL": "https://www.google.com/maps/place/Ethos+MedSpa+Chicago/data=!4m7!3m6!1s0x880fd36c68187527:0xc56e30b9e982a9ed!8m2!3d41.8971697!4d-87.6352282!16s%2Fg%2F11ln1t350x!19sChIJJ3UYaGzTD4gR7amC6bkwbsU?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Chicago Medspa",
+      "Rating": "5.0",
+      "Category": "5.0(6)",
+      "URL": "https://www.google.com/maps/place/Chicago+Medspa/data=!4m7!3m6!1s0x880e2d3aa212e16d:0xbf570e0ed4cafed9!8m2!3d41.8830279!4d-87.624905!16s%2Fg%2F11mkytlk_z!19sChIJbeESojotDogR2f7K1A4OV78?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Cadella Aesthetics",
+      "Rating": "4.9",
+      "Category": "4.9(294)",
+      "URL": "https://www.google.com/maps/place/Cadella+Aesthetics/data=!4m7!3m6!1s0x880fd35192406e7f:0x39eb58f6b8d33a9a!8m2!3d41.9010053!4d-87.6270175!16s%2Fg%2F11gzbr4gt!19sChIJf25AklHTD4gRmjrTuPZY6zk?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Liv Aesthetics Chicago",
+      "Rating": "5.0",
+      "Category": "5.0(87)",
+      "URL": "https://www.google.com/maps/place/Liv+Aesthetics+Chicago/data=!4m7!3m6!1s0x880e2d2ad7e35463:0x6efa22d97e1ec73c!8m2!3d41.8832458!4d-87.6517838!16s%2Fg%2F11fnynpmxf!19sChIJY1Tj1yotDogRPMceftki-m4?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "FACE FOUNDRIÉ - Chicago West Loop",
+      "Rating": "4.8",
+      "Category": "4.8(201)",
+      "URL": "https://www.google.com/maps/place/FACE+FOUNDRI%C3%89+-+Chicago+West+Loop/data=!4m7!3m6!1s0x880e2d8e03d0a43f:0x52e0fc39e02149a!8m2!3d41.8828564!4d-87.6487386!16s%2Fg%2F11pvbmpwxd!19sChIJP6TQA44tDogRmhQCnsMPLgU?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "ellehomme Holistic Med Spa",
+      "Rating": "4.1",
+      "Category": "4.1(319)",
+      "URL": "https://www.google.com/maps/place/ellehomme+Holistic+Med+Spa/data=!4m7!3m6!1s0x880e2cdcc6700243:0x731ae7d73afe3e09!8m2!3d41.8939762!4d-87.6216083!16s%2Fg%2F1tfzhbv9!19sChIJQwJwxtwsDogRCT7-OtfnGnM?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "HealthQuest Medi-Spa, INC.",
+      "Rating": "5.0",
+      "Category": "5.0(38)",
+      "URL": "https://www.google.com/maps/place/HealthQuest+Medi-Spa,+INC./data=!4m7!3m6!1s0x880fd3f4c1106c7d:0x263e081b01d8ae59!8m2!3d41.9035648!4d-87.6679007!16s%2Fg%2F11jbp1jr51!19sChIJfWwQwfTTD4gRWa7YARsIPiY?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "SOLUX Med Spa",
+      "Rating": "4.4",
+      "Category": "4.4(76)",
+      "URL": "https://www.google.com/maps/place/SOLUX+Med+Spa/data=!4m7!3m6!1s0x880e2cb166b5d8d1:0xd49d013d8bc4c17a!8m2!3d41.891138!4d-87.670242!16s%2Fg%2F1td5m8nf!19sChIJ0di1ZrEsDogResHEiz0BndQ?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Whole Med Spa and Wellness Bar",
+      "Rating": "3.7",
+      "Category": "3.7(3)",
+      "URL": "https://www.google.com/maps/place/Whole+Med+Spa+and+Wellness+Bar/data=!4m7!3m6!1s0x880e2d84dec531ed:0x6c7a15cb627b8bee!8m2!3d41.8694578!4d-87.663321!16s%2Fg%2F11kbcswj9l!19sChIJ7THF3oQtDogR7ot7YssVemw?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "All Body Spa Inc.",
+      "Rating": "5.0",
+      "Category": "5.0(37)",
+      "URL": "https://www.google.com/maps/place/All+Body+Spa+Inc./data=!4m7!3m6!1s0x880e2d2bde21803f:0xfb70748d7aa0e332!8m2!3d41.853719!4d-87.646214!16s%2Fg%2F11s0wsk0qh!19sChIJP4Ah3istDogRMuOgeo10cPs?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Cowshed Spa Chicago",
+      "Rating": "4.6",
+      "Category": "4.6(110)",
+      "URL": "https://www.google.com/maps/place/Cowshed+Spa+Chicago/data=!4m7!3m6!1s0x880e2cdad2d03d9d:0xa60193e538ca9468!8m2!3d41.883765!4d-87.648284!16s%2Fg%2F11clygm5xc!19sChIJnT3Q0tosDogRaJTKOOWTAaY?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "The NOW Massage West Loop",
+      "Rating": "4.8",
+      "Category": "4.8(604)",
+      "URL": "https://www.google.com/maps/place/The+NOW+Massage+West+Loop/data=!4m7!3m6!1s0x880e2de28e337c2d:0x66446409da2e0f0!8m2!3d41.8814626!4d-87.6471679!16s%2Fg%2F11sbyhbqt7!19sChIJLXwzjuItDogR8OCinUBGZAY?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "truenose™",
+      "Rating": "5.0",
+      "Category": "5.0(1)",
+      "URL": "https://www.google.com/maps/place/truenose%E2%84%A2/data=!4m7!3m6!1s0x880e2d2f6a6d144f:0xde50e5e93b5f93d2!8m2!3d41.8819213!4d-87.6506295!16s%2Fg%2F11y44x9tlz!19sChIJTxRtai8tDogR0pNfO-nlUN4?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Peacock Health Collective",
+      "Rating": "5.0",
+      "Category": "5.0(45)",
+      "URL": "https://www.google.com/maps/place/Peacock+Health+Collective/data=!4m7!3m6!1s0x880e2d2218ff3dfb:0x31124399a14eb754!8m2!3d41.8832458!4d-87.6517838!16s%2Fg%2F11yp_54rdb!19sChIJ-z3_GCItDogRVLdOoZlDEjE?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Exfolē8",
+      "Rating": "4.9",
+      "Category": "4.9(44)",
+      "URL": "https://www.google.com/maps/place/Exfol%C4%938/data=!4m7!3m6!1s0x880e2d272f8c8c8b:0x12927f53af21f2ca!8m2!3d41.88175!4d-87.6600295!16s%2Fg%2F1262k3bkl!19sChIJi4yMLyctDogRyvIhr1N_khI?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Lustre Skin Boutique",
+      "Rating": "5.0",
+      "Category": "5.0(39)",
+      "URL": "https://www.google.com/maps/place/Lustre+Skin+Boutique/data=!4m7!3m6!1s0x880fd2c07ea2e559:0x20c37141bdb48910!8m2!3d41.8832458!4d-87.6517838!16s%2Fg%2F1thd78k6!19sChIJWeWifsDSD4gREIm0vUFxwyA?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Dr. Yates Lifestyle Med",
+      "Rating": "4.8",
+      "Category": "4.8(68)",
+      "URL": "https://www.google.com/maps/place/Dr.+Yates+Lifestyle+Med/data=!4m7!3m6!1s0x880e2d384fb1760f:0xefc3fb8bbfd73841!8m2!3d41.8864456!4d-87.621975!16s%2Fg%2F11grtyc6ts!19sChIJD3axTzgtDogRQTjXv4v7w-8?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Body Werks Chicago",
+      "Rating": "4.5",
+      "Category": "4.5(73)",
+      "URL": "https://www.google.com/maps/place/Body+Werks+Chicago/data=!4m7!3m6!1s0x880e2d121164f20b:0x69891986c04768fd!8m2!3d41.8619189!4d-87.6238435!16s%2Fg%2F11ffknkhgt!19sChIJC_JkERItDogR_WhHwIYZiWk?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "SkyLight Body Therapy LLC",
+      "Rating": "5.0",
+      "Category": "5.0(206)",
+      "URL": "https://www.google.com/maps/place/SkyLight+Body+Therapy+LLC/data=!4m7!3m6!1s0x880e2d74b4e6359f:0x13d26d48e6cd3113!8m2!3d41.8828727!4d-87.6306191!16s%2Fg%2F11lkb_0t6_!19sChIJnzXmtHQtDogREzHN5kht0hM?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Viva La Med Spa-Old Town",
+      "Rating": "4.7",
+      "Category": "4.7(517)",
+      "URL": "https://www.google.com/maps/place/Viva+La+Med+Spa-Old+Town/data=!4m7!3m6!1s0x880fd38888639a7b:0x2b0cf9398025895d!8m2!3d41.9127917!4d-87.6346016!16s%2Fg%2F11skp90gdm!19sChIJe5pjiIjTD4gRXYklgDn5DCs?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "HOUSE22 Med Spa in Chicago",
+      "Rating": "4.8",
+      "Category": "4.8(361)",
+      "URL": "https://www.google.com/maps/place/HOUSE22+Med+Spa+in+Chicago/data=!4m7!3m6!1s0x880fd3522adf9487:0x24621fcb1be89a8b!8m2!3d41.9001147!4d-87.6250997!16s%2Fg%2F1thkxw3n!19sChIJh5TfKlLTD4gRi5roG8sfYiQ?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "H Med Spa",
+      "Rating": "4.9",
+      "Category": "4.9(71)",
+      "URL": "https://www.google.com/maps/place/H+Med+Spa/data=!4m7!3m6!1s0x880fd3e5df15cc43:0xfc9e236954aeab96!8m2!3d41.9103676!4d-87.6723349!16s%2Fg%2F11qsttg9t1!19sChIJQ8wV3-XTD4gRlquuVGkjnvw?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "PSRx BODY & SKIN MED SPA LASER CENTER",
+      "Rating": "4.9",
+      "Category": "4.9(130)",
+      "URL": "https://www.google.com/maps/place/PSRx+BODY+%26+SKIN+MED+SPA+LASER+CENTER/data=!4m7!3m6!1s0x880e2dcb64478271:0x2f2516b8236c70ab!8m2!3d41.8708128!4d-87.6262349!16s%2Fg%2F11h6npx9st!19sChIJcYJHZMstDogRq3BsI7gWJS8?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Lipomassage Chicago",
+      "Rating": "4.9",
+      "Category": "4.9(144)",
+      "URL": "https://www.google.com/maps/place/Lipomassage+Chicago/data=!4m7!3m6!1s0x880fd3519a3e7bb1:0xb816157cd4b5227d!8m2!3d41.8950493!4d-87.6335364!16s%2Fg%2F1ptyyj59c!19sChIJsXs-mlHTD4gRfSK11HwVFrg?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "A.B.E. Med Spa",
+      "Rating": "5.0",
+      "Category": "5.0(2)",
+      "URL": "https://www.google.com/maps/place/A.B.E.+Med+Spa/data=!4m7!3m6!1s0x880e2d2b57959c9d:0xd5c59e98717cd4e5!8m2!3d41.8502846!4d-87.6233197!16s%2Fg%2F11rdnnm65g!19sChIJnZyVVystDogR5dR8cZiexdU?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Solve Med Spa Chicago",
+      "Rating": "4.9",
+      "Category": "4.9(374)",
+      "URL": "https://www.google.com/maps/place/Solve+Med+Spa+Chicago/data=!4m7!3m6!1s0x880e2d44f13a1bb7:0xba4385cf2e94f768!8m2!3d41.8937799!4d-87.6304711!16s%2Fg%2F11y425xsr1!19sChIJtxs68UQtDogRaPeULs-FQ7o?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "IVI Aesthetics & Wellness",
+      "Rating": "5.0",
+      "Category": "5.0(56)",
+      "URL": "https://www.google.com/maps/place/IVI+Aesthetics+%26+Wellness/data=!4m7!3m6!1s0x880fd3a77f9f8321:0xd6cba2b57577b84c!8m2!3d41.8981217!4d-87.6775104!16s%2Fg%2F11ry31rwr9!19sChIJIYOff6fTD4gRTLh3dbWiy9Y?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Concierge Aesthetics & Plastic Surgery",
+      "Rating": "4.8",
+      "Category": "4.8(146)",
+      "URL": "https://www.google.com/maps/place/Concierge+Aesthetics+%26+Plastic+Surgery/data=!4m7!3m6!1s0x880fd353d7c3233d:0x34096b8660cdf640!8m2!3d41.9002468!4d-87.6251212!16s%2Fg%2F1tfn3bcl!19sChIJPSPD11PTD4gRQPbNYIZrCTQ?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "SpaDerma",
+      "Rating": "4.9",
+      "Category": "4.9(486)",
+      "URL": "https://www.google.com/maps/place/SpaDerma/data=!4m7!3m6!1s0x880fd30e944b1f25:0xe9d3c879cca3a402!8m2!3d41.9034658!4d-87.6689583!16s%2Fg%2F11v60x880b!19sChIJJR9LlA7TD4gRAqSjzHnI0-k?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Better Med Spa & Wellness",
+      "Rating": "4.8",
+      "Category": "4.8(149)",
+      "URL": "https://www.google.com/maps/place/Better+Med+Spa+%26+Wellness/data=!4m7!3m6!1s0x880fd364f34a9bc7:0x7f1491e3cc92dd8b!8m2!3d41.9205449!4d-87.6482667!16s%2Fg%2F11v074wh_c!19sChIJx5tK82TTD4gRi92SzOORFH8?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Oxygen Spa Studio",
+      "Rating": "4.7",
+      "Category": "4.7(132)",
+      "URL": "https://www.google.com/maps/place/Oxygen+Spa+Studio/data=!4m7!3m6!1s0x880e2cdd524945f9:0x2532a6e9843837ea!8m2!3d41.8959254!4d-87.6933694!16s%2Fg%2F1tfpkdcw!19sChIJ-UVJUt0sDogR6jc4hOmmMiU?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "American Med Spa Association",
+      "Rating": "5.0",
+      "Category": "5.0(120)",
+      "URL": "https://www.google.com/maps/place/American+Med+Spa+Association/data=!4m7!3m6!1s0x880e2cb135dec4db:0xe1a76876304f0cbb!8m2!3d41.8864706!4d-87.6444043!16s%2Fg%2F11bbt5j6g_!19sChIJ28TeNbEsDogRuwxPMHZop-E?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Chicago Aesthetics Club",
+      "Rating": "5.0",
+      "Category": "5.0(220)",
+      "URL": "https://www.google.com/maps/place/Chicago+Aesthetics+Club/data=!4m7!3m6!1s0x880e2dd119d5a11d:0xc57c4099685b505b!8m2!3d41.893913!4d-87.6236227!16s%2Fg%2F11lgkd1hgl!19sChIJHaHVGdEtDogRW1BbaJlAfMU?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Refine by Tulsi Med Spa – Logan Square",
+      "Rating": "4.9",
+      "Category": "4.9(59)",
+      "URL": "https://www.google.com/maps/place/Refine+by+Tulsi+Med+Spa+%E2%80%93+Logan+Square/data=!4m7!3m6!1s0x880fcd9fd868acd7:0xb36e48f2c3458ee9!8m2!3d41.91755!4d-87.7033515!16s%2Fg%2F11xd3mgbw_!19sChIJ16xo2J_ND4gR6Y5Fw_JIbrM?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "RENUA Med Spa Chicago",
+      "Rating": "5.0",
+      "Category": "5.0(5)",
+      "URL": "https://www.google.com/maps/place/RENUA+Med+Spa+Chicago/data=!4m7!3m6!1s0x880fd317ab904763:0x77098dd3918c728c!8m2!3d41.8920077!4d-87.6571152!16s%2Fg%2F11lczwkc5j!19sChIJY0eQqxfTD4gRjHKMkdONCXc?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Linz Aesthetics Clinic",
+      "Rating": "5.0",
+      "Category": "5.0(53)",
+      "URL": "https://www.google.com/maps/place/Linz+Aesthetics+Clinic/data=!4m7!3m6!1s0x880e2dc248c9768b:0x497bb90eb62d7637!8m2!3d41.8708021!4d-87.6262154!16s%2Fg%2F11q_cr_5h1!19sChIJi3bJSMItDogRN3Yttg65e0k?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Irmi Ramsay Amy Rosofsky Electrolysis",
+      "Rating": "4.7",
+      "Category": "4.7(24)",
+      "URL": "https://www.google.com/maps/place/Irmi+Ramsay+Amy+Rosofsky+Electrolysis/data=!4m7!3m6!1s0x880e2ca4340b8d93:0x104eaf3a51757014!8m2!3d41.883028!4d-87.624905!16s%2Fg%2F1tftxjx3!19sChIJk40LNKQsDogRFHB1UTqvThA?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Mia Aesthetics",
+      "Rating": "4.2",
+      "Category": "4.2(890)",
+      "URL": "https://www.google.com/maps/place/Mia+Aesthetics/data=!4m7!3m6!1s0x880fd3b9b59f0eef:0xaa002a547df5aec2!8m2!3d41.949766!4d-87.692866!16s%2Fg%2F11hrd87l21!19sChIJ7w6ftbnTD4gRwq71fVQqAKo?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Gold Coast Plastic Surgery - George Moynihan, M.D.",
+      "Rating": "4.7",
+      "Category": "4.7(148)",
+      "URL": "https://www.google.com/maps/place/Gold+Coast+Plastic+Surgery+-+George+Moynihan,+M.D./data=!4m7!3m6!1s0x880e2cad5d4c5fc7:0x54458e1a2d8cbc51!8m2!3d41.8972915!4d-87.6360708!16s%2Fg%2F1vfp8swt!19sChIJx19MXa0sDogRUbyMLRqORVQ?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Center for Dermatology and Aesthetic Medicine",
+      "Rating": "4.7",
+      "Category": "4.7(140)",
+      "URL": "https://www.google.com/maps/place/Center+for+Dermatology+and+Aesthetic+Medicine/data=!4m7!3m6!1s0x880fd34b5c4893c1:0x6c45b70202b704c8!8m2!3d41.8964307!4d-87.6339553!16s%2Fg%2F11c584gw8x!19sChIJwZNIXEvTD4gRyAS3AgK3RWw?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Erickson Cosmetic Dermatology & Lifestyle Medicine",
+      "Rating": "4.9",
+      "Category": "4.9(256)",
+      "URL": "https://www.google.com/maps/place/Erickson+Cosmetic+Dermatology+%26+Lifestyle+Medicine/data=!4m7!3m6!1s0x880fd3549f47c5e7:0x9974d0823d8ba6e5!8m2!3d41.8959995!4d-87.6238055!16s%2Fg%2F1pzv940k9!19sChIJ58VHn1TTD4gR5aaLPYLQdJk?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Chicago Cosmetic Surgery & Dermatology",
+      "Rating": "4.8",
+      "Category": "4.8(1,429)",
+      "URL": "https://www.google.com/maps/place/Chicago+Cosmetic+Surgery+%26+Dermatology/data=!4m7!3m6!1s0x880e2cb1e430fff5:0x755e0759a703dc94!8m2!3d41.8914777!4d-87.6273264!16s%2Fg%2F1tjfhfd1!19sChIJ9f8w5LEsDogRlNwDp1kHXnU?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Peachy Gold Coast",
+      "Rating": "5.0",
+      "Category": "5.0(363)",
+      "URL": "https://www.google.com/maps/place/Peachy+Gold+Coast/data=!4m7!3m6!1s0x880fd317230deb79:0x26d7f76b3e95e8b6!8m2!3d41.8989528!4d-87.6264185!16s%2Fg%2F11y39jj3by!19sChIJeesNIxfTD4gRtuiVPmv31yY?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Aesthetic Beauty Lounge, Inc",
+      "Rating": "4.9",
+      "Category": "4.9(91)",
+      "URL": "https://www.google.com/maps/place/Aesthetic+Beauty+Lounge,+Inc/data=!4m7!3m6!1s0x880e2d4985d46f35:0xeb070780532896ea!8m2!3d41.8935343!4d-87.6290047!16s%2Fg%2F11y1jpxytt!19sChIJNW_UhUktDogR6pYoU4AHB-s?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Aesthetic Skin Chicago",
+      "Rating": "4.6",
+      "Category": "4.6(20)",
+      "URL": "https://www.google.com/maps/place/Aesthetic+Skin+Chicago/data=!4m7!3m6!1s0x880fd3547bdd70af:0xe785229e6f8d5eea!8m2!3d41.8957739!4d-87.6345464!16s%2Fg%2F11bwn8yb91!19sChIJr3Dde1TTD4gR6l6Nb54ihec?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "The Few Institute",
+      "Rating": "4.9",
+      "Category": "4.9(186)",
+      "URL": "https://www.google.com/maps/place/The+Few+Institute/data=!4m7!3m6!1s0x880fd3541290b235:0xa429fd26e8dec711!8m2!3d41.898883!4d-87.6231503!16s%2Fg%2F1tlnf0_3!19sChIJNbKQElTTD4gREcfe6Cb9KaQ?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "MGMD Aesthetics",
+      "Rating": "4.9",
+      "Category": "4.9(80)",
+      "URL": "https://www.google.com/maps/place/MGMD+Aesthetics/data=!4m7!3m6!1s0x880fd25ba9efffff:0xbb17f068ec62fac7!8m2!3d41.9431352!4d-87.6707654!16s%2Fg%2F11hbvszk52!19sChIJ___vqVvSD4gRx_pi7GjwF7s?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "River North Massage Therapy Center",
+      "Rating": "4.8",
+      "Category": "4.8(844)",
+      "URL": "https://www.google.com/maps/place/River+North+Massage+Therapy+Center/data=!4m7!3m6!1s0x880e2cb34941585f:0x20c6d6fab0c15275!8m2!3d41.89503!4d-87.626476!16s%2Fg%2F1tjwjb7m!19sChIJX1hBSbMsDogRdVLBsPrWxiA?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Enfuse Medical Spa & Hair Restoration",
+      "Rating": "4.7",
+      "Category": "4.7(169)",
+      "URL": "https://www.google.com/maps/place/Enfuse+Medical+Spa+%26+Hair+Restoration/data=!4m7!3m6!1s0x880fd2c49973c16d:0x91b9d4418b231422!8m2!3d41.9104994!4d-87.6694346!16s%2Fg%2F1tgcmx28!19sChIJbcFzmcTSD4gRIhQji0HUuZE?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "MUSE LASER MEDSPA Wicker Park",
+      "Rating": "5.0",
+      "Category": "5.0(97)",
+      "URL": "https://www.google.com/maps/place/MUSE+LASER+MEDSPA+Wicker+Park/data=!4m7!3m6!1s0x880fd30efcbb1a71:0x1e3970c407fc4a2d!8m2!3d41.9022505!4d-87.6652538!16s%2Fg%2F11shc87phd!19sChIJcRq7_A7TD4gRLUr8B8RwOR4?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "SpaDerma",
+      "Rating": "4.9",
+      "Category": "4.9(883)",
+      "URL": "https://www.google.com/maps/place/SpaDerma/data=!4m7!3m6!1s0x880fd31fb58155c5:0x271b793ab7fb5b3c!8m2!3d41.9179384!4d-87.6589807!16s%2Fg%2F1tgtg2l3!19sChIJxVWBtR_TD4gRPFv7tzp5Gyc?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "SpaDerma",
+      "Rating": "4.9",
+      "Category": "4.9(766)",
+      "URL": "https://www.google.com/maps/place/SpaDerma/data=!4m7!3m6!1s0x880fd3b539af5cd7:0xc528a5de6aed99ae!8m2!3d41.9399623!4d-87.664052!16s%2Fg%2F11kg6hq0tw!19sChIJ11yvObXTD4gRrpntat6lKMU?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Elite Chicago Spa",
+      "Rating": "4.8",
+      "Category": "4.8(163)",
+      "URL": "https://www.google.com/maps/place/Elite+Chicago+Spa/data=!4m7!3m6!1s0x880fd3a87af8dd71:0x325a918b03b229f!8m2!3d41.9540305!4d-87.6643713!16s%2Fg%2F11j8hjbpyf!19sChIJcd34eqjTD4gRnyI7sBipJQM?authuser=0&hl=en&rclk=1"
+    },
+    {
+      "Name": "Fulcrum Aesthetics and Surgery",
+      "Rating": "4.9",
+      "Category": "4.9(222)",
+      "URL": "https://www.google.com/maps/place/Fulcrum+Aesthetics+and+Surgery/data=!4m7!3m6!1s0x880fd3b88d3dc655:0x24b87d7db7427b2f!8m2!3d41.9394719!4d-87.6660834!16s%2Fg%2F11twpl68c9!19sChIJVcY9jbjTD4gRL3tCt319uCQ?authuser=0&hl=en&rclk=1"
+    }
+  ]
+}

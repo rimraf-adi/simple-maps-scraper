@@ -2,13 +2,14 @@
 Multi-API Key Pool with auto-rotation and exponential backoff.
 
 Supports both Groq and Gemini keys automatically by detecting their prefix.
-Supports 1–15 keys via LLM_API_KEY_1..LLM_API_KEY_15 env vars.
+Supports 1–15 keys via GEMINI_API_KEY_1..15 or GROQ_API_KEY_1..15 env vars.
 """
 
 from __future__ import annotations
 
 import logging
 import os
+import re
 import time
 from dataclasses import dataclass, field
 from threading import Lock
@@ -30,6 +31,7 @@ class _KeyState:
     last_error: str = ""
     is_rate_limited: bool = False
     is_permanently_bad: bool = False
+    cooldown_until: float = 0.0  # timestamp when this key can be used again
 
 
 class KeyPool:
@@ -45,16 +47,15 @@ class KeyPool:
             if k.startswith("gsk_"):
                 provider = "groq"
                 base_url = "https://api.groq.com/openai/v1"
-                model = "llama-3.3-70b-versatile"
-            elif k.startswith("AIzaSy"):
+                model = "llama-3.1-8b-instant"
+            elif k.startswith("AIzaSy") or k.startswith("AQ."):
                 provider = "gemini"
                 base_url = "https://generativelanguage.googleapis.com/v1beta/openai/"
-                model = "gemini-2.0-flash"
+                model = "gemini-3.1-flash-lite"
             else:
-                # Default to Groq if unknown, but user can override via env vars
                 provider = "unknown"
-                base_url = os.getenv("LLM_BASE_URL", "https://api.groq.com/openai/v1")
-                model = os.getenv("LLM_MODEL", "llama-3.3-70b-versatile")
+                base_url = os.getenv("LLM_BASE_URL", "https://generativelanguage.googleapis.com/v1beta/openai/")
+                model = os.getenv("LLM_MODEL", "gemini-3.1-flash-lite")
                 
             self._keys.append(_KeyState(
                 key=k, index=i, provider=provider, base_url=base_url, model=model
@@ -66,14 +67,16 @@ class KeyPool:
         self._max_pool_cycles: int = 100
 
     @classmethod
-    def from_env(cls) -> "KeyPool":
-        """Load keys from environment, supporting numbered formats."""
+    def from_env(cls, provider: str = "gemini") -> "KeyPool":
+        """Load keys from environment, supporting numbered formats based on provider selection."""
         from dotenv import load_dotenv
         load_dotenv()
 
         keys: list[str] = []
+        prefix = "GEMINI_API_KEY_" if provider.lower() == "gemini" else "GROQ_API_KEY_"
+        
         for i in range(1, 16):
-            k = os.getenv(f"LLM_API_KEY_{i}", "").strip()
+            k = os.getenv(f"{prefix}{i}", "").strip()
             if k:
                 keys.append(k)
 
@@ -85,7 +88,7 @@ class KeyPool:
 
         if not keys:
             raise ValueError(
-                "No API keys found. Set LLM_API_KEY_1..LLM_API_KEY_15 or LLM_API_KEY in .env"
+                f"No API keys found for {provider}. Set {prefix}1..15 in .env"
             )
 
         return cls(keys=keys)
@@ -121,6 +124,8 @@ class KeyPool:
             state = self._keys[self._current_index]
             state.total_calls += 1
             state.successful_calls += 1
+            # Clear rate limit flag on success
+            state.is_rate_limited = False
 
     def record_tokens(self, tokens: int) -> None:
         """Record token usage from an API call."""
@@ -150,13 +155,14 @@ class KeyPool:
     def _rotate_locked(self, reason: str) -> bool:
         """Internal rotation logic (must be called with lock held)."""
         old_index = self._current_index
+        now = time.time()
         tried = 0
         while tried < len(self._keys):
             next_idx = (self._current_index + 1) % len(self._keys)
             self._current_index = next_idx
             state = self._keys[next_idx]
             tried += 1
-            if not state.is_permanently_bad and not state.is_rate_limited:
+            if not state.is_permanently_bad and not state.is_rate_limited and now >= state.cooldown_until:
                 masked = self._mask_key(state.key)
                 log.info(
                     "⚡ API key rotated: %s → Key %d/%d (%s) reason=%s",
@@ -168,23 +174,29 @@ class KeyPool:
         return False
 
     def mark_rate_limited(self, reason: str = "") -> None:
-        """Mark the current key as rate-limited."""
+        """Mark the current key as rate-limited (temporary — will be reset on backoff)."""
         with self._lock:
             self._keys[self._current_index].is_rate_limited = True
             self._keys[self._current_index].last_error = reason
 
+    def set_cooldown(self, seconds: float) -> None:
+        """Set a cooldown timer on the current key so it's skipped until the timer expires."""
+        with self._lock:
+            self._keys[self._current_index].cooldown_until = time.time() + seconds
+
     def mark_permanently_bad(self, reason: str = "") -> None:
-        """Mark the current key as permanently unusable (bad auth)."""
+        """Mark the current key as permanently unusable (genuinely broken/revoked key)."""
         with self._lock:
             self._keys[self._current_index].is_permanently_bad = True
             self._keys[self._current_index].last_error = reason
 
     def reset_all(self) -> None:
-        """Reset all rate-limited keys (but not permanently bad ones)."""
+        """Reset all rate-limited keys and cooldowns (but not permanently bad ones)."""
         with self._lock:
             for state in self._keys:
                 if not state.is_permanently_bad:
                     state.is_rate_limited = False
+                    state.cooldown_until = 0.0
             self._current_index = 0
             # Skip permanently bad keys
             for i, state in enumerate(self._keys):
@@ -193,10 +205,12 @@ class KeyPool:
                     break
 
     def all_exhausted(self) -> bool:
-        """Check if all keys are either rate-limited or permanently bad."""
+        """Check if all keys are either rate-limited, on cooldown, or permanently bad."""
         with self._lock:
+            now = time.time()
             return all(
-                s.is_rate_limited or s.is_permanently_bad for s in self._keys
+                s.is_permanently_bad or s.is_rate_limited or now < s.cooldown_until
+                for s in self._keys
             )
 
     def has_valid_keys(self) -> bool:
@@ -215,6 +229,16 @@ class KeyPool:
         delay = delays[min(self._pool_cycle, len(delays) - 1)]
         self._pool_cycle += 1
         return delay
+
+    def get_shortest_cooldown(self) -> float:
+        """Return the shortest remaining cooldown time across all non-permanently-bad keys."""
+        with self._lock:
+            now = time.time()
+            cooldowns = []
+            for s in self._keys:
+                if not s.is_permanently_bad and s.cooldown_until > now:
+                    cooldowns.append(s.cooldown_until - now)
+            return min(cooldowns) if cooldowns else 0.0
 
     def reset_backoff(self) -> None:
         """Reset the pool cycle counter."""
@@ -250,22 +274,35 @@ class KeyPool:
             return key[:4] + "..." + key[-2:]
         return key[:8] + "..." + key[-4:]
 
+    @staticmethod
+    def extract_retry_delay(error: Exception) -> float | None:
+        """Extract the retry delay from a rate limit error message (e.g. 'retry in 46.7s')."""
+        err_msg = str(error)
+        # Match patterns like "retry in 46.716724325s" or "retry in 4.82s" or "Please try again in 5.57s"
+        m = re.search(r"(?:retry|try again) in (\d+(?:\.\d+)?)s", err_msg, re.IGNORECASE)
+        if m:
+            return float(m.group(1))
+        return None
+
     def is_rotatable_error(self, error: Exception) -> bool:
-        """Check if an exception should trigger key rotation."""
+        """Check if an exception should trigger key rotation (temporary error)."""
         err_type = type(error).__name__
         err_msg = str(error).lower()
 
-        # OpenAI SDK specific error types
-        if err_type in ("RateLimitError",):
-            return True
-        if err_type in ("AuthenticationError",):
+        # Hard limits (daily quota exceeded) should NOT be rotated temporarily.
+        # They must fall through to is_auth_error to be marked permanently bad.
+        if "billing details" in err_msg or "billing account" in err_msg or "out of credits" in err_msg:
+            return False
+
+        # ANY 429 is always a rate limit — rotate immediately
+        if err_type == "RateLimitError" or "429" in err_msg:
             return True
 
-        # HTTP status code checks
-        if "429" in err_msg:
+        # Authentication errors should also rotate (to try next key)
+        if err_type == "AuthenticationError" or "401" in err_msg:
             return True
-        if "401" in err_msg:
-            return True
+
+        # Server overload
         if "503" in err_msg:
             return True
 
@@ -273,23 +310,49 @@ class KeyPool:
         rotate_signals = [
             "rate limit", "quota", "limit exceeded",
             "rate_limit", "too many requests",
-            "overloaded",
+            "overloaded", "resource_exhausted",
         ]
         return any(signal in err_msg for signal in rotate_signals)
 
     def is_auth_error(self, error: Exception) -> bool:
-        """Check if an error indicates a permanently bad key or exhausted daily/monthly quota."""
+        """
+        Check if an error indicates a GENUINELY broken/revoked API key.
+        
+        CRITICAL: This must NEVER match rate limit errors (429).
+        A 429 means the key is valid but temporarily throttled.
+        Only match errors that prove the key itself is invalid/revoked.
+        """
         err_type = type(error).__name__
         err_msg = str(error).lower()
+
+        # ── Daily Quota / Hard Limits (Effectively permanently bad for this session) ──
+        # "You exceeded your current quota, please check your plan and billing details"
+        if "billing details" in err_msg or "billing account" in err_msg or "out of credits" in err_msg:
+            return True
+
+        # ── SAFETY: Never treat standard rate limits as auth errors ──
+        # 429 errors are ALWAYS rate limits (unless it's a billing/hard quota error caught above)
+        if "429" in err_msg or err_type == "RateLimitError":
+            return False
+        # Quota/rate limit keywords — always temporary unless caught above
+        if any(kw in err_msg for kw in ("rate limit", "rate_limit", "resource_exhausted", "too many requests")):
+            return False
+
+        # ── True auth errors (key is genuinely broken) ──
+        # OpenAI SDK AuthenticationError type
         if err_type == "AuthenticationError":
             return True
+        # Gemini: "Invalid Auth key" (400)
+        if "invalid auth key" in err_msg:
+            return True
+        # Generic: 401 with invalid/unauthorized
         if "401" in err_msg and ("invalid" in err_msg or "unauthorized" in err_msg):
             return True
+        # Generic: api_key_invalid
         if "api_key_invalid" in err_msg:
             return True
-        if "400" in err_msg and "valid api key" in err_msg:
+        # Gemini: project denied access (403)
+        if "denied access" in err_msg or "permission_denied" in err_msg:
             return True
-        # Daily/Monthly limits mean the key is dead for this session
-        if "tokens per day (tpd)" in err_msg or "perday" in err_msg or "monthly" in err_msg or "billing" in err_msg:
-            return True
+
         return False
