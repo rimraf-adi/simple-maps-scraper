@@ -4,6 +4,9 @@
 # JSON files
 *.json
 
+# Text files
+*.txt
+
 # Python-generated files
 __pycache__/
 *.py[oc]
