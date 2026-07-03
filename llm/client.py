@@ -14,7 +14,7 @@ import logging
 import os
 import re
 from dataclasses import dataclass
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 
 if TYPE_CHECKING:
     from llm.key_pool import KeyPool
@@ -36,12 +36,12 @@ class Action:
 
 
 SYSTEM_PROMPT = """Extract email from business website. Pick next action from numbered elements.
-Actions must be valid JSON matching one of these EXACT formats:
-1. {"thought":"...", "action":"click", "target": N}
-2. {"thought":"...", "action":"scroll", "text": "down"}
-3. {"thought":"...", "action":"extract", "data": {"email": "x@y.com"}}
-4. {"thought":"...", "action":"done"}
-Reply ONLY as JSON without markdown formatting.
+Reply ONLY with valid JSON. Action must be exactly one of: "click", "type", "scroll", "extract", "done".
+Examples:
+{"action": "click", "target": 5, "thought": "click contact link"}
+{"action": "scroll", "text": "down", "thought": "scroll down"}
+{"action": "extract", "data": {"email": "x@y.com"}, "thought": "found email"}
+{"action": "done", "thought": "finished"}
 """
 
 
@@ -170,31 +170,36 @@ def parse_action(raw: str) -> Action | None:
 
     action = obj.get("action", "")
     target = obj.get("target")
-    text_val = obj.get("text", "")
-    data = obj.get("data")
+    text = obj.get("text", "")
 
-    # Smart fallback for 8B models that hallucinate the action string from the old prompt
-    if "click target=" in action:
-        try:
-            target = int(action.split("=")[1].strip())
-            action = "click"
-        except (IndexError, ValueError):
-            pass
-    elif "scroll text=" in action:
-        action = "scroll"
-        text_val = "down"
-
-    if action not in ("click", "type", "scroll", "extract", "done"):
-        log.warning("Unknown action '%s'", action)
-        return None
+    valid_actions = ("click", "type", "scroll", "extract", "done")
+    if action not in valid_actions:
+        for va in valid_actions:
+            if action.strip().startswith(va):
+                rest = action[len(va):].strip()
+                import re as _re
+                m = _re.search(r'target[=:]\s*(\d+)', rest)
+                if m:
+                    target = int(m.group(1))
+                m = _re.search(r'text[=:]\s*"([^"]*)"', rest)
+                if m:
+                    text = m.group(1)
+                action = va
+                break
+        else:
+            log.warning("Unknown action '%s'", action)
+            return None
 
     return Action(
         thought=obj.get("thought", ""),
         action=action,
         target=target,
-        text=text_val,
-        data=data,
+        text=text,
+        data=obj.get("data"),
     )
+
+
+
 
 
 VISION_MODELS = {"llava", "bakllava", "minicpm-v", "moondream", "qwen2.5-vl", "llama3.2-vision"}
@@ -342,6 +347,10 @@ class LLMClient:
             log.debug("  vision LLM: %s", raw[:200])
             if self._key_pool:
                 self._key_pool.record_success()
+                if hasattr(resp, 'usage') and resp.usage:
+                    self._key_pool.record_tokens(resp.usage.total_tokens)
+                    if self.dashboard:
+                        self.dashboard.set_tokens(self._key_pool.total_tokens)
             if raw:
                 return parse_action(raw)
         except Exception as e:
@@ -369,13 +378,10 @@ class LLMClient:
 
         # Aggressively truncate to save tokens
         for msg in messages:
-            if msg["role"] == "user" and isinstance(msg["content"], str) and len(msg["content"]) > 3000:
-                msg["content"] = msg["content"][:3000] + "\n... (truncated)"
+            if msg["role"] == "user" and isinstance(msg["content"], str) and len(msg["content"]) > 2500:
+                msg["content"] = msg["content"][:2500] + "\n... (truncated)"
 
-        max_attempts = 20  # Reasonable limit, not 300
-        consecutive_failures = 0
-
-        for attempt in range(max_attempts):
+        for attempt in range(20):
             try:
                 api_key = self._get_api_key()
                 base_url = self._get_base_url()
@@ -398,9 +404,10 @@ class LLMClient:
                 if self._key_pool:
                     self._key_pool.record_success()
                     self._key_pool.reset_backoff()
-                
-                consecutive_failures = 0  # Reset on successful API call
-                
+                    if hasattr(resp, 'usage') and resp.usage:
+                        self._key_pool.record_tokens(resp.usage.total_tokens)
+                    if self.dashboard:
+                        self.dashboard.set_tokens(self._key_pool.total_tokens)
                 if raw:
                     parsed = parse_action(raw)
                     if parsed is not None:
@@ -459,3 +466,66 @@ class LLMClient:
 
         # Text-only fallback
         return await self._try_text(goal, page_info)
+
+    async def extract_email(
+        self,
+        business_name: str,
+        url: str,
+        page_text: str,
+        html_snippet: str = "",
+    ) -> str | None:
+        """Direct LLM-based email extraction from rendered page content.
+        No agent loop needed — sends content to LLM in one shot.
+        Much faster and more reliable for React/Next.js SPAs."""
+        from openai import AsyncOpenAI
+
+        text = (page_text or "")[:4000]
+        html = (html_snippet or "")[:3000]
+
+        prompt = (
+            f"Find the business email address for **{business_name}** on this page.\n\n"
+            f"URL: {url}\n\n"
+            f"PAGE TEXT:\n{text}\n\n"
+        )
+        if html:
+            prompt += f"HTML SNIPPET:\n{html}\n\n"
+        prompt += (
+            "Instructions:\n"
+            "- Look in: footer, header, contact section, meta tags, JSON-LD, mailto links\n"
+            "- Return ONLY a single email address (e.g., info@company.com)\n"
+            "- If no business email found, return: NONE\n"
+            "- Do NOT return noreply@, donotreply@, or unrelated addresses\n"
+            "Email:"
+        )
+
+        for attempt in range(3):
+            try:
+                api_key = self._get_api_key()
+                client = AsyncOpenAI(base_url=self._get_base_url(), api_key=api_key)
+                resp = await client.chat.completions.create(
+                    model=self._get_model(),
+                    messages=[
+                        {"role": "system", "content": "Extract the business email from the website content. Return ONLY the email address or NONE."},
+                        {"role": "user", "content": prompt},
+                    ],
+                    temperature=0.0,
+                    max_tokens=50,
+                    timeout=60,
+                )
+                raw = (resp.choices[0].message.content or "").strip()
+                if self._key_pool:
+                    self._key_pool.record_success()
+                raw_clean = raw.strip().rstrip(".,;!?").lower()
+                if "@" in raw_clean and not any(
+                    ext in raw_clean for ext in (".png", ".jpg", ".gif", ".svg", ".css", ".js")
+                ):
+                    if re.match(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", raw_clean):
+                        return raw_clean
+                if "none" in raw_clean:
+                    return None
+            except Exception as e:
+                if self._key_pool:
+                    await self._handle_error(e, "extract_email")
+                if attempt < 2:
+                    await asyncio.sleep(1)
+        return None

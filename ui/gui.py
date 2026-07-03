@@ -16,6 +16,7 @@ class GUIDashboard:
         self.total_leads = 0
         self.processed_leads = 0
         self.emails_found = 0
+        self.total_tokens = 0
         self.start_time = time.time()
         self.resumed_count = 0
     def _put(self, t, **d): self._q.put((t, d))
@@ -31,6 +32,8 @@ class GUIDashboard:
         self.emails_found += 1; self._put("emails", n=self.emails_found)
     def set_key_info(self, index, total, model):
         self._put("key", index=index, total=total, model=model)
+    def set_tokens(self, tokens):
+        self.total_tokens = tokens; self._put("tokens", tokens=tokens)
     def update_lead(self, **kw): self._put("lead", **kw)
     def clear_lead(self): self._put("lead_clear")
     def update_scroll_progress(self, completed, total=50):
@@ -219,7 +222,7 @@ class ScraperApp(ctk.CTk):
                                         progress_color=ACCENT, fg_color="#e2e8f0")
         self._pbar.pack(fill="x", padx=12, pady=4)
         self._pbar.set(0)
-        self._stats_lbl = ctk.CTkLabel(pf, text="Total: 0  |  Processed: 0  |  Emails: 0  |  Key: –",
+        self._stats_lbl = ctk.CTkLabel(pf, text="Total: 0  |  Processed: 0  |  Emails: 0  |  Tokens: 0  |  Key: –",
                                        font=("Segoe UI", 12), text_color=DIM)
         self._stats_lbl.pack(padx=12, pady=(0,10), anchor="w")
 
@@ -313,6 +316,8 @@ class ScraperApp(ctk.CTk):
             self._update_stats(emails=d["n"])
         elif t == "key":
             self._update_stats(key_str=f"{d['index']}/{d['total']}")
+        elif t == "tokens":
+            self._update_stats(tokens=d["tokens"])
         elif t == "lead":
             for k, v in d.items():
                 if k in self._lead_labels and v is not None:
@@ -346,15 +351,16 @@ class ScraperApp(ctk.CTk):
         tb.see("end")
         self._log_box.configure(state="disabled")
 
-    _total = 0; _processed = 0; _emails = 0; _key_str = "–"
-    def _update_stats(self, total=None, processed=None, emails=None, key_str=None):
+    _total = 0; _processed = 0; _emails = 0; _tokens = 0; _key_str = "–"
+    def _update_stats(self, total=None, processed=None, emails=None, tokens=None, key_str=None):
         if total is not None: self._total = total
         if processed is not None: self._processed = processed
         if emails is not None: self._emails = emails
+        if tokens is not None: self._tokens = tokens
         if key_str is not None: self._key_str = key_str
         self._stats_lbl.configure(
             text=f"Total: {self._total}  |  Processed: {self._processed}  |  "
-                 f"Emails: {self._emails}  |  Key: {self._key_str}")
+                 f"Emails: {self._emails}  |  Tokens: {self._tokens}  |  Key: {self._key_str}")
         if self._total > 0:
             self._pbar.set(self._processed / self._total)
 
@@ -375,7 +381,7 @@ class ScraperApp(ctk.CTk):
         self._running = True
         self._cancel.clear()
         self._start_ts = time.time()
-        self._total = self._processed = self._emails = 0
+        self._total = self._processed = self._emails = self._tokens = 0
         self._pbar.set(0)
         self._start_btn.configure(state="disabled")
         self._resume_btn.configure(state="disabled")
@@ -412,6 +418,16 @@ class ScraperApp(ctk.CTk):
         except Exception as e:
             self._q.put(("error", {"msg": f"Fatal: {e}"}))
         finally:
+            try:
+                for task in asyncio.all_tasks(loop):
+                    task.cancel()
+                if pending := asyncio.all_tasks(loop):
+                    loop.run_until_complete(
+                        asyncio.gather(*pending, return_exceptions=True)
+                    )
+                loop.run_until_complete(loop.shutdown_asyncgens())
+            except Exception:
+                pass
             loop.close()
 
     async def _scrape(self, query: str, resume: bool = False):
@@ -421,7 +437,7 @@ class ScraperApp(ctk.CTk):
         from maps_scraper import extract_leads, fetch_place_details
         from extract_emails import extract_from_site
         from output import OutputWriter, validate_email, generate_report
-        from checkpoint import save_checkpoint, update_checkpoint, load_checkpoint
+        from pathlib import Path
 
         dash = GUIDashboard(self._q)
         import re
@@ -443,13 +459,27 @@ class ScraperApp(ctk.CTk):
         verify = bool(self._verify_emails.get())
         custom_out = self._output_path.get().strip()
 
-        provider = self._provider.get().lower()
+        csv_path = custom_out or f"{slug}.csv"
+        json_path = None
+        if fmt == "json":
+            json_path = custom_out or f"{slug}.json"
+            csv_path = custom_out or f"{slug}.csv"
+        elif fmt == "both":
+            base = (custom_out or slug).rsplit('.', 1)[0]
+            csv_path = f"{base}.csv"
+            json_path = f"{base}.json"
+
+        csv_exists = Path(csv_path).exists()
+        if resume and not csv_exists:
+            dash.log(f"No CSV found at {csv_path}, starting fresh.", "WARNING")
+            resume = False
 
         # Key pool
         dash.log(f"Loading {provider.title()} API keys…")
         try:
             pool = KeyPool.from_env(provider=provider)
             dash.set_key_info(pool.current_index + 1, pool.total_keys, pool.current_model())
+            dash.set_tokens(pool.total_tokens)
             dash.log(f"Found {pool.total_keys} API key(s), model: {pool.current_model()}", "INFO")
         except Exception as e:
             dash.log(f"KeyPool error: {e}", "ERROR")
@@ -477,33 +507,28 @@ class ScraperApp(ctk.CTk):
             self._q.put(("done", {}))
             return
 
-        # Launch browser
-        dash.log(f"Launching browser (headless={headless}, stealth={stealth})…")
-        browser = BrowserManager(
-            headless=headless, stealth=stealth,
-            locale=os.getenv("BROWSER_LOCALE", "en-US"),
-            timezone=os.getenv("BROWSER_TIMEZONE", "America/New_York"),
-        )
-        await browser.start()
-        dash.log("Browser ready", "SUCCESS")
+        # Open output writer
+        writer = OutputWriter(csv_path=csv_path, json_path=json_path, dedupe=dedupe, resume=resume)
+        writer.open()
 
-        try:
-            leads = []
-            seen_urls = set()
+        # ──────────────────────────────────────────────────────────────
+        # Phase 1: MAPS SEARCH — collect leads and write to CSV
+        # ──────────────────────────────────────────────────────────────
+        if not resume:
+            # Launch browser for Phase 1
+            dash.log(f"Launching browser (headless={headless}, stealth={stealth})…")
+            browser = BrowserManager(
+                headless=headless, stealth=stealth,
+                locale=os.getenv("BROWSER_LOCALE", "en-US"),
+                timezone=os.getenv("BROWSER_TIMEZONE", "America/New_York"),
+            )
+            await browser.start()
+            dash.log("Browser ready", "SUCCESS")
 
-            if resume:
-                ckpt = load_checkpoint(slug)
-                if ckpt and "leads" in ckpt:
-                    leads = ckpt["leads"]
-                    dash.log(f"Resumed from checkpoint: {len(leads)} leads loaded.", "SUCCESS")
-                    for l in leads:
-                        seen_urls.add(l.get("URL", ""))
-                    dash.set_total_leads(len(leads))
-                else:
-                    dash.log("No checkpoint found. Starting fresh.", "WARNING")
-                    resume = False
+            try:
+                leads = []
+                seen_urls = set()
 
-            if not resume:
                 # Sub-queries logic
                 sub_queries = [query]
                 if auto_expand:
@@ -513,9 +538,9 @@ class ScraperApp(ctk.CTk):
                         from openai import AsyncOpenAI
                         import json
                         prompt = f"The user wants to search Google Maps for '{query}'. To bypass the 120-result limit, provide a JSON list of up to 10 highly specific local search queries for this target area (by neighborhood, zip code, or sub-region). Return strictly a JSON list of strings. Do not use markdown blocks."
-                        
+
                         raw = ""
-                        for attempt in range(100):
+                        for attempt in range(10):
                             try:
                                 c = AsyncOpenAI(base_url=pool.current_base_url(), api_key=pool.current_key())
                                 resp = await c.chat.completions.create(
@@ -526,13 +551,16 @@ class ScraperApp(ctk.CTk):
                                 raw = resp.choices[0].message.content.strip()
                                 pool.record_success()
                                 pool.reset_backoff()
+                                if hasattr(resp, 'usage') and resp.usage:
+                                    pool.record_tokens(resp.usage.total_tokens)
+                                    dash.set_tokens(pool.total_tokens)
                                 break
                             except Exception as e:
                                 if pool.is_auth_error(e):
                                     pool.mark_permanently_bad(str(e)[:100])
                                     pool.record_failure(str(e)[:200])
                                     if not pool.rotate(str(e)[:100]):
-                                        dash.log("🚨 ALL API KEYS ARE BROKEN OR INVALID! Please close the program, fix your .env file, and restart.", "ERROR")
+                                        dash.log("ALL API KEYS ARE BROKEN OR INVALID! Fix .env and restart.", "ERROR")
                                         break
                                 elif pool.is_rotatable_error(e):
                                     pool.mark_rate_limited(str(e)[:100])
@@ -540,11 +568,11 @@ class ScraperApp(ctk.CTk):
                                     if not pool.rotate(str(e)[:100]):
                                         delay = pool.get_backoff_delay()
                                         if delay:
-                                            dash.log(f"⏳ API limits reached! Pausing for {int(delay)} seconds... (Do not close program)", "WARNING")
+                                            dash.log(f"API limits reached! Pausing {int(delay)}s...", "WARNING")
                                             await asyncio.sleep(delay)
                                             pool.reset_all()
                                         else:
-                                            dash.log("❌ All API keys maxed out. Max retries reached. Please close and try again later.", "ERROR")
+                                            dash.log("All API keys maxed out. Max retries reached.", "ERROR")
                                             raise Exception("Total key exhaustion")
                                 else:
                                     raise e
@@ -558,28 +586,28 @@ class ScraperApp(ctk.CTk):
                         dash.log(f"Query expansion failed: {e}. Proceeding with original.", "WARNING")
 
                 dash.set_phase("MAPS SEARCH")
-                
+
                 for i, sq in enumerate(sub_queries):
                     if self._cancel.is_set():
                         break
                     dash.log(f"Searching [{i+1}/{len(sub_queries)}]: {sq}")
-                    
+
                     remain = max_res - len(leads) if max_res > 0 else 0
                     if max_res > 0 and remain <= 0:
                         break
-                        
+
                     sq_leads = await extract_leads(
                         browser, sq, dashboard=dash,
                         max_results=remain, min_rating=min_rat,
                         exclude_chains=excl_chain,
                     )
-                    
+
                     for l in sq_leads:
                         url = l["URL"]
                         if url not in seen_urls:
                             seen_urls.add(url)
                             leads.append(l)
-                            
+
                     dash.set_total_leads(len(leads))
                     if max_res > 0 and len(leads) >= max_res:
                         dash.log(f"Hit max target of {max_res} leads.", "SUCCESS")
@@ -589,48 +617,65 @@ class ScraperApp(ctk.CTk):
 
                 if not leads:
                     dash.log("No leads found", "WARNING")
+                    writer.close()
                     self._q.put(("done", {}))
                     return
 
-                save_checkpoint(slug, query, leads)
+                # Write all leads to CSV (this IS the checkpoint)
+                writer.write_initial_leads(leads)
+                dash.log(f"Phase 1 complete — {len(leads)} leads saved to {csv_path}", "SUCCESS")
 
-            # Output writer logic
-            if custom_out:
-                if fmt == "csv":
-                    csv_path = custom_out
-                    json_path = None
-                elif fmt == "json":
-                    csv_path = None
-                    json_path = custom_out
-                else:
-                    base = custom_out.rsplit('.', 1)[0]
-                    csv_path = f"{base}.csv"
-                    json_path = f"{base}.json"
-                dash.log(f"Saving output to: {custom_out}", "INFO")
-            else:
-                csv_path = f"{slug}.csv" if fmt in ("csv", "both") else None
-                json_path = f"{slug}.json" if fmt in ("json", "both") else None
-                dash.log(f"Saving output to: {slug}.*", "INFO")
-                
-            writer = OutputWriter(csv_path=csv_path, json_path=json_path, dedupe=dedupe, append=resume)
-            writer.open()
+            finally:
+                await browser.close()
+                dash.log("Browser closed for Phase 1")
 
-            # Phase 2 & 3: Details + Emails Process function
+        # ──────────────────────────────────────────────────────────────
+        # Phase 2: PROCESS LEADS — load CSV, process unvisited one-by-one
+        # ──────────────────────────────────────────────────────────────
+        remaining = writer.load_csv()
+        total_leads = len(writer.get_results())
+        dash.set_total_leads(total_leads)
+
+        if remaining == 0:
+            dash.log("All leads already processed!", "SUCCESS")
+            writer.close()
+            end_time = time.time()
+            report = generate_report(
+                query=query, results=writer.get_results(),
+                key_pool_status=pool.status(),
+                start_time=self._start_ts, end_time=end_time, query_slug=slug,
+            )
+            dash.set_phase("DONE")
+            output_name = csv_path or json_path or ""
+            if output_name:
+                dash.log(f"Output saved: {output_name}", "SUCCESS")
+            self._q.put(("done", {"report": report}))
+            return
+
+        dash.log(f"Phase 2: processing {remaining} remaining leads...", "INFO")
+
+        # Launch browser for Phase 2
+        dash.log(f"Launching browser (headless={headless}, stealth={stealth})…")
+        browser = BrowserManager(
+            headless=headless, stealth=stealth,
+            locale=os.getenv("BROWSER_LOCALE", "en-US"),
+            timezone=os.getenv("BROWSER_TIMEZONE", "America/New_York"),
+        )
+        await browser.start()
+        dash.log("Browser ready", "SUCCESS")
+
+        try:
+
             async def process_lead(index: int, lead: dict, worker_browser: BrowserManager):
                 if self._cancel.is_set():
                     return
 
-                if lead.get("done"):
-                    dash.increment_processed()
-                    if lead.get("Email"):
-                        dash.increment_emails()
-                    return
-
                 name = lead.get("Name", "?")
+                total = total_leads
                 dash.set_phase("FETCHING DETAILS")
-                dash.log(f"[{index+1}/{len(leads)}] {name}")
-                dash.update_lead(name=name, category=lead.get("Category",""),
-                                 rating=lead.get("Rating",""), status="SCRAPING",
+                dash.log(f"[{index+1}/{total}] {name}")
+                dash.update_lead(name=name, category=lead.get("Category", ""),
+                                 rating=lead.get("Rating", ""), status="SCRAPING",
                                  phone="", website="", email="")
 
                 try:
@@ -686,26 +731,20 @@ class ScraperApp(ctk.CTk):
 
                 lead["Email"] = email or ""
 
-                skip = False
-                if req_email and not email: skip = True
-                if req_phone and not phone: skip = True
-                if not skip:
-                    writer.write_row(lead)
-
-                update_checkpoint(slug, index, lead)
+                writer.update_row(index, lead)
                 dash.increment_processed()
                 dash.set_key_info(pool.current_index + 1, pool.total_keys, pool.current_model())
+                dash.set_tokens(pool.total_tokens)
 
-            # Worker Parallelization Logic
+            # Process unvisited leads
             if workers == 1:
-                for i, lead in enumerate(leads):
+                for i, row in writer.iter_unvisited():
                     if self._cancel.is_set():
                         dash.log("Cancelled by user", "WARNING")
                         break
-                    await process_lead(i, lead, browser)
+                    await process_lead(i, row, browser)
             else:
                 dash.log(f"Starting {workers} parallel workers...", "INFO")
-                # Setup extra browsers
                 worker_browsers = [browser]
                 for _ in range(workers - 1):
                     wb = BrowserManager(
@@ -716,10 +755,9 @@ class ScraperApp(ctk.CTk):
                     await wb.start()
                     worker_browsers.append(wb)
 
-                # Initialize Queue
                 queue = asyncio.Queue()
-                for i, lead in enumerate(leads):
-                    queue.put_nowait((i, lead))
+                for i, row in writer.iter_unvisited():
+                    queue.put_nowait((i, row))
 
                 async def worker_task(wb: BrowserManager):
                     while not queue.empty() and not self._cancel.is_set():
@@ -731,38 +769,33 @@ class ScraperApp(ctk.CTk):
                             break
                         except Exception as e:
                             dash.log(f"Worker exception: {e}", "ERROR")
-                            try: queue.task_done()
-                            except: pass
+                            try:
+                                queue.task_done()
+                            except:
+                                pass
 
-                # Execute tasks concurrently
                 tasks = [asyncio.create_task(worker_task(wb)) for wb in worker_browsers]
                 await asyncio.gather(*tasks)
 
                 if self._cancel.is_set():
                     dash.log("Cancelled by user", "WARNING")
 
-                # Tear down extra browsers
                 for wb in worker_browsers[1:]:
                     await wb.close()
 
-            # Done
-            writer.close()
-            end_time = time.time()
-            report = generate_report(
-                query=query, results=writer.get_results(),
-                key_pool_status=pool.status(),
-                start_time=self._start_ts, end_time=end_time, query_slug=slug,
-            )
-            dash.set_phase("DONE")
-            dash.log("Scraping completed!", "SUCCESS")
-            output_name = csv_path or json_path or ""
-            if output_name:
-                dash.log(f"Output saved: {output_name}", "SUCCESS")
-            self._q.put(("done", {"report": report}))
-
-        except Exception as e:
-            dash.log(f"Error: {e}", "ERROR")
-            self._q.put(("done", {}))
         finally:
             await browser.close()
-            dash.log("Browser closed")
+
+        writer.close()
+        end_time = time.time()
+        report = generate_report(
+            query=query, results=writer.get_results(),
+            key_pool_status=pool.status(),
+            start_time=self._start_ts, end_time=end_time, query_slug=slug,
+        )
+        dash.set_phase("DONE")
+        dash.log("Scraping completed!", "SUCCESS")
+        output_name = csv_path or json_path or ""
+        if output_name:
+            dash.log(f"Output saved: {output_name}", "SUCCESS")
+        self._q.put(("done", {"report": report}))

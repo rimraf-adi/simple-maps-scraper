@@ -111,6 +111,8 @@ async def extract_leads(
     leads = []
     articles = await browser.page.query_selector_all('div[role="article"]')
     log.info("Found %d article elements", len(articles))
+    if dashboard:
+        dashboard.log(f"[SEARCH] Found {len(articles)} listings on Maps", "INFO")
 
     for article in articles:
         link = await article.query_selector("a.hfpxzc")
@@ -166,47 +168,166 @@ async def extract_leads(
         if max_results > 0 and len(leads) >= max_results:
             break
 
+    if dashboard:
+        dashboard.log(f"[SEARCH] Collected {len(leads)} leads after dedup/filters", "SUCCESS")
     return leads
 
 
 async def fetch_place_details(
     browser: BrowserManager, url: str
 ) -> tuple[str, str, str]:
-    """Open a Maps place page and extract phone, website, address."""
+    """Open a Maps place page and extract phone, website, address.
+
+    Uses multiple fallback strategies:
+    1. Primary CSS selectors (data-item-id based)
+    2. Alternative CSS selectors (aria-label, class patterns)
+    3. Aria-label text scanning on all buttons/links
+    4. Visible text regex as last resort
+    """
     try:
         await browser.page.goto(url, timeout=15000, wait_until="domcontentloaded")
     except Exception:
         pass
     await human_delay(2.0, 4.0)
 
-    # Simulate human interaction
     await simulate_mouse_movement(browser.page)
 
     phone = ""
     website = ""
     address = ""
 
-    try:
-        btn = await browser.page.query_selector('button[data-item-id*="phone"]')
-        if btn:
-            aria = await btn.get_attribute("aria-label") or ""
-            phone = aria.replace("Phone: ", "").strip()
-    except Exception:
-        pass
+    # ── Strategy 1: Primary CSS selectors ────────────────────────────────
+    PHONE_SELECTORS = [
+        'button[data-item-id*="phone"]',
+        'button[data-tooltip*="phone" i]',
+        'a[data-item-id*="phone"]',
+        'button[aria-label*="Phone"]',
+    ]
+    WEBSITE_SELECTORS = [
+        'a[data-item-id*="authority"]',
+        'a[data-item-id*="website"]',
+        'a[aria-label*="Website"]',
+        'a[data-tooltip*="website" i]',
+    ]
+    ADDRESS_SELECTORS = [
+        'button[data-item-id="address"]',
+        'button[data-item-id*="address"]',
+        'button[aria-label*="Address"]',
+        'button[data-tooltip*="address" i]',
+    ]
 
-    try:
-        el = await browser.page.query_selector('a[data-item-id*="authority"]')
-        if el:
-            website = (await el.get_attribute("href") or "").strip()
-    except Exception:
-        pass
+    for sel in PHONE_SELECTORS:
+        if phone:
+            break
+        try:
+            btn = await browser.page.query_selector(sel)
+            if btn:
+                aria = await btn.get_attribute("aria-label") or ""
+                phone = aria.replace("Phone: ", "").replace("phone: ", "").strip()
+                if phone:
+                    break
+                # Try inner text as fallback
+                text = await btn.inner_text()
+                text = text.strip() if text else ""
+                if text and (text.startswith("+") or text[0].isdigit()):
+                    phone = text
+        except Exception:
+            pass
 
-    try:
-        btn = await browser.page.query_selector('button[data-item-id="address"]')
-        if btn:
-            aria = await btn.get_attribute("aria-label") or ""
-            address = aria.replace("Address: ", "").strip()
-    except Exception:
-        pass
+    for sel in WEBSITE_SELECTORS:
+        if website:
+            break
+        try:
+            el = await browser.page.query_selector(sel)
+            if el:
+                href = (await el.get_attribute("href") or "").strip()
+                if href and href.startswith("http"):
+                    website = href
+                    break
+                aria = await el.get_attribute("aria-label") or ""
+                aria = aria.replace("Website: ", "").replace("website: ", "").strip()
+                if aria and ("." in aria):
+                    website = aria if aria.startswith("http") else f"https://{aria}"
+        except Exception:
+            pass
+
+    for sel in ADDRESS_SELECTORS:
+        if address:
+            break
+        try:
+            btn = await browser.page.query_selector(sel)
+            if btn:
+                aria = await btn.get_attribute("aria-label") or ""
+                address = aria.replace("Address: ", "").replace("address: ", "").strip()
+                if not address:
+                    address = (await btn.inner_text() or "").strip()
+        except Exception:
+            pass
+
+    # ── Strategy 2: Scan all aria-labels on buttons and links ────────────
+    if not phone or not website or not address:
+        try:
+            results = await browser.page.evaluate('''() => {
+                const data = {phone: '', website: '', address: ''};
+                const elems = document.querySelectorAll('button[aria-label], a[aria-label]');
+                for (const el of elems) {
+                    const label = el.getAttribute('aria-label') || '';
+                    if (!data.phone && label.toLowerCase().startsWith('phone:'))
+                        data.phone = label.substring(6).trim();
+                    if (!data.website && label.toLowerCase().startsWith('website:'))
+                        data.website = label.substring(8).trim();
+                    if (!data.address && label.toLowerCase().startsWith('address:'))
+                        data.address = label.substring(8).trim();
+                    // Also check href for website
+                    if (!data.website && el.tagName === 'A') {
+                        const href = el.href || '';
+                        const ariaLower = label.toLowerCase();
+                        if ((ariaLower.includes('website') || ariaLower.includes('visit'))
+                            && href.startsWith('http') && !href.includes('google.com'))
+                            data.website = href;
+                    }
+                }
+                return data;
+            }''')
+            if results:
+                if not phone and results.get("phone"):
+                    phone = results["phone"]
+                if not website and results.get("website"):
+                    w = results["website"]
+                    website = w if w.startswith("http") else f"https://{w}"
+                if not address and results.get("address"):
+                    address = results["address"]
+        except Exception:
+            pass
+
+    # ── Strategy 3: Visible text regex fallback ──────────────────────────
+    if not phone or not website:
+        try:
+            import re
+            text = await browser.page.inner_text("body")
+            text = text[:5000] if text else ""
+
+            if not phone:
+                # US/international phone patterns
+                phone_re = re.compile(
+                    r'(?:\+?1[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}'
+                )
+                m = phone_re.search(text)
+                if m:
+                    phone = m.group(0).strip()
+
+            if not website:
+                # URL pattern in visible text
+                url_re = re.compile(
+                    r'https?://[a-zA-Z0-9._\-]+\.[a-zA-Z]{2,}[/\w.\-]*'
+                )
+                for m in url_re.finditer(text):
+                    candidate = m.group(0).rstrip('.')
+                    if 'google.com' not in candidate and 'gstatic.com' not in candidate:
+                        website = candidate
+                        break
+        except Exception:
+            pass
 
     return phone, website, address
+

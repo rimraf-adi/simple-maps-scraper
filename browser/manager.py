@@ -188,13 +188,85 @@ class BrowserManager:
 
         return await self.snapshot()
 
-    async def snapshot(self) -> PageSnapshot:
+    async def dismiss_popups(self) -> int:
+        """Detect and close popups (cookie banners, modals, overlays) by
+        finding close buttons, decline options, or X buttons and clicking them.
+        Returns number of popups dismissed."""
+        dismissed = 0
+        try:
+            popup_selectors = [
+                # Close / X buttons
+                "button[aria-label*='close' i]", "button[aria-label*='Close' i]",
+                "button[aria-label*='dismiss' i]", "button[aria-label*='Dismiss' i]",
+                "button:has(svg)", "button.close", ".close-button", ".btn-close",
+                "[class*='close' i]", "[class*='Close' i]",
+                "[aria-label*='Close' i]", "[aria-label*='close' i]",
+                # Decline / reject buttons
+                "button:is([id*='reject' i], [class*='reject' i])",
+                "button:is([id*='decline' i], [class*='decline' i])",
+                "a:is([id*='reject' i], [class*='reject' i])",
+                "button:is([id*='dismiss' i], [class*='dismiss' i])",
+                # Cookie consent banners
+                "[id*='cookie' i] button, [class*='cookie' i] button",
+                "[id*='Cookie' i] button, [class*='Cookie' i] button",
+                # Generic dialogs/modals
+                "[role='dialog'] button, [role='alertdialog'] button",
+                ".modal button, .popup button, .overlay button",
+                # Accept all → we want decline/dismiss, not accept
+            ]
+            for sel in popup_selectors:
+                try:
+                    btns = await self.page.query_selector_all(sel)
+                    for btn in btns[:3]:  # max 3 per selector
+                        text = (await btn.inner_text()).strip().lower()
+                        cls = (await btn.get_attribute("class") or "").lower()
+                        # Skip "accept" buttons — we want to dismiss, not consent
+                        if text in ("accept", "accept all", "allow", "allow all", "yes", "ok", "continue", "got it"):
+                            continue
+                        try:
+                            box = await btn.bounding_box()
+                            if box and box["width"] > 10 and box["height"] > 10:
+                                await btn.click()
+                                await asyncio.sleep(0.3)
+                                dismissed += 1
+                        except Exception:
+                            pass
+                except Exception:
+                    pass
+
+            # Last resort: find elements with × or ✕ text content
+            try:
+                x_btns = await self.page.query_selector_all("button, a, span, div")
+                for btn in x_btns[:20]:
+                    try:
+                        text = (await btn.inner_text()).strip()
+                        if text in ("×", "✕", "✖", "X") and len(text) <= 2:
+                            box = await btn.bounding_box()
+                            if box and box["width"] > 10 and box["height"] > 10 and box["width"] < 60:
+                                await btn.click()
+                                await asyncio.sleep(0.3)
+                                dismissed += 1
+                    except Exception:
+                        pass
+            except Exception:
+                pass
+
+            if dismissed:
+                log.info("  Dismissed %d popup(s)", dismissed)
+                await asyncio.sleep(0.5)
+        except Exception:
+            pass
+        return dismissed
+
+    async def snapshot(self, dismiss=False) -> PageSnapshot:
         # Wait for network to settle — crucial for SPAs (React/Next.js)
         try:
             await self.page.wait_for_load_state("networkidle", timeout=15000)
         except Exception:
             pass
-        await asyncio.sleep(1)
+        await asyncio.sleep(0.5)
+        if dismiss:
+            await self.dismiss_popups()
         url = self.page.url
         title = await self.page.title()
         visible_text = await self.page.inner_text("body")
@@ -210,7 +282,7 @@ class BrowserManager:
                 "[tabindex], [onclick], [href]"
             )
             handles = await self.page.query_selector_all(selector)
-            for el in handles[:50]:  # Was 150 — only need ~30 for email finding
+            for el in handles[:35]:  # Only 30 sent to LLM — 35 is plenty
                 try:
                     box = await el.bounding_box()
                     if not box or box["width"] <= 5 or box["height"] <= 5:
@@ -244,7 +316,7 @@ class BrowserManager:
         return PageSnapshot(
             url=url,
             title=title,
-            visible_text=(visible_text or "")[:2000],
+            visible_text=(visible_text or "")[:1500],
             screenshot_bytes=screenshot_bytes,
             interactive_elements=elements,
         )
@@ -314,6 +386,67 @@ class BrowserManager:
             return True
         except Exception:
             return False
+
+    async def get_all_links(self) -> list[dict[str, str]]:
+        """Return all <a> hrefs with their visible text from the current page.
+        Useful for discovering contact/about routes without hardcoding paths."""
+        links: list[dict[str, str]] = []
+        try:
+            results = await self.page.evaluate('''() => {
+                const out = [];
+                for (const a of document.querySelectorAll('a[href]')) {
+                    const href = a.href || '';
+                    const text = (a.innerText || '').trim().substring(0, 80);
+                    if (href && !href.startsWith('javascript:'))
+                        out.push({href, text});
+                }
+                return out;
+            }''')
+            links = results or []
+        except Exception:
+            pass
+        return links
+
+    async def scan_emails_from_html(self) -> list[str]:
+        """Regex-scan the raw page HTML for email addresses and mailto: links.
+        Returns deduplicated list of found emails."""
+        import re
+        EMAIL_RE = re.compile(r'[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}')
+        REJECT_EXTS = ('.png', '.jpg', '.jpeg', '.gif', '.svg', '.css', '.js', '.ico', '.webp', '.woff', '.woff2')
+        REJECT_PREFIXES = ('noreply@', 'no-reply@', 'donotreply@', 'do-not-reply@',
+                           'mailer-daemon@', 'postmaster@')
+
+        emails: list[str] = []
+        seen: set[str] = set()
+        try:
+            html = await self.page.content()
+        except Exception:
+            return []
+
+        for match in EMAIL_RE.finditer(html):
+            email = match.group(0).lower().rstrip('.')
+            if email in seen:
+                continue
+            if any(email.endswith(ext) for ext in REJECT_EXTS):
+                continue
+            if any(email.startswith(p) for p in REJECT_PREFIXES):
+                continue
+            seen.add(email)
+            emails.append(email)
+
+        return emails
+
+    async def navigate_with_timeout(self, url: str, total_timeout: int = 30) -> "PageSnapshot":
+        """Navigate with a hard total timeout (includes Cloudflare waits).
+        Prevents a single page from hanging the pipeline indefinitely."""
+        try:
+            return await asyncio.wait_for(
+                self.navigate(url),
+                timeout=total_timeout,
+            )
+        except asyncio.TimeoutError:
+            log.warning("Hard timeout (%ds) navigating to %s", total_timeout, url[:80])
+            return await self.snapshot()
 
     async def get_html(self) -> str:
         return await self.page.content()
